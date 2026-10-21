@@ -302,10 +302,12 @@ export abstract class AbstractDriver<E extends AbstractElement<any> = AbstractEl
     }): Promise<void>;
 
     /**
-     * Scrolls the page vertically by 80% of its current viewport height.
+     * Scrolls at viewport coordinates by 80% of the current viewport height.
      * @param direction Whether to scroll up or down.
+     * @param x Horizontal viewport coordinate in CSS pixels.
+     * @param y Vertical viewport coordinate in CSS pixels.
      */
-    abstract scrollPage(direction: ScrollPageDirection): Promise<void>;
+    abstract scrollPage(direction: ScrollPageDirection, x: number, y: number): Promise<void>;
 
     /**
      * Types the given text using the keyboard, character by character.

@@ -411,15 +411,20 @@ export class ExtensionDriver extends AbstractDriver<ExtensionElement> {
     /**
      * @inheritdoc
      */
-    async scrollPage(direction: ScrollPageDirection): Promise<void> {
+    async scrollPage(direction: ScrollPageDirection, x: number, y: number): Promise<void> {
         if (direction !== ScrollPageDirection.UP && direction !== ScrollPageDirection.DOWN) {
             throw new Error('scrollPage requires direction up or down');
         }
         if (!this.activePageId) {
             throw new Error('Page is not initialized.');
         }
+        if (!Number.isFinite(x) || !Number.isFinite(y) || x < 0 || y < 0) {
+            throw new Error('scrollPage requires finite, non-negative x and y coordinates');
+        }
         await this.request('input.scrollPage', this.pageParams({
             direction,
+            x,
+            y,
             delay: AbstractDriver.DEFAULT_DELAY,
         }));
     }

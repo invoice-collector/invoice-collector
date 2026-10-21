@@ -322,7 +322,7 @@ type ErrorCode =
 | `dropdownSelect(selector, value, opts)` | `action.dropdownSelect` | [7.6](#76-actions-on-a-selector) |
 | `click(x, y, opts)` | `input.click` | [7.7](#77-keyboard-and-mouse-input) |
 | `press(key, opts)` | `input.press` | [7.7](#77-keyboard-and-mouse-input) |
-| `scrollPage(direction)` | `input.scrollPage` | [7.7](#77-keyboard-and-mouse-input) |
+| `scrollPage(direction, x, y)` | `input.scrollPage` | [7.7](#77-keyboard-and-mouse-input) |
 | `type(text, opts)` | `input.type` | [7.7](#77-keyboard-and-mouse-input) |
 | `getDownloadedFiles(clean)` | `download.list` | [7.8](#78-downloads) |
 | `downloadFile(url)` | `download.fromUrl` | [7.8](#78-downloads) |
@@ -514,7 +514,7 @@ These three messages act on the page, without a selector. Trusted events are req
 |---|---|---|---|
 | `input.click` | Equivalent of `click(x, y, { delay })`. Left click at the coordinates, then a pause of `delay`. Coordinates are CSS px in the top-level viewport. | `PageScoped & { x: number; y: number; delay?: number }` | `{}` |
 | `input.press` | Equivalent of `press(key, { delay })`. `key` follows Puppeteer's `KeyInput` names (e.g. `"Enter"`, `"Tab"`, `"ArrowDown"`, `"KeyA"`), US layout. | `PageScoped & { key: string; delay?: number }` | `{}` |
-| `input.scrollPage` | Scroll the top-level page up or down by 80% of its live viewport height. Read `window.innerHeight` on each request and call `window.scrollBy({ top: window.innerHeight * 0.8 * (direction === 'up' ? -1 : 1), left: 0, behavior: 'instant' })`. Apply `delay` after scrolling (default 1000 ms). Reject invalid directions with `INVALID_ARGUMENT`. Do not use keyboard events or the configured session viewport height. | `PageScoped & { direction: 'up' \| 'down'; delay?: number }` | `{}` |
+| `input.scrollPage` | Move the pointer to `(x, y)` in top-level viewport CSS pixels and dispatch a trusted mouse wheel event there, with vertical delta `window.innerHeight * 0.8 * (direction === 'up' ? -1 : 1)` using the live viewport height. This scrolls the panel under the pointer, including panels inside frames, rather than forcing the root page to scroll. Apply `delay` afterward (default 1000 ms). Reject invalid directions, non-finite/negative coordinates, or coordinates outside the viewport with `INVALID_PARAMS`. Do not use keyboard events, synthetic DOM wheel events, or root `window.scrollBy`. | `PageScoped & { direction: 'up' \| 'down'; x: number; y: number; delay?: number }` | `{}` |
 | `input.type` | Equivalent of `type(text, { delay })`. Types the text character by character into the focused element, then pauses for `delay`. `text` may contain a secret: do not log it ([§14](#14-security)). | `PageScoped & { text: string; delay?: number }` | `{}` |
 
 `delay` defaults to `defaults.delay`.

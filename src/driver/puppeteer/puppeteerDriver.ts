@@ -598,20 +598,24 @@ export class PuppeteerDriver extends AbstractDriver<PuppeteerElement> {
     /**
      * @inheritdoc
      */
-    async scrollPage(direction: ScrollPageDirection): Promise<void> {
+    async scrollPage(direction: ScrollPageDirection, x: number, y: number): Promise<void> {
         if (direction !== ScrollPageDirection.UP && direction !== ScrollPageDirection.DOWN) {
             throw new Error('scrollPage requires direction up or down');
         }
         if (!this.page) {
             throw new Error('Page is not initialized.');
         }
-        await this.page.evaluate((directionMultiplier: number) => {
-            window.scrollBy({
-                top: window.innerHeight * 0.8 * directionMultiplier,
-                left: 0,
-                behavior: 'smooth',
-            });
-        }, direction === ScrollPageDirection.UP ? -1 : 1);
+        if (!Number.isFinite(x) || !Number.isFinite(y) || x < 0 || y < 0) {
+            throw new Error('scrollPage requires finite, non-negative x and y coordinates');
+        }
+        const viewport = await this.page.evaluate(() => ({ width: window.innerWidth, height: window.innerHeight }));
+        if (x >= viewport.width || y >= viewport.height) {
+            throw new Error('scrollPage coordinates must be within the current viewport');
+        }
+        await this.page.mouse.move(x, y);
+        await this.page.mouse.wheel({
+            deltaY: viewport.height * 0.8 * (direction === ScrollPageDirection.UP ? -1 : 1),
+        });
         await utils.delay(AbstractDriver.DEFAULT_DELAY);
     }
 
