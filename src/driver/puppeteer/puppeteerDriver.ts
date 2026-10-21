@@ -612,10 +612,38 @@ export class PuppeteerDriver extends AbstractDriver<PuppeteerElement> {
         if (x >= viewport.width || y >= viewport.height) {
             throw new Error('scrollPage coordinates must be within the current viewport');
         }
+        const deltaY = viewport.height * 0.8 * (direction === ScrollPageDirection.UP ? -1 : 1);
         await this.page.mouse.move(x, y);
-        await this.page.mouse.wheel({
-            deltaY: viewport.height * 0.8 * (direction === ScrollPageDirection.UP ? -1 : 1),
-        });
+        const element = await this.getElementCoordinates(x, y);
+        let scrolledPanel = false;
+        if (element) {
+            try {
+                scrolledPanel = await element.element.evaluate((target, deltaY) => {
+                    let current: globalThis.Element | null = target;
+                    while (current) {
+                        if (current === current.ownerDocument.scrollingElement) {
+                            return false;
+                        }
+                        const overflowY = getComputedStyle(current).overflowY;
+                        if (/^(auto|scroll|overlay)$/.test(overflowY) && current.scrollHeight > current.clientHeight) {
+                            const previousScrollTop = current.scrollTop;
+                            current.scrollBy({ top: deltaY, behavior: 'instant' });
+                            // Leave scroll chaining at panel boundaries to the browser.
+                            return current.scrollTop !== previousScrollTop;
+                        }
+                        const root = current.getRootNode();
+                        current = current.assignedSlot || current.parentElement ||
+                            (root instanceof ShadowRoot ? root.host : null);
+                    }
+                    return false;
+                }, deltaY);
+            } finally {
+                await element.element.dispose();
+            }
+        }
+        if (!scrolledPanel) {
+            await this.page.mouse.wheel({ deltaY });
+        }
         await utils.delay(AbstractDriver.DEFAULT_DELAY);
     }
 
