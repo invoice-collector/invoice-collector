@@ -604,11 +604,11 @@ export class PuppeteerDriver extends AbstractDriver<PuppeteerElement> {
         if (!this.page) {
             throw new Error('Page is not initialized.');
         }
-        await this.page.evaluate((directionMultiplier) => {
+        await this.page.evaluate((directionMultiplier: number) => {
             window.scrollBy({
                 top: window.innerHeight * 0.8 * directionMultiplier,
                 left: 0,
-                behavior: 'instant',
+                behavior: 'smooth',
             });
         }, direction === ScrollPageDirection.UP ? -1 : 1);
         await utils.delay(AbstractDriver.DEFAULT_DELAY);
