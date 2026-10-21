@@ -524,13 +524,14 @@ export class PuppeteerDriver extends AbstractDriver<PuppeteerElement> {
         delay = AbstractDriver.DEFAULT_DELAY,
         navigation = true,
         mouseHover = false,
+        download = false,
     } = {}): Promise<PuppeteerElement | null> {
         if (this.page === null) {
             throw new Error('Page is not initialized.');
         }
         const element = await this.getElement(selector, { raiseException, timeout });
         if(element !== null) {
-            await element.leftClick({ timeout, delay, navigation, mouseHover });
+            await element.leftClick({ timeout, delay, navigation, mouseHover, download });
             return element;
         }
         return null;

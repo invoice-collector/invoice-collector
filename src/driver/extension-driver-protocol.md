@@ -487,7 +487,7 @@ These three messages combine the element lookup and the action in a single reque
 
 | Event | Comment | Request payload | Response payload |
 |---|---|---|---|
-| `action.leftClick` | Equivalent of `leftClick(selector, opts)`. | `PageScoped & WaitOptions & { selector: Selector; delay?: number; navigation?: boolean; mouseHover?: boolean \| string }` | `{ element: ElementRef \| null }` |
+| `action.leftClick` | Equivalent of `leftClick(selector, opts)`. | `PageScoped & WaitOptions & { selector: Selector; delay?: number; navigation?: boolean; mouseHover?: boolean \| string; download?: boolean }` | `{ element: ElementRef \| null }` |
 | `action.inputText` | Equivalent of `inputText(selector, text, opts)`. `text` may contain a secret: do not log it ([§14](#14-security)). | `PageScoped & WaitOptions & { selector: Selector; text: string; delay?: number; tries?: number; navigation?: boolean; mouseHover?: boolean }` | `{ element: ElementRef \| null }` |
 | `action.dropdownSelect` | Equivalent of `dropdownSelect(selector, value, opts)`. Selects an option of a `<select>`. Here `timeout` only applies to the element lookup. | `PageScoped & WaitOptions & { selector: Selector; value: string; delay?: number; mouseHover?: boolean }` | `{ element: ElementRef \| null }` |
 

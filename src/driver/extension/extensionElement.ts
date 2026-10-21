@@ -60,6 +60,7 @@ export class ExtensionElement extends AbstractElement<ExtensionDriver> {
         delay?: number;
         navigation?: boolean;
         mouseHover?: boolean | string;
+        download?: boolean;
     } = {}): Promise<void> {
         await this.driver.elementRequest('element.leftClick', this.ref, options);
     }

@@ -39,8 +39,9 @@ export abstract class AbstractElement<D extends AbstractDriver<any> = AbstractDr
      * @param options.delay The delay after the click action.
      * @param options.navigation Whether to wait for navigation after the click. Defaults to `true`.
      * @param options.mouseHover Whether to hover over the element before clicking. Can also be a selector for the element to hover over.
+     * @param options.download If true, waits for a download to complete after clicking.
      */
-    abstract leftClick(options?: { timeout?: number; delay?: number; navigation?: boolean; mouseHover?: boolean | string }): Promise<void>;
+    abstract leftClick(options?: { timeout?: number; delay?: number; navigation?: boolean; mouseHover?: boolean | string, download?: boolean }): Promise<void>;
 
     /**
      * Middle-clicks the element.

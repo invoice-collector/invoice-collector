@@ -232,6 +232,7 @@ export abstract class AbstractDriver<E extends AbstractElement<any> = AbstractEl
      * @param options.delay Delay applied after the click, in milliseconds.
      * @param options.navigation If true, waits for a navigation to complete after clicking.
      * @param options.mouseHover If true, hovers the mouse over the element before clicking. Default false. Can also be a string representing a selector for the element to hover over.
+     * @param options.download If true, waits for a download to complete after clicking.
      * @returns The clicked element, or null if not found and exceptions are disabled.
      */
     abstract leftClick(selector: Selector, options?: {
@@ -240,6 +241,7 @@ export abstract class AbstractDriver<E extends AbstractElement<any> = AbstractEl
         delay?: number,
         navigation?: boolean,
         mouseHover?: boolean | string,
+        download?: boolean,
     }): Promise<E | null>;
 
     /**

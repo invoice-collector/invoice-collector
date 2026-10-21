@@ -28,6 +28,7 @@ export interface ActionOptions extends WaitOptions {
     delay?: number;
     navigation?: boolean;
     mouseHover?: boolean | string;
+    download?: boolean;
     tries?: number;
 }
 
