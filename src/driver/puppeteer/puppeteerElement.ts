@@ -82,7 +82,7 @@ export class PuppeteerElement extends AbstractElement<PuppeteerDriver> {
         }
         await this.element.click();
         if(download) {
-            await this.driver.waitForFileToDownload(false);
+            await this.driver.waitForFileToDownload({ raiseException: false, clean: false });
         }
         else {
             await utils.delay(delay);

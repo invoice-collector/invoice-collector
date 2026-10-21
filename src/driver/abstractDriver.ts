@@ -358,10 +358,11 @@ export abstract class AbstractDriver<E extends AbstractElement<any> = AbstractEl
 
     /**
      * Waits until a file appears in the download folder.
-     * @param raiseException If true, throws when no file is downloaded within the timeout.
+     * @param options.raiseException Whether to raise an exception while waiting for a download. Required.
+     * @param options.clean Whether downloaded files are removed after reading. Required.
      * @returns The downloaded file content encoded as a base64 string.
      */
-    abstract waitForFileToDownload(raiseException?: boolean): Promise<string>;
+    abstract waitForFileToDownload(options: { raiseException: boolean; clean: boolean }): Promise<string>;
 
     // CAPTCHAS
 

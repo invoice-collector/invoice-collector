@@ -476,10 +476,16 @@ export class ExtensionDriver extends AbstractDriver<ExtensionElement> {
     /**
      * @inheritdoc
      */
-    async waitForFileToDownload(raiseException = true): Promise<string> {
+    async waitForFileToDownload({
+        raiseException,
+        clean,
+    }: {
+        raiseException: boolean;
+        clean: boolean;
+    }): Promise<string> {
         try {
             const result = await this.request<{ file: FileInfo | null }>('download.waitForFile', {
-                raiseException, timeout: AbstractDriver.DEFAULT_DOWNLOAD_TIMEOUT,
+                raiseException, clean, timeout: AbstractDriver.DEFAULT_DOWNLOAD_TIMEOUT,
             }, AbstractDriver.DEFAULT_DOWNLOAD_TIMEOUT);
             if (result.file?.data) { return result.file.data; }
         } catch (error) {

@@ -326,7 +326,7 @@ type ErrorCode =
 | `type(text, opts)` | `input.type` | [7.7](#77-keyboard-and-mouse-input) |
 | `getDownloadedFiles(clean)` | `download.list` | [7.8](#78-downloads) |
 | `downloadFile(url)` | `download.fromUrl` | [7.8](#78-downloads) |
-| `waitForFileToDownload(raise)` | `download.waitForFile` | [7.8](#78-downloads) |
+| `waitForFileToDownload(options)` | `download.waitForFile` | [7.8](#78-downloads) |
 | `waitForCloudflareTurnstile()` | `captcha.waitForCloudflareTurnstile` | [7.9](#79-captchas) |
 | `waitForDatadomeCaptcha()` | `captcha.waitForDatadome` | [7.9](#79-captchas) |
 | `getCookies(names)` | `cookies.get` | [7.10](#710-cookies-and-localstorage) |
@@ -527,7 +527,7 @@ Downloaded files live on the remote browser's machine. **The client sends them b
 |---|---|---|---|
 | `download.list` | Equivalent of `getDownloadedFiles(clean)`. | `{ clean?: boolean; includeContent?: boolean }` | `{ files: FileInfo[] }` |
 | `download.fromUrl` | Equivalent of `downloadFile(url)`. Navigates the page to the URL and waits for the resulting file. | `PageScoped & { url: string; timeout?: number }` | `{ file: FileInfo }` |
-| `download.waitForFile` | Equivalent of `waitForFileToDownload(raiseException)`. Waits for the first downloaded file, returns it and removes it from the client's folder (`clean: true`). | `{ raiseException?: boolean; timeout?: number }` | `{ file: FileInfo \| null }` |
+| `download.waitForFile` | Equivalent of `waitForFileToDownload({ raiseException, clean })`. Waits for the first downloaded file and returns it. Removes files after reading only when `clean` is true. Both flags are required. | `{ raiseException: boolean; clean: boolean; timeout?: number }` | `{ file: FileInfo \| null }` |
 
 **Notes**
 
@@ -539,7 +539,7 @@ Downloaded files live on the remote browser's machine. **The client sends them b
   4. **Client**: runs `location.href = url` in the page;
   5. **Client**: waits for the file (like `download.waitForFile`);
   6. `NO_FILE_DOWNLOADED` if nothing arrives before `timeout`.
-- `download.waitForFile` — `raiseException` defaults to `true`; `timeout` defaults to `defaults.downloadTimeout`. Timeout: `NO_FILE_DOWNLOADED` if `raiseException`, otherwise `file: null`. See [§13](#13-findings-in-the-current-driver): the current driver still throws when `raiseException=false`; `ExtensionDriver` must decide whether to reproduce that.
+- `download.waitForFile` — `raiseException` and `clean` are mandatory; `timeout` defaults to `defaults.downloadTimeout`. With `clean: false`, retain the files for a later read. Timeout: `NO_FILE_DOWNLOADED` if `raiseException`, otherwise `file: null`. See [§13](#13-findings-in-the-current-driver): the current driver still throws when `raiseException=false`; `ExtensionDriver` must decide whether to reproduce that.
 
 ### 7.9 Captchas
 
@@ -770,7 +770,7 @@ These are not protocol constraints, but points that determine its feasibility.
 
 The protocol fixes a behavior for each of these. It is up to you to decide whether to reproduce or fix them.
 
-1. **`waitForFileToDownload(raiseException = false)` still throws.** `waitFor` returns `null`, then the method always throws a `LoggableError`. The protocol returns `file: null` and lets the server decide.
+1. **`waitForFileToDownload({ raiseException: false, clean: true })` still throws.** `waitFor` returns `null`, then the method always throws a `LoggableError`. The protocol returns `file: null` and lets the server decide.
 2. **`getElements` / `getAttributes` only search the main frame**, whereas `getElement` waits across all frames. The `frames` parameter (default `'main'`) reproduces the current behavior and allows switching to `'all'`.
 3. **`getElementCoordinates`: `!frameBoundingBox?.x`** throws when the iframe's position is `0` (a valid value). The protocol treats `0` as valid.
 4. **`closeExtraPages`: `forEach(async …)`** does not wait for the pages to actually close. `page.closeExtra` only answers once all pages are closed.

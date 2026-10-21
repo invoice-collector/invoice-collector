@@ -758,16 +758,22 @@ export class PuppeteerDriver extends AbstractDriver<PuppeteerElement> {
         }, url);
 
         // Wait for file to download
-        return await this.waitForFileToDownload();
+        return await this.waitForFileToDownload({ raiseException: true, clean: true });
     }
 
     /**
      * @inheritdoc
      */
-    async waitForFileToDownload(raiseException: boolean = true): Promise<string> {
+    async waitForFileToDownload({
+        raiseException,
+        clean,
+    }: {
+        raiseException: boolean;
+        clean: boolean;
+    }): Promise<string> {
         // Wait for file to download
         const file = await this.waitFor(async (driver) => {
-            const files = await this.browser?.getDownloadedFiles(true);
+            const files = await this.browser?.getDownloadedFiles(clean);
             return files && files.length > 0 ? files[0] : null;
         }, `No file downloaded after ${AbstractDriver.DEFAULT_TIMEOUT}ms`,
         raiseException,
