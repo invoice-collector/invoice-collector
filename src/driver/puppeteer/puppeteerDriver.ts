@@ -804,23 +804,12 @@ export class PuppeteerDriver extends AbstractDriver<PuppeteerElement> {
         clean: boolean;
     }): Promise<string> {
         // Wait for file to download
-        const file = await this.waitFor(async (driver) => {
+        return await this.waitFor(async (driver) => {
             const files = await this.browser?.getDownloadedFiles(clean);
             return files && files.length > 0 ? files[0] : null;
         }, `No file downloaded after ${AbstractDriver.DEFAULT_TIMEOUT}ms`,
         raiseException,
         AbstractDriver.DEFAULT_DOWNLOAD_TIMEOUT);
-
-        // Check if no file found
-        if (file === null) {
-            const error = new LoggableError(`No file downloaded after ${AbstractDriver.DEFAULT_DOWNLOAD_TIMEOUT}ms`, this.collector);
-            error.url = this.url();
-            error.source_code = await this.sourceCode(true, true);
-            error.screenshot = await this.screenshot();
-            throw error;
-        }
-
-        return file;
     }
 
     // CAPTCHAS

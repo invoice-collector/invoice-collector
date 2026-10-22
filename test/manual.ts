@@ -10,7 +10,7 @@ import WebSocket from 'ws';
 import readline from 'readline';
 
 import { CollectorLoader } from '../src/collectors/collectorLoader';
-import { LoggableError } from '../src/error';
+import { fullStackTrace, LoggableError, PartialCollectError } from '../src/error';
 import { Credential, ModelInvoice } from '../src/model/credential';
 import { State } from '../src/model/state';
 import { I18n } from '../src/i18n';
@@ -368,7 +368,12 @@ function getHashFromSecret(secret: Secret): string {
         if (error instanceof Error) {
             error.message = I18n.get(error.message, I18n.DEFAULT_LOCALE);
         }
-        console.error(error);
+        console.error(error instanceof Error ? fullStackTrace(error) : error);
+        if (error instanceof PartialCollectError) {
+            for (const downloadError of error.errors) {
+                console.error(fullStackTrace(downloadError));
+            }
+        }
         if (error instanceof LoggableError) {
             // Save screenshot if exists
             if (error.hasScreenshot()) {
