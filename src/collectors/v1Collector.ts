@@ -85,6 +85,7 @@ export abstract class V1Collector<C extends Config> extends AbstractCollector<C>
                             mimetype: null,
                             hash: null,
                             collected_timestamp: null,
+                            requested: false,
                             metadata: {},
                         });
                     }

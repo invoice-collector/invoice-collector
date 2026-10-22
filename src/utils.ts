@@ -511,6 +511,7 @@ export function createFakeInvoice(): {
         metadata: { contract: 'CON-1234' },
         downloadButton: null,
         collected_timestamp: Date.now(),
+        requested: false,
     };
     return {
         collector: createFakeCollectorConfig(),

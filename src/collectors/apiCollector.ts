@@ -114,6 +114,7 @@ export abstract class ApiCollector extends V1Collector<ApiConfig> {
                 mimetype: utils.mimetypeFromBase64(data),
                 hash: utils.hash_string(data, 'md5'),
                 collected_timestamp: Date.now(),
+                requested: false,
                 metadata: downloadedInvoice.metadata || {},
             };
         } catch (error) {

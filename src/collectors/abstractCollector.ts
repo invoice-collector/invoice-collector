@@ -89,6 +89,8 @@ export type CompleteInvoice = Omit<Invoice, 'downloadButton'> & {
     hash: string | null,
     collected_timestamp: number | null,
     downloadButton: AbstractElement | null,
+    requested: boolean,
+    description?: string,
     metadata: Record<string, any>,
 }
 

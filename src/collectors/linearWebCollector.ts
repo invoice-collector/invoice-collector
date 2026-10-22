@@ -297,6 +297,7 @@ export abstract class LinearWebCollector extends WebCollector {
                                             mimetype: utils.mimetypeFromBase64(document),
                                             hash: utils.hash_string(document, 'md5'),
                                             collected_timestamp: Date.now(),
+                                            requested: false,
                                             metadata: invoice.metadata || {},
                                         });
                                     }
@@ -333,6 +334,7 @@ export abstract class LinearWebCollector extends WebCollector {
                                     mimetype: null,
                                     hash: null,
                                     collected_timestamp: null,
+                                    requested: false,
                                     downloadButton: null,
                                     metadata: {},
                                 });

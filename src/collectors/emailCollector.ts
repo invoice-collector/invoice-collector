@@ -114,6 +114,7 @@ export abstract class EmailCollector extends V2Collector<EmailCollectorConfig> {
                             mimetype: downloadedInvoice.mimetype,
                             hash: utils.hash_string(downloadedInvoice.data, 'md5'),
                             collected_timestamp: Date.now(),
+                            requested: false,
                             metadata: downloadedInvoice.metadata,
                         });
                     }
@@ -128,6 +129,7 @@ export abstract class EmailCollector extends V2Collector<EmailCollectorConfig> {
                             mimetype: null,
                             hash: null,
                             collected_timestamp: null,
+                            requested: false,
                             metadata: invoice.metadata,
                         });
                     }
