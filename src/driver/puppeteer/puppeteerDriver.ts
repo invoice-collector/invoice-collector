@@ -156,17 +156,21 @@ export class PuppeteerDriver extends AbstractDriver<PuppeteerElement> {
      */
     async update(locale: string, proxy: Proxy | null = null): Promise<void> {
         const currentUrl = this.url();
-        const cookies = (currentUrl && currentUrl.startsWith('http')) ? await this.getCookies([]) : null;
-        const localStorage = (currentUrl && currentUrl.startsWith('http')) ? await this.getLocalStorage([]) : null;
+
+        // Raise error if the current URL is not set or does not start with 'http'
+        if (!currentUrl || !currentUrl.startsWith('http')) {
+            throw new Error('Cannot update driver: current URL is not valid. `go_to` must be called before updating the driver.');
+        }
+
+        const cookies = await this.getCookies([]);
+        const localStorage = await this.getLocalStorage([]);
         // Close old browser
         await this.close();
         // Open new browser
         await this.open(locale, proxy);
-        if (currentUrl && currentUrl.startsWith('http')) {
-            await this.setCookies(cookies);
-            await this.setLocalStorage(localStorage);
-            await this.goto(currentUrl);
-        }
+        await this.setCookies(cookies);
+        await this.setLocalStorage(localStorage);
+        await this.goto(currentUrl);
     }
 
     /**
