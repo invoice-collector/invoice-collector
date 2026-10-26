@@ -15,12 +15,13 @@ export class CollectorLoader {
      * @returns A map of collector IDs to their corresponding configuration and file path.
      */
     static async load(filter: string | null = null): Promise<Map<string, {config: Config, file: string}>> {
-        //await this.loadFolders('sketch', 'sketch', filter);
+        await this.loadFolders('sketch', 'sketch', filter);
         await this.loadFolders('community', 'community', filter);
         await this.loadFolders('core', 'core', filter);
         await this.loadFolders('email_provider', 'email_provider', filter);
         await this.loadFolders('premium', '../premium/collectors/premium', filter);
         await this.loadFolders('graph', '../premium/collectors/graph', filter);
+        await this.loadFolders('fullagent', '../premium/collectors/fullagent', filter);
 
         //Order collectors by id
         CollectorLoader.collectors = new Map([...CollectorLoader.collectors.entries()]
