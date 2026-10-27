@@ -196,7 +196,8 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
         const params = await secret.getParams();
 
         const replaceParams = (url: string): string => {
-            for (const [key, value] of Object.entries(params || {})) {
+            for (const key of Object.keys(params)) {
+                const value = params[key].value;
                 url = url.replaceAll(`{${key}}`, String(value));
             }
             return url;

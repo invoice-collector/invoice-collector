@@ -209,16 +209,16 @@ export class PuppeteerElement extends AbstractElement<PuppeteerDriver> {
         if (tries > 0) {
             let currentValue = null;
             while (currentValue !== rawText && tries > 0) {
-                await this.element.click({ clickCount: 3 });    // Select all text
-                await this.element.type(rawText);                  // Replace
+                await this.element.click({ count: 3 });     // Select all text
+                await this.element.type(rawText);           // Replace
                 await utils.delay(PuppeteerDriver.DEFAULT_DELAY_BETWEEN_RETRIES);
                 currentValue = await this.element.evaluate((el: any) => el.value);
                 tries--;
             }
         }
         else {
-            await this.element.click({ clickCount: 3 });    // Select all text
-            await this.element.type(rawText);                  // Replace
+            await this.element.click({ count: 3 });     // Select all text
+            await this.element.type(rawText);           // Replace
         }
         await utils.delay(delay);
         if(navigation === true) {
