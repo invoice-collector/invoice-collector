@@ -33,7 +33,7 @@
     "jszip": "^3.10.1",
     "mongodb": "^7.5.0",
     "pdf-lib": "^1.17.1",
-    "rebrowser-puppeteer-core": "^23.10.3",
+    "rebrowser-puppeteer-core": "^25.14.101",
     "ts-node": "^10.9.2",
     "typescript": "^5.7.3",
     "xvfb": "^0.4.0"
