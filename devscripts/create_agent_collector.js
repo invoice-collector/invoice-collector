@@ -171,10 +171,10 @@ async function createAgentCollector() {
     fs.mkdirSync(collectorPath, { recursive: true });
     fs.writeFileSync(collectorFile, JSON.stringify(collector, null, 4));
 
-    const sketchCollectorContent = `import { AgentCollector } from '../customAgentCollector';
+    const sketchCollectorContent = `import { AgentV2Collector } from '../agentV2Collector';
 import { CollectorState, CollectorCaptcha, CollectorType, CollectorAuthenticationMethod } from '../../../collectors/abstractCollector';
 
-export class ${collector.id_camel_case}Collector extends AgentCollector {
+export class ${collector.id_camel_case}Collector extends AgentV2Collector {
     static CONFIG = {
         id: "${collector.id}",
         name: "${collector.name}",
@@ -204,6 +204,9 @@ export class ${collector.id_camel_case}Collector extends AgentCollector {
         state: CollectorState.DEVELOPMENT
     }
 
+    /**
+     * Constructs a new instance of the ${collector.id_camel_case}Collector class.
+     */
     constructor() {
         super(${collector.id_camel_case}Collector.CONFIG);
     }
