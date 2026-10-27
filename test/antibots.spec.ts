@@ -79,29 +79,21 @@ describe(`Test antibots`, () => {
         // The detector includes asynchronous checks that can take up to 10 seconds.
         await new Promise(resolve => setTimeout(resolve, 10000));
 
-        // Trigger test dummyFn
+        // Trigger test 1 - dummyFn
         console.log('Triggering test "dummyFn"');
-        await page.evaluate(() => {
-            (window as any).dummyFn();
-        });
+        await page.evaluate(() => (window as any).dummyFn())
 
-        // Trigger test sourceUrlLeak
+        // Trigger test 2 - sourceUrlLeak
         console.log('Triggering test "sourceUrlLeak"');
-        await page.evaluate(() => {
-            document.getElementById('detections-json');
-        });
+        await page.evaluate(() => document.getElementById("detections-json"))
 
-        // Trigger test mainWorldExecution
+        // Trigger test 3 - mainWorldExecution
         console.log('Triggering test "mainWorldExecution"');
-        await page.evaluate(() => {
-            document.getElementsByClassName('div');
-        });
+        driver.getElement({selector: '.div'});
 
-        // Trigger test exposeFunctionLeak
+        // Trigger test 5 - exposeFunctionLeak
         console.log('Triggering test "exposeFunctionLeak"');
-        await page.exposeFunction('leakFunction', () => {
-            return 'leak';
-        });
+        await page.exposeFunction('exposedFn', () => { console.log('exposedFn call') })
 
         // Wait for the detector to process the triggered test
         await new Promise(resolve => setTimeout(resolve, 5000));
