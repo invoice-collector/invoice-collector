@@ -4,7 +4,7 @@ import { Proxy } from '../../proxy/abstractProxy';
 import * as utils from '../../utils';
 import { WebCollector } from '../../collectors/webCollector';
 import { BrowserFactory } from '../browser/browserFactory';
-import { AbstractDriver, Screenshot } from '../abstractDriver';
+import { AbstractDriver, Screenshot, ScrollPageDirection } from '../abstractDriver';
 import { PuppeteerElement } from './puppeteerElement';
 import { AbstractBrowser } from '../browser/abstractBrowser';
 import { Selector } from '../abstractElement';
@@ -156,17 +156,21 @@ export class PuppeteerDriver extends AbstractDriver<PuppeteerElement> {
      */
     async update(locale: string, proxy: Proxy | null = null): Promise<void> {
         const currentUrl = this.url();
-        const cookies = (currentUrl && currentUrl.startsWith('http')) ? await this.getCookies([]) : null;
-        const localStorage = (currentUrl && currentUrl.startsWith('http')) ? await this.getLocalStorage([]) : null;
+
+        // Raise error if the current URL is not set or does not start with 'http'
+        if (!currentUrl || !currentUrl.startsWith('http')) {
+            throw new Error('Cannot update driver: current URL is not valid. `go_to` must be called before updating the driver.');
+        }
+
+        const cookies = await this.getCookies([]);
+        const localStorage = await this.getLocalStorage([]);
         // Close old browser
         await this.close();
         // Open new browser
         await this.open(locale, proxy);
-        if (currentUrl && currentUrl.startsWith('http')) {
-            await this.setCookies(cookies);
-            await this.setLocalStorage(localStorage);
-            await this.goto(currentUrl);
-        }
+        await this.setCookies(cookies);
+        await this.setLocalStorage(localStorage);
+        await this.goto(currentUrl);
     }
 
     /**
@@ -524,13 +528,14 @@ export class PuppeteerDriver extends AbstractDriver<PuppeteerElement> {
         delay = AbstractDriver.DEFAULT_DELAY,
         navigation = true,
         mouseHover = false,
+        download = false,
     } = {}): Promise<PuppeteerElement | null> {
         if (this.page === null) {
             throw new Error('Page is not initialized.');
         }
         const element = await this.getElement(selector, { raiseException, timeout });
         if(element !== null) {
-            await element.leftClick({ timeout, delay, navigation, mouseHover });
+            await element.leftClick({ timeout, delay, navigation, mouseHover, download });
             return element;
         }
         return null;
@@ -592,6 +597,58 @@ export class PuppeteerDriver extends AbstractDriver<PuppeteerElement> {
     } = {}): Promise<void> {
         await this.page?.keyboard.press(key as KeyInput);
         await utils.delay(delay);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    async scrollPage(direction: ScrollPageDirection, x: number, y: number): Promise<void> {
+        if (direction !== ScrollPageDirection.UP && direction !== ScrollPageDirection.DOWN) {
+            throw new Error('scrollPage requires direction up or down');
+        }
+        if (!this.page) {
+            throw new Error('Page is not initialized.');
+        }
+        if (!Number.isFinite(x) || !Number.isFinite(y) || x < 0 || y < 0) {
+            throw new Error('scrollPage requires finite, non-negative x and y coordinates');
+        }
+        const viewport = await this.page.evaluate(() => ({ width: window.innerWidth, height: window.innerHeight }));
+        if (x >= viewport.width || y >= viewport.height) {
+            throw new Error('scrollPage coordinates must be within the current viewport');
+        }
+        const deltaY = viewport.height * 0.8 * (direction === ScrollPageDirection.UP ? -1 : 1);
+        await this.page.mouse.move(x, y);
+        const element = await this.getElementCoordinates(x, y);
+        let scrolledPanel = false;
+        if (element) {
+            try {
+                scrolledPanel = await element.element.evaluate((target, deltaY) => {
+                    let current: globalThis.Element | null = target;
+                    while (current) {
+                        if (current === current.ownerDocument.scrollingElement) {
+                            return false;
+                        }
+                        const overflowY = getComputedStyle(current).overflowY;
+                        if (/^(auto|scroll|overlay)$/.test(overflowY) && current.scrollHeight > current.clientHeight) {
+                            const previousScrollTop = current.scrollTop;
+                            current.scrollBy({ top: deltaY, behavior: 'instant' });
+                            // Leave scroll chaining at panel boundaries to the browser.
+                            return current.scrollTop !== previousScrollTop;
+                        }
+                        const root = current.getRootNode();
+                        current = current.assignedSlot || current.parentElement ||
+                            (root instanceof ShadowRoot ? root.host : null);
+                    }
+                    return false;
+                }, deltaY);
+            } finally {
+                await element.element.dispose();
+            }
+        }
+        if (!scrolledPanel) {
+            await this.page.mouse.wheel({ deltaY });
+        }
+        await utils.delay(AbstractDriver.DEFAULT_DELAY);
     }
 
     /**
@@ -737,31 +794,26 @@ export class PuppeteerDriver extends AbstractDriver<PuppeteerElement> {
         }, url);
 
         // Wait for file to download
-        return await this.waitForFileToDownload();
+        return await this.waitForFileToDownload({ raiseException: true, clean: true });
     }
 
     /**
      * @inheritdoc
      */
-    async waitForFileToDownload(raiseException: boolean = true): Promise<string> {
+    async waitForFileToDownload({
+        raiseException,
+        clean,
+    }: {
+        raiseException: boolean;
+        clean: boolean;
+    }): Promise<string> {
         // Wait for file to download
-        const file = await this.waitFor(async (driver) => {
-            const files = await this.browser?.getDownloadedFiles(true);
+        return await this.waitFor(async (driver) => {
+            const files = await this.browser?.getDownloadedFiles(clean);
             return files && files.length > 0 ? files[0] : null;
         }, `No file downloaded after ${AbstractDriver.DEFAULT_TIMEOUT}ms`,
         raiseException,
         AbstractDriver.DEFAULT_DOWNLOAD_TIMEOUT);
-
-        // Check if no file found
-        if (file === null) {
-            const error = new LoggableError(`No file downloaded after ${AbstractDriver.DEFAULT_DOWNLOAD_TIMEOUT}ms`, this.collector);
-            error.url = this.url();
-            error.source_code = await this.sourceCode(true, true);
-            error.screenshot = await this.screenshot();
-            throw error;
-        }
-
-        return file;
     }
 
     // CAPTCHAS

@@ -4,6 +4,11 @@ import { WebCollector } from '../collectors/webCollector';
 import type { AbstractElement, Selector } from './abstractElement';
 import { Param } from '../model/secret';
 
+export enum ScrollPageDirection {
+    UP = 'up',
+    DOWN = 'down',
+}
+
 export type Screenshot = {
     data: string; // Base64 encoded image data
     width: number;
@@ -227,6 +232,7 @@ export abstract class AbstractDriver<E extends AbstractElement<any> = AbstractEl
      * @param options.delay Delay applied after the click, in milliseconds.
      * @param options.navigation If true, waits for a navigation to complete after clicking.
      * @param options.mouseHover If true, hovers the mouse over the element before clicking. Default false. Can also be a string representing a selector for the element to hover over.
+     * @param options.download If true, waits for a download to complete after clicking.
      * @returns The clicked element, or null if not found and exceptions are disabled.
      */
     abstract leftClick(selector: Selector, options?: {
@@ -235,6 +241,7 @@ export abstract class AbstractDriver<E extends AbstractElement<any> = AbstractEl
         delay?: number,
         navigation?: boolean,
         mouseHover?: boolean | string,
+        download?: boolean,
     }): Promise<E | null>;
 
     /**
@@ -295,6 +302,14 @@ export abstract class AbstractDriver<E extends AbstractElement<any> = AbstractEl
     }): Promise<void>;
 
     /**
+     * Scrolls at viewport coordinates by 80% of the current viewport height.
+     * @param direction Whether to scroll up or down.
+     * @param x Horizontal viewport coordinate in CSS pixels.
+     * @param y Vertical viewport coordinate in CSS pixels.
+     */
+    abstract scrollPage(direction: ScrollPageDirection, x: number, y: number): Promise<void>;
+
+    /**
      * Types the given text using the keyboard, character by character.
      * @param text The text to type.
      * @param options.delay Delay applied after typing, in milliseconds.
@@ -345,10 +360,11 @@ export abstract class AbstractDriver<E extends AbstractElement<any> = AbstractEl
 
     /**
      * Waits until a file appears in the download folder.
-     * @param raiseException If true, throws when no file is downloaded within the timeout.
+     * @param options.raiseException Whether to raise an exception while waiting for a download. Required.
+     * @param options.clean Whether downloaded files are removed after reading. Required.
      * @returns The downloaded file content encoded as a base64 string.
      */
-    abstract waitForFileToDownload(raiseException?: boolean): Promise<string>;
+    abstract waitForFileToDownload(options: { raiseException: boolean; clean: boolean }): Promise<string>;
 
     // CAPTCHAS
 

@@ -2,15 +2,47 @@ import dotenv from 'dotenv';
 dotenv.config();
 import fs from 'fs';
 import path from 'path';
-import { expect, describe, beforeAll, afterAll } from '@jest/globals';
-import { OxylabProxy } from '../src/proxy/oxylabProxy';
-import { AbstractDriver } from '../src/driver/abstractDriver';
-import { DriverFactory } from '../src/driver/driverFactory';
-import { LeroyMerlinCollector } from '../src/collectors/leroy_merlin/leroy_merlin';
+import { expect, describe, it, beforeAll, afterAll } from '@jest/globals';
+import { PuppeteerDriver } from '../src/driver/puppeteer/puppeteerDriver';
+import { WebCollector } from '../src/collectors/webCollector';
+import {
+    CollectorAuthenticationMethod,
+    CollectorCaptcha,
+    CollectorState,
+    CollectorType,
+    CompleteInvoice,
+} from '../src/collectors/abstractCollector';
 
 const ONE_MINUTE = 60 * 1000; // 1 minute in milliseconds
 const RESULTS_FOLDER = path.join(__dirname, 'results', `antibots.${new Date().toISOString().replace(/[:.]/g, '-')}`);
 fs.mkdirSync(RESULTS_FOLDER, { recursive: true });
+
+class MockCollector extends WebCollector {
+    constructor() {
+        super({
+            id: 'mock',
+            name: 'Mock collector',
+            description: 'Collector for browser tests',
+            version: '1',
+            website: 'https://bot-detector.rebrowser.net/',
+            logo: '',
+            type: CollectorType.WEB,
+            params: {},
+            state: CollectorState.DEVELOPMENT,
+            loginUrl: 'https://bot-detector.rebrowser.net/',
+            authenticationMethod: CollectorAuthenticationMethod.INTERACTIVE_ONLY,
+            loadImages: false,
+            useProxy: false,
+            useProxyForLogin: false,
+            captcha: CollectorCaptcha.NONE,
+            remoteBrowser: false,
+        });
+    }
+
+    async _collect(): Promise<CompleteInvoice[]> {
+        throw new Error('MockCollector does not support invoice collection.');
+    }
+}
 
 function saveToFile(content: string|object, filename: string) {
     const outputPath = path.join(RESULTS_FOLDER, filename);
@@ -28,26 +60,63 @@ function saveToFile(content: string|object, filename: string) {
 
 describe(`Test antibots`, () => {
 
-    let driver: AbstractDriver;
+    let driver: PuppeteerDriver;
 
     beforeAll(async () => {
-        const proxy = await new OxylabProxy().get(null);
-        driver = DriverFactory.getDriver(new LeroyMerlinCollector());
-        await driver.open(proxy);
-    });
+        driver = new PuppeteerDriver(new MockCollector());
+        await driver.open('en', null);
+    }, ONE_MINUTE);
 
-    it('Datadome', async () => {
-        await driver.goto("https://www.leroymerlin.fr/login.html");
-        const element = await driver.getElement({selector: 'form#js-email-form input'}, { raise_exception: false });
+    it('Rebrowser bot detector shows no red dots', async () => {
+        const page = driver.page;
+        if (!page) {
+            throw new Error('Puppeteer page is not initialized.');
+        }
 
-        // Save pdf to file
-        saveToFile(await driver.pdf(), 'leroymerlin.pdf');
-        
-        // Check if the login page is loaded
-        expect(element).not.toBeNull();
+        await page.goto('https://bot-detector.rebrowser.net/');
+        await page.waitForSelector('#detections-table tbody tr', { visible: true, timeout: 15000 });
+
+        // The detector includes asynchronous checks that can take up to 10 seconds.
+        await new Promise(resolve => setTimeout(resolve, 10000));
+
+        // Trigger test dummyFn
+        console.log('Triggering test "dummyFn"');
+        await page.evaluate(() => {
+            (window as any).dummyFn();
+        });
+
+        // Trigger test sourceUrlLeak
+        console.log('Triggering test "sourceUrlLeak"');
+        await page.evaluate(() => {
+            document.getElementById('detections-json');
+        });
+
+        // Trigger test mainWorldExecution
+        console.log('Triggering test "mainWorldExecution"');
+        await page.evaluate(() => {
+            document.getElementsByClassName('div');
+        });
+
+        // Trigger test exposeFunctionLeak
+        console.log('Triggering test "exposeFunctionLeak"');
+        await page.exposeFunction('leakFunction', () => {
+            return 'leak';
+        });
+
+        // Wait for the detector to process the triggered test
+        await new Promise(resolve => setTimeout(resolve, 5000));
+
+        saveToFile(await driver.pdf(), 'rebrowser.pdf');
+
+        const results = await page.$$eval('#detections-table tbody tr', rows =>
+            rows.map(row => row.textContent || '')
+        );
+        expect(results.length).toBeGreaterThan(0);
+        const failedTests = results.filter(result => result.includes('\u{1F534}'));
+        expect(failedTests).toEqual([]);
     }, ONE_MINUTE);
 
     afterAll(async () => {
-        await driver.close();
-    });
+        await driver?.close();
+    }, ONE_MINUTE);
 });

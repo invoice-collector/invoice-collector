@@ -37,22 +37,19 @@ export abstract class LinearWebCollector extends WebCollector {
         providers: Credential[],
         driver: AbstractDriver | undefined,
     ): Promise<CompleteInvoice[]> {
-        // Get proxy
-        let proxy: Proxy | null = null;
-        if(this.config.useProxy) {
-            proxy = await ProxyFactory.getProxy().get(location);
-        }
-
-        // Start browser and page
+        // Ensure driver is available
         if (!driver) {
             throw new Error('Driver was not provided to the web collector.');
         }
+
+        // Get proxy
+        const proxy = this.config.useProxy ? await ProxyFactory.getProxy().get(location) : null;
+
+        // Start browser and page
         await driver.open(locale, proxy);
 
-        // Set cookies
+        // Set cookies & localStorage
         await driver.setCookies(await secret.getCookies());
-
-        // Set localStorage
         await driver.setLocalStorage(await secret.getLocalStorage());
 
         try {
@@ -139,6 +136,9 @@ export abstract class LinearWebCollector extends WebCollector {
                         this.config.loadImages = true;
                     }
 
+                    // Go to login url
+                    await driver.goto(this.config.loginUrl, { navigation: false });
+
                     // If needs proxy for login
                     if(this.config.useProxyForLogin && !proxy) {
                         console.log('Open a new driver with proxy for login...');
@@ -151,9 +151,6 @@ export abstract class LinearWebCollector extends WebCollector {
                     // Set progress step to logging in
                     state.update(State._2_LOGGING_IN);
                     webSocketServer?.sendState(State._2_LOGGING_IN);
-
-                    // Go to login url
-                    await driver.goto(this.config.loginUrl, { navigation: false });
                     // Perform interactive login
                     await this.interactive(driver, webSocketServer, 'i18n.views.interactive.login.instructions');
                     // Save customer area url if not defined
@@ -215,13 +212,18 @@ export abstract class LinearWebCollector extends WebCollector {
 
             console.log('User is successfully logged in');
 
-            // Update secret.cookies
+            // Update secret.cookies & secret.localStorage
             await secret.setCookies(await driver.getCookies(this.config.autoLogin?.cookieNames));
-            // Update secret.localStorage
             await secret.setLocalStorage(await driver.getLocalStorage(this.config.autoLogin?.localStorageKeys));
 
             // Navigate to invoices
             await this.navigate(driver);
+
+            // Remove proxy from driver if not needed to download invoices
+            if (driver.proxy && !this.config.useProxy) {
+                console.log('Open a new driver without proxy for download...');
+                await driver.update(locale, null);
+            }
 
             // Get previous invoice ids
             const previousInvoiceIds = previousInvoices.map((inv) => inv.id);
@@ -297,6 +299,7 @@ export abstract class LinearWebCollector extends WebCollector {
                                             mimetype: utils.mimetypeFromBase64(document),
                                             hash: utils.hash_string(document, 'md5'),
                                             collected_timestamp: Date.now(),
+                                            requested: false,
                                             metadata: invoice.metadata || {},
                                         });
                                     }
@@ -333,6 +336,7 @@ export abstract class LinearWebCollector extends WebCollector {
                                     mimetype: null,
                                     hash: null,
                                     collected_timestamp: null,
+                                    requested: false,
                                     downloadButton: null,
                                     metadata: {},
                                 });

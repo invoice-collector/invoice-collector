@@ -10,7 +10,7 @@ import WebSocket from 'ws';
 import readline from 'readline';
 
 import { CollectorLoader } from '../src/collectors/collectorLoader';
-import { LoggableError } from '../src/error';
+import { fullStackTrace, LoggableError, PartialCollectError } from '../src/error';
 import { Credential, ModelInvoice } from '../src/model/credential';
 import { State } from '../src/model/state';
 import { I18n } from '../src/i18n';
@@ -276,7 +276,9 @@ function getHashFromSecret(secret: Secret): string {
                 link: invoice.link,
                 timestamp: invoice.timestamp,
                 mimetype: invoice.mimetype,
-                data: invoice.data ? `<${invoice.data.length} bytes>` : null
+                data: invoice.data ? `<${invoice.data.length} bytes>` : null,
+                requested: invoice.requested,
+                description: invoice.description,
             })
         }
 
@@ -289,8 +291,10 @@ function getHashFromSecret(secret: Secret): string {
             assert(invoice.link, `Invoice link is not defined`);
             assert(!isNaN(invoice.timestamp), `Timestamp ${invoice.timestamp} is NaN`);
             assert(invoice.timestamp >= Date.UTC(2000, 0, 1), `Invoice timestamp ${invoice.timestamp} is before year 2000. Did you forget to set the year in the date format?`);
-            assert(invoice.data, `Invoice data is not defined`);
-            assert(invoice.mimetype, `Invoice mimetype is not defined`);
+            if(!invoice.requested) {
+                assert(invoice.data, `Invoice data is not defined`);
+                assert(invoice.mimetype, `Invoice mimetype is not defined`);
+            }
             newIdsPart3.add(invoice.id);
         }
         console.log(`All invoices are valid!`);
@@ -340,7 +344,10 @@ function getHashFromSecret(secret: Secret): string {
             id: invoice.id,
             timestamp: invoice.timestamp,
             collected_timestamp: Date.now(),
-            hash: invoice.hash
+            hash: invoice.hash,
+            requested: invoice.requested,
+            amount: invoice.amount,
+            description: invoice.description,
         }));
 
         const newInvoicesPart8 = await collector.collect_new_invoices(
@@ -368,7 +375,12 @@ function getHashFromSecret(secret: Secret): string {
         if (error instanceof Error) {
             error.message = I18n.get(error.message, I18n.DEFAULT_LOCALE);
         }
-        console.error(error);
+        console.error(error instanceof Error ? fullStackTrace(error) : error);
+        if (error instanceof PartialCollectError) {
+            for (const downloadError of error.errors) {
+                console.error(fullStackTrace(downloadError));
+            }
+        }
         if (error instanceof LoggableError) {
             // Save screenshot if exists
             if (error.hasScreenshot()) {

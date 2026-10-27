@@ -56,12 +56,14 @@ export class PuppeteerElement extends AbstractElement<PuppeteerDriver> {
         delay?: number,
         navigation?: boolean,
         mouseHover?: boolean | string,
+        download?: boolean,
     } = {}): Promise<void> {
         const {
             timeout = PuppeteerDriver.DEFAULT_TIMEOUT,
             delay = PuppeteerDriver.DEFAULT_DELAY,
             navigation = true,
             mouseHover = false,
+            download = false,
         } = options;
 
         await this.element.scrollIntoView();
@@ -79,9 +81,15 @@ export class PuppeteerElement extends AbstractElement<PuppeteerDriver> {
             await utils.delay(delay);
         }
         await this.element.click();
-        await utils.delay(delay);
-        if(navigation === true) {
-            await this.driver.waitForNavigation({timeout});
+        if(download) {
+            await this.driver.waitForFileToDownload({ raiseException: false, clean: false });
+        }
+        else {
+            await utils.delay(delay);
+            if(navigation === true) {
+                await this.driver.waitForNavigation({timeout});
+                
+            }
         }
     }
 

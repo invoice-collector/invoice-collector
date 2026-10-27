@@ -141,7 +141,7 @@ describe(`Test fingerprints`, () => {
         // Download fingerprint
         await driver.leftClick({selector: 'main button'});
         await driver.leftClick({selector: 'body > div > div > div > div:nth-child(2) > div > div'});
-        let fingerprint = await driver.waitForFileToDownload(true) || "";
+        let fingerprint = await driver.waitForFileToDownload({ raiseException: true, clean: true }) || "";
         if (fingerprint) {
             fingerprint = JSON.parse(Buffer.from(fingerprint, 'base64').toString('utf-8'));
         }

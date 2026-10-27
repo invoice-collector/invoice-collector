@@ -1,5 +1,5 @@
 import { ExtensionElement } from './extensionElement';
-import { AbstractDriver, Screenshot } from '../abstractDriver';
+import { AbstractDriver, Screenshot, ScrollPageDirection } from '../abstractDriver';
 import { ElementNotFoundError, LoggableError } from '../../error';
 import { Proxy } from '../../proxy/abstractProxy';
 import { WebCollector } from '../../collectors/webCollector';
@@ -411,6 +411,27 @@ export class ExtensionDriver extends AbstractDriver<ExtensionElement> {
     /**
      * @inheritdoc
      */
+    async scrollPage(direction: ScrollPageDirection, x: number, y: number): Promise<void> {
+        if (direction !== ScrollPageDirection.UP && direction !== ScrollPageDirection.DOWN) {
+            throw new Error('scrollPage requires direction up or down');
+        }
+        if (!this.activePageId) {
+            throw new Error('Page is not initialized.');
+        }
+        if (!Number.isFinite(x) || !Number.isFinite(y) || x < 0 || y < 0) {
+            throw new Error('scrollPage requires finite, non-negative x and y coordinates');
+        }
+        await this.request('input.scrollPage', this.pageParams({
+            direction,
+            x,
+            y,
+            delay: AbstractDriver.DEFAULT_DELAY,
+        }));
+    }
+
+    /**
+     * @inheritdoc
+     */
     async type(text: string, options: { delay?: number } = {}): Promise<void> {
         await this.request('input.type', this.pageParams({ text, delay: options.delay ?? AbstractDriver.DEFAULT_DELAY }));
     }
@@ -460,10 +481,16 @@ export class ExtensionDriver extends AbstractDriver<ExtensionElement> {
     /**
      * @inheritdoc
      */
-    async waitForFileToDownload(raiseException = true): Promise<string> {
+    async waitForFileToDownload({
+        raiseException,
+        clean,
+    }: {
+        raiseException: boolean;
+        clean: boolean;
+    }): Promise<string> {
         try {
             const result = await this.request<{ file: FileInfo | null }>('download.waitForFile', {
-                raiseException, timeout: AbstractDriver.DEFAULT_DOWNLOAD_TIMEOUT,
+                raiseException, clean, timeout: AbstractDriver.DEFAULT_DOWNLOAD_TIMEOUT,
             }, AbstractDriver.DEFAULT_DOWNLOAD_TIMEOUT);
             if (result.file?.data) { return result.file.data; }
         } catch (error) {

@@ -84,7 +84,7 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
      * @returns The downloaded file data as a string.
      */
     async download_from_file(driver: AbstractDriver): Promise<string> {
-        return await driver.waitForFileToDownload(false);
+        return await driver.waitForFileToDownload({ raiseException: true, clean: true });
     }
 
     /**

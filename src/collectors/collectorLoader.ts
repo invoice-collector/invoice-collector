@@ -21,6 +21,7 @@ export class CollectorLoader {
         await this.loadFolders('email_provider', 'email_provider', filter);
         await this.loadFolders('premium', '../premium/collectors/premium', filter);
         await this.loadFolders('graph', '../premium/collectors/graph', filter);
+        await this.loadFolders('fullagent', '../premium/collectors/fullagent', filter);
 
         //Order collectors by id
         CollectorLoader.collectors = new Map([...CollectorLoader.collectors.entries()]

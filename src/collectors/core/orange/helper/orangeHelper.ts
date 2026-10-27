@@ -204,6 +204,6 @@ export class OrangeHelper {
         await driver.leftClick(OrangeHelperSelectors.BUTTON_DOWNLOAD_INVOICE, { raiseException: false, timeout: 100 });
 
         // Return invoice
-        return [ await driver.waitForFileToDownload() ];
+        return [ await driver.waitForFileToDownload({ raiseException: true, clean: true }) ];
     }
 }

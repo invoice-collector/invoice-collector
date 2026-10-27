@@ -12,7 +12,10 @@ export type ModelInvoice = {
     id: string,
     timestamp: number,
     collected_timestamp: number | null,
-    hash: string | null
+    hash: string | null,
+    requested: boolean,
+    amount?: string,
+    description?: string,
 }
 
 export class Credential {
@@ -212,6 +215,9 @@ export class Credential {
             timestamp: invoice.timestamp,
             collected_timestamp: invoice.collected_timestamp,
             hash: invoice.hash,
+            requested: invoice.requested,
+            amount: invoice.amount,
+            description: invoice.description,
         });
     }
 

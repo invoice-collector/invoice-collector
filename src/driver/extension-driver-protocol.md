@@ -322,10 +322,11 @@ type ErrorCode =
 | `dropdownSelect(selector, value, opts)` | `action.dropdownSelect` | [7.6](#76-actions-on-a-selector) |
 | `click(x, y, opts)` | `input.click` | [7.7](#77-keyboard-and-mouse-input) |
 | `press(key, opts)` | `input.press` | [7.7](#77-keyboard-and-mouse-input) |
+| `scrollPage(direction, x, y)` | `input.scrollPage` | [7.7](#77-keyboard-and-mouse-input) |
 | `type(text, opts)` | `input.type` | [7.7](#77-keyboard-and-mouse-input) |
 | `getDownloadedFiles(clean)` | `download.list` | [7.8](#78-downloads) |
 | `downloadFile(url)` | `download.fromUrl` | [7.8](#78-downloads) |
-| `waitForFileToDownload(raise)` | `download.waitForFile` | [7.8](#78-downloads) |
+| `waitForFileToDownload(options)` | `download.waitForFile` | [7.8](#78-downloads) |
 | `waitForCloudflareTurnstile()` | `captcha.waitForCloudflareTurnstile` | [7.9](#79-captchas) |
 | `waitForDatadomeCaptcha()` | `captcha.waitForDatadome` | [7.9](#79-captchas) |
 | `getCookies(names)` | `cookies.get` | [7.10](#710-cookies-and-localstorage) |
@@ -486,7 +487,7 @@ These three messages combine the element lookup and the action in a single reque
 
 | Event | Comment | Request payload | Response payload |
 |---|---|---|---|
-| `action.leftClick` | Equivalent of `leftClick(selector, opts)`. | `PageScoped & WaitOptions & { selector: Selector; delay?: number; navigation?: boolean; mouseHover?: boolean \| string }` | `{ element: ElementRef \| null }` |
+| `action.leftClick` | Equivalent of `leftClick(selector, opts)`. | `PageScoped & WaitOptions & { selector: Selector; delay?: number; navigation?: boolean; mouseHover?: boolean \| string; download?: boolean }` | `{ element: ElementRef \| null }` |
 | `action.inputText` | Equivalent of `inputText(selector, text, opts)`. `text` may contain a secret: do not log it ([§14](#14-security)). | `PageScoped & WaitOptions & { selector: Selector; text: string; delay?: number; tries?: number; navigation?: boolean; mouseHover?: boolean }` | `{ element: ElementRef \| null }` |
 | `action.dropdownSelect` | Equivalent of `dropdownSelect(selector, value, opts)`. Selects an option of a `<select>`. Here `timeout` only applies to the element lookup. | `PageScoped & WaitOptions & { selector: Selector; value: string; delay?: number; mouseHover?: boolean }` | `{ element: ElementRef \| null }` |
 
@@ -513,6 +514,7 @@ These three messages act on the page, without a selector. Trusted events are req
 |---|---|---|---|
 | `input.click` | Equivalent of `click(x, y, { delay })`. Left click at the coordinates, then a pause of `delay`. Coordinates are CSS px in the top-level viewport. | `PageScoped & { x: number; y: number; delay?: number }` | `{}` |
 | `input.press` | Equivalent of `press(key, { delay })`. `key` follows Puppeteer's `KeyInput` names (e.g. `"Enter"`, `"Tab"`, `"ArrowDown"`, `"KeyA"`), US layout. | `PageScoped & { key: string; delay?: number }` | `{}` |
+| `input.scrollPage` | Move the pointer to `(x, y)` in top-level viewport CSS pixels and dispatch a trusted mouse wheel event there, with vertical delta `window.innerHeight * 0.8 * (direction === 'up' ? -1 : 1)` using the live viewport height. This scrolls the panel under the pointer, including panels inside frames, rather than forcing the root page to scroll. Apply `delay` afterward (default 1000 ms). Reject invalid directions, non-finite/negative coordinates, or coordinates outside the viewport with `INVALID_PARAMS`. Do not use keyboard events, synthetic DOM wheel events, or root `window.scrollBy`. | `PageScoped & { direction: 'up' \| 'down'; x: number; y: number; delay?: number }` | `{}` |
 | `input.type` | Equivalent of `type(text, { delay })`. Types the text character by character into the focused element, then pauses for `delay`. `text` may contain a secret: do not log it ([§14](#14-security)). | `PageScoped & { text: string; delay?: number }` | `{}` |
 
 `delay` defaults to `defaults.delay`.
@@ -525,7 +527,7 @@ Downloaded files live on the remote browser's machine. **The client sends them b
 |---|---|---|---|
 | `download.list` | Equivalent of `getDownloadedFiles(clean)`. | `{ clean?: boolean; includeContent?: boolean }` | `{ files: FileInfo[] }` |
 | `download.fromUrl` | Equivalent of `downloadFile(url)`. Navigates the page to the URL and waits for the resulting file. | `PageScoped & { url: string; timeout?: number }` | `{ file: FileInfo }` |
-| `download.waitForFile` | Equivalent of `waitForFileToDownload(raiseException)`. Waits for the first downloaded file, returns it and removes it from the client's folder (`clean: true`). | `{ raiseException?: boolean; timeout?: number }` | `{ file: FileInfo \| null }` |
+| `download.waitForFile` | Equivalent of `waitForFileToDownload({ raiseException, clean })`. Waits for the first downloaded file and returns it. Removes files after reading only when `clean` is true. Both flags are required. | `{ raiseException: boolean; clean: boolean; timeout?: number }` | `{ file: FileInfo \| null }` |
 
 **Notes**
 
@@ -537,7 +539,7 @@ Downloaded files live on the remote browser's machine. **The client sends them b
   4. **Client**: runs `location.href = url` in the page;
   5. **Client**: waits for the file (like `download.waitForFile`);
   6. `NO_FILE_DOWNLOADED` if nothing arrives before `timeout`.
-- `download.waitForFile` — `raiseException` defaults to `true`; `timeout` defaults to `defaults.downloadTimeout`. Timeout: `NO_FILE_DOWNLOADED` if `raiseException`, otherwise `file: null`. See [§13](#13-findings-in-the-current-driver): the current driver still throws when `raiseException=false`; `ExtensionDriver` must decide whether to reproduce that.
+- `download.waitForFile` — `raiseException` and `clean` are mandatory; `timeout` defaults to `defaults.downloadTimeout`. With `clean: false`, retain the files for a later read. Timeout: `NO_FILE_DOWNLOADED` if `raiseException`, otherwise `file: null`. See [§13](#13-findings-in-the-current-driver): the current driver still throws when `raiseException=false`; `ExtensionDriver` must decide whether to reproduce that.
 
 ### 7.9 Captchas
 
@@ -768,7 +770,7 @@ These are not protocol constraints, but points that determine its feasibility.
 
 The protocol fixes a behavior for each of these. It is up to you to decide whether to reproduce or fix them.
 
-1. **`waitForFileToDownload(raiseException = false)` still throws.** `waitFor` returns `null`, then the method always throws a `LoggableError`. The protocol returns `file: null` and lets the server decide.
+1. **`waitForFileToDownload({ raiseException: false, clean: true })` still throws.** `waitFor` returns `null`, then the method always throws a `LoggableError`. The protocol returns `file: null` and lets the server decide.
 2. **`getElements` / `getAttributes` only search the main frame**, whereas `getElement` waits across all frames. The `frames` parameter (default `'main'`) reproduces the current behavior and allows switching to `'all'`.
 3. **`getElementCoordinates`: `!frameBoundingBox?.x`** throws when the iframe's position is `0` (a valid value). The protocol treats `0` as valid.
 4. **`closeExtraPages`: `forEach(async …)`** does not wait for the pages to actually close. `page.closeExtra` only answers once all pages are closed.
@@ -791,7 +793,7 @@ The protocol fixes a behavior for each of these. It is up to you to decide wheth
 
 ## Appendix — Message summary
 
-**Server → client (requests)**: `session.open`, `session.update`, `session.close`, `screencast.start`, `screencast.stop`, `page.url`, `page.origin`, `page.count`, `page.list`, `page.close`, `page.closeExtra`, `page.goBack`, `page.goto`, `page.new`, `page.waitForNavigation`, `page.sourceCode`, `page.screenshot`, `page.pdf`, `dom.getElement`, `dom.getElementAtPoint`, `dom.getElements`, `dom.getAttribute`, `dom.getAttributes`, `action.leftClick`, `action.inputText`, `action.dropdownSelect`, `input.click`, `input.press`, `input.type`, `download.list`, `download.fromUrl`, `download.waitForFile`, `captcha.waitForCloudflareTurnstile`, `captcha.waitForDatadome`, `cookies.get`, `cookies.set`, `localStorage.get`, `localStorage.set`, `element.leftClick`, `element.inputText`, `element.dropdownSelect`, `element.release`.
+**Server → client (requests)**: `session.open`, `session.update`, `session.close`, `screencast.start`, `screencast.stop`, `page.url`, `page.origin`, `page.count`, `page.list`, `page.close`, `page.closeExtra`, `page.goBack`, `page.goto`, `page.new`, `page.waitForNavigation`, `page.sourceCode`, `page.screenshot`, `page.pdf`, `dom.getElement`, `dom.getElementAtPoint`, `dom.getElements`, `dom.getAttribute`, `dom.getAttributes`, `action.leftClick`, `action.inputText`, `action.dropdownSelect`, `input.click`, `input.press`, `input.scrollPage`, `input.type`, `download.list`, `download.fromUrl`, `download.waitForFile`, `captcha.waitForCloudflareTurnstile`, `captcha.waitForDatadome`, `cookies.get`, `cookies.set`, `localStorage.get`, `localStorage.set`, `element.leftClick`, `element.inputText`, `element.dropdownSelect`, `element.release`.
 
 **Server → client (control)**: `ping`, `pong`, `cancel`, `bye`.
 
