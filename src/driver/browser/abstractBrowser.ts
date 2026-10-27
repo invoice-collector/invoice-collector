@@ -162,10 +162,13 @@ export abstract class AbstractBrowser {
         ...(proxy && proxy.host && proxy.port
           ? [`--proxy-server=${proxy.host}:${proxy.port}`]
           : []),
-        '--no-sandbox',
         '--disable-dev-shm-usage',
+        '--disable-blink-features=AutomationControlled'
       ];
     }
+
+    // Remove the '--disable-ipc-flooding-protection' flag if it exists
+    chromeFlags = chromeFlags.filter(f => f !== '--disable-ipc-flooding-protection');
 
     const downloadPath = await this.launch({
       ignoreDefaultFlags: true,
