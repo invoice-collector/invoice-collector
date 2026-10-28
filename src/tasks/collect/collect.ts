@@ -227,8 +227,8 @@ export class Collect {
                 console.warn(`Invoice collection for credential ${this.credential_id} has failed: ${err.message}`);
                 // If credential exists
                 if (credential && user && customer && collector) {
-                    // If error occurs and previous collect was successful, send notification
-                    if (credential.state.index >= credential.state.max) {
+                    // If no WebSocket server is available it means this collect has been automatically triggered
+                    if (!this.webSocketServer) {
                         // Get customer callbacks
                         const callbacksWithAutomaticExport = (await customer.getCallbacks()).filter(cb => cb.automaticExport);
                         // Send notification for each callback with automaticExport set to true
