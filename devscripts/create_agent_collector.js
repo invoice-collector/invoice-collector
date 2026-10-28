@@ -182,7 +182,7 @@ export class ${collector.id_camel_case}Collector extends AgentV2Collector {
         version: "0",
         website: "${collector.website}",
         logo: "${collector.logo}",
-        type: CollectorType.AGENT,
+        type: CollectorType.WEB,
         params: {
             email: {
                 type: "email",

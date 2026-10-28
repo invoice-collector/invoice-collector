@@ -421,10 +421,11 @@ components:
           type: string
           description: Type of collector.
           enum:
-            - sketch
-            - agent
             - web
             - api
+            - email
+            - provider
+            - sketch
           example: web
         website:
           type: string
