@@ -17,7 +17,6 @@ export enum CollectorState {
 
 export enum CollectorType {
     WEB = 'web',
-    AGENT = 'agent',
     API = 'api',
     EMAIL = 'email',
     PROVIDER = 'provider',

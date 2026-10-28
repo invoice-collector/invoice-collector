@@ -311,7 +311,7 @@ const SWAGGER_DEFINITION = {
                         description: { type: 'string', description: 'Description of the collector.', example: 'Free is a French telecommunications company' },
                         instructions: { type: 'string', description: 'Instructions to setup the collector.', example: 'Go to ... and do ...' },
                         version: { type: 'string', description: 'Version of the collector.', example: '1' },
-                        type: { type: 'string', description: 'Type of collector.', enum: ['sketch', 'agent', 'web', 'api'], example: 'web' },
+                        type: { type: 'string', description: 'Type of collector.', enum: ['web', 'api', 'email', 'provider', 'sketch'], example: 'web' },
                         website: { type: 'string', description: 'Link to the website of the collector.', format: 'uri', example: 'https://www.free.fr' },
                         logo: { type: 'string', description: 'Link to the logo of the collector.', format: 'uri', example: 'https://fr.wikipedia.org/wiki/Free_(entreprise)#/media/Fichier:Free_logo.svg' },
                         params: {
