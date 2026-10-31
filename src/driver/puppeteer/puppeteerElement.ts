@@ -277,10 +277,10 @@ export class PuppeteerElement extends AbstractElement<PuppeteerDriver> {
                 }
                 let selector = element.tagName.toLowerCase();
                 if (element.getAttribute('name')) {
-                    selector += `[name="${element.getAttribute('name')}"]`;
+                    selector += `[name="${CSS.escape(element.getAttribute('name'))}"]`;
                 }
                 if (element.getAttribute('type')) {
-                    selector += `[type="${element.getAttribute('type')}"]`;
+                    selector += `[type="${CSS.escape(element.getAttribute('type'))}"]`;
                 }
                 let sibling = element;
                 let nth = 1;
@@ -292,9 +292,9 @@ export class PuppeteerElement extends AbstractElement<PuppeteerDriver> {
                 // If parent is null and root node is not document, it means we are in a shadow DOM and we need to get the selector of the parent element in the main DOM
                 if (element.parentElement! === null && element.getRootNode() !== document) {
                     console.log('We are in a shadow DOM');
-                    return `${getCssSelector(element.getRootNode().host)  } >>>> ${  selector}`;
+                    return `${getCssSelector(element.getRootNode().host)} >>>> ${selector}`;
                 }
-                return `${getCssSelector(element.parentElement!)  } > ${  selector}`;
+                return `${getCssSelector(element.parentElement!)} > ${selector}`;
             }
             return getCssSelector(element);
         });
