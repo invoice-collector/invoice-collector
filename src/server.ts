@@ -723,10 +723,10 @@ export class Server {
      * Do not create it if a user with the same remote ID already exists.
      * @param bearer The current bearer token of the customer.
      * @param remote_id The remote ID of the new user.
-     * @param locale The locale of the new user.
-     * @param ip The IP address of the new user.
      * @param name The optional name of the new user.
      * @param cid The optional company ID of the new user.
+     * @param locale The locale of the new user.
+     * @param ip The IP address of the new user.
      * @returns The newly created user along with its statistics.
      */
     public async post_user(
@@ -1150,7 +1150,6 @@ export class Server {
      * @param params The parameters required for creating the credential.
      * @param download_from_timestamp The timestamp from which to start downloading invoices.
      * @param remote Whether the credential is remote. Defaults to false.
-     * @param ip The optional IP address used to locate a user.
      * @returns The details of the newly created credential.
      */
     public async post_credential(
