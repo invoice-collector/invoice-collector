@@ -24,6 +24,7 @@ import { TokenManager } from './tokenManager';
 import { BillTask } from './tasks/bill/billTask';
 import { ExtensionTransport } from './driver/extension/extensionTransport';
 import { WebCollector } from './collectors/webCollector';
+import { AbstractProxy } from './proxy/abstractProxy';
 
 export class Server {
 
@@ -785,7 +786,7 @@ export class Server {
                 }
 
                 // Get user location
-                const location = await ProxyFactory.getProxy().locate(ip);
+                const location = await AbstractProxy.locate(ip);
                 // Create user
                 user = new User(
                     customer.id,
@@ -806,7 +807,7 @@ export class Server {
                 // If user location is unknown
                 if (user.location === null) {
                     // Update user with location
-                    user.location = await ProxyFactory.getProxy().locate(ip);
+                    user.location = await AbstractProxy.locate(ip);
                     if (user.location !== null) {
                         await user.commit();
                     }
@@ -1232,7 +1233,7 @@ export class Server {
             }
 
             if (user.location === null && ip) {
-                user.location = await ProxyFactory.getProxy().locate(ip);
+                user.location = await AbstractProxy.locate(ip);
                 if (user.location !== null) {
                     await user.commit();
                 }
