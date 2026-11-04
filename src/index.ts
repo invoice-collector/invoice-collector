@@ -1317,14 +1317,14 @@ app.get('/api/v1/credentials', async (req, res) => {
  *                 $ref: "#/components/schemas/collectorId"
  *               params:
  *                 $ref: "#/components/schemas/credentialParams"
- *               download_from_timestamp:
- *                 allOf:
- *                   - $ref: "#/components/schemas/downloadFromTimestamp"
- *                 description: 'Timestamp to start downloading invoices from in ms. _If empty, invoices will be downloaded starting from today._'
  *               remote:
  *                 type: boolean
  *                 default: false
  *                 description: Whether the credential is remote.
+ *               download_from_timestamp:
+ *                 allOf:
+ *                   - $ref: "#/components/schemas/downloadFromTimestamp"
+ *                 description: 'Timestamp to start downloading invoices from in ms. _If empty, invoices will be downloaded starting from today._'
  *     responses:
  *       200:
  *         description: Success
