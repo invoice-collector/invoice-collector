@@ -216,6 +216,7 @@ app.get('/api/v1/ui', async (req, res) => {
         console.log('GET /ui');
         const context = await server.get_ui(
             req.query.token,
+            req.query.token ? req.ip : undefined,
         );
 
         // Render ui.ejs
@@ -845,6 +846,10 @@ app.get('/api/v1/users', async (req, res) => {
  *             properties:
  *               remoteId:
  *                 $ref: '#/components/schemas/remoteId'
+ *               name:
+ *                 $ref: '#/components/schemas/name'
+ *               cid:
+ *                 $ref: '#/components/schemas/cid'
  *               locale:
  *                 $ref: '#/components/schemas/locale'
  *               ip:
@@ -895,6 +900,8 @@ app.post('/api/v1/user', creationRateLimiter, async (req, res) => {
         const response = await server.post_user(
             req.headers.authorization,
             req.body.remoteId || req.body.remote_id,
+            req.body.name,
+            req.body.cid,
             req.body.locale,
             req.body.ip,
         );
@@ -1023,6 +1030,8 @@ app.get('/api/v1/user', async (req, res) => {
  *                 $ref: '#/components/schemas/cid'
  *               locale:
  *                 $ref: '#/components/schemas/locale'
+ *               ip:
+ *                 $ref: '#/components/schemas/ip'
  *     responses:
  *       200:
  *         description: Success
@@ -1067,6 +1076,7 @@ app.put('/api/v1/user/:userId', async (req, res) => {
             req.body.name,
             req.body.cid,
             req.body.locale,
+            req.body.ip,
         );
 
         // Build response

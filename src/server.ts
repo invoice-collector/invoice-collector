@@ -24,6 +24,7 @@ import { TokenManager } from './tokenManager';
 import { BillTask } from './tasks/bill/billTask';
 import { ExtensionTransport } from './driver/extension/extensionTransport';
 import { WebCollector } from './collectors/webCollector';
+import { AbstractProxy } from './proxy/abstractProxy';
 
 export class Server {
 
@@ -117,12 +118,16 @@ export class Server {
     /**
      * Returns a UI page for the user to add credentials.
      * @param token The token used for authentication.
+     * @param ip The IP address used to locate the user.
      * @returns An object containing the collectors, locale, and theme for the UI page.
      */
-    public async get_ui(token: any): Promise<{
+    public async get_ui(
+        token: any,
+        ip: string | undefined,
+    ): Promise<{
         collectors: Config[],
         locale: string,
-        theme: string
+        theme: string,
     }> {
         // Get user from token
         const user = await this.tokenManager.getUserFromUiToken(token);
@@ -136,6 +141,14 @@ export class Server {
             token,
             user.locale,
         );
+
+        // Update user location based on IP if not already set
+        if (user.location === null && ip) {
+            user.location = await AbstractProxy.locate(ip);
+            if (user.location !== null) {
+                await user.commit();
+            }
+        }
 
         // Return collectors, locale and theme
         return {
@@ -711,6 +724,8 @@ export class Server {
      * Do not create it if a user with the same remote ID already exists.
      * @param bearer The current bearer token of the customer.
      * @param remote_id The remote ID of the new user.
+     * @param name The optional name of the new user.
+     * @param cid The optional company ID of the new user.
      * @param locale The locale of the new user.
      * @param ip The IP address of the new user.
      * @returns The newly created user along with its statistics.
@@ -718,6 +733,8 @@ export class Server {
     public async post_user(
         bearer: string | undefined,
         remote_id: string | undefined,
+        name: string | undefined,
+        cid: string | undefined,
         locale: string | undefined,
         ip: string | undefined,
     ): Promise<{
@@ -781,15 +798,15 @@ export class Server {
                 }
 
                 // Get user location
-                const location = await ProxyFactory.getProxy().locate(ip);
+                const location = await AbstractProxy.locate(ip);
                 // Create user
                 user = new User(
                     customer.id,
                     remote_id,
                     User.DEFAULT_PASSWORD,
                     User.DEFAULT_BEARER,
-                    User.DEFAULT_NAME,
-                    User.DEFAULT_CID,
+                    name || User.DEFAULT_NAME,
+                    cid || User.DEFAULT_CID,
                     location,
                     locale,
                     Date.now(),
@@ -802,7 +819,7 @@ export class Server {
                 // If user location is unknown
                 if (user.location === null) {
                     // Update user with location
-                    user.location = await ProxyFactory.getProxy().locate(ip);
+                    user.location = await AbstractProxy.locate(ip);
                     if (user.location !== null) {
                         await user.commit();
                     }
@@ -899,6 +916,7 @@ export class Server {
      * @param name The new name of the user.
      * @param cid The new Company ID of the user.
      * @param locale The new locale of the user.
+     * @param ip The new IP address of the user.
      * @returns The updated details of the specified user along with its statistics.
      */
     public async put_user(
@@ -908,6 +926,7 @@ export class Server {
         name: string | undefined,
         cid: string | undefined,
         locale: string | undefined,
+        ip: string | undefined,
     ): Promise<{
         id: string,
         customer_id: string,
@@ -964,6 +983,11 @@ export class Server {
                 throw new StatusError(`Locale "${locale}" not supported. Available locales are: ${I18n.LOCALES.join(', ')}.`, 400);
             }
             user.locale = locale;
+        }
+
+        // Check if ip field is present
+        if(ip) {
+            user.location = await AbstractProxy.locate(ip);
         }
 
         // Commit changes in database
