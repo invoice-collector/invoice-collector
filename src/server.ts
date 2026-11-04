@@ -916,7 +916,7 @@ export class Server {
      * @param name The new name of the user.
      * @param cid The new Company ID of the user.
      * @param locale The new locale of the user.
-     * @param ip The IP address used to locate the user.
+     * @param ip The new IP address of the user.
      * @returns The updated details of the specified user along with its statistics.
      */
     public async put_user(
