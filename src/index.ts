@@ -845,6 +845,10 @@ app.get('/api/v1/users', async (req, res) => {
  *             properties:
  *               remoteId:
  *                 $ref: '#/components/schemas/remoteId'
+ *               name:
+ *                 $ref: '#/components/schemas/name'
+ *               cid:
+ *                 $ref: '#/components/schemas/cid'
  *               locale:
  *                 $ref: '#/components/schemas/locale'
  *               ip:
@@ -895,6 +899,8 @@ app.post('/api/v1/user', creationRateLimiter, async (req, res) => {
         const response = await server.post_user(
             req.headers.authorization,
             req.body.remoteId || req.body.remote_id,
+            req.body.name,
+            req.body.cid,
             req.body.locale,
             req.body.ip,
         );

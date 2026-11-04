@@ -1338,6 +1338,10 @@ paths:
               properties:
                 remoteId:
                   $ref: "#/components/schemas/remoteId"
+                name:
+                  $ref: "#/components/schemas/name"
+                cid:
+                  $ref: "#/components/schemas/cid"
                 locale:
                   $ref: "#/components/schemas/locale"
                 ip:

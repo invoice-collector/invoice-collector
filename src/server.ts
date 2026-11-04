@@ -713,11 +713,15 @@ export class Server {
      * @param remote_id The remote ID of the new user.
      * @param locale The locale of the new user.
      * @param ip The IP address of the new user.
+     * @param name The optional name of the new user.
+     * @param cid The optional company ID of the new user.
      * @returns The newly created user along with its statistics.
      */
     public async post_user(
         bearer: string | undefined,
         remote_id: string | undefined,
+        name: string | undefined,
+        cid: string | undefined,
         locale: string | undefined,
         ip: string | undefined,
     ): Promise<{
@@ -788,8 +792,8 @@ export class Server {
                     remote_id,
                     User.DEFAULT_PASSWORD,
                     User.DEFAULT_BEARER,
-                    User.DEFAULT_NAME,
-                    User.DEFAULT_CID,
+                    name || User.DEFAULT_NAME,
+                    cid || User.DEFAULT_CID,
                     location,
                     locale,
                     Date.now(),
