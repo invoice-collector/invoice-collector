@@ -120,10 +120,13 @@ export class Server {
      * @param token The token used for authentication.
      * @returns An object containing the collectors, locale, and theme for the UI page.
      */
-    public async get_ui(token: any): Promise<{
+    public async get_ui(
+        token: any,
+        ip: string | undefined,
+    ): Promise<{
         collectors: Config[],
         locale: string,
-        theme: string
+        theme: string,
     }> {
         // Get user from token
         const user = await this.tokenManager.getUserFromUiToken(token);
@@ -137,6 +140,14 @@ export class Server {
             token,
             user.locale,
         );
+
+        // Update user location based on IP if not already set
+        if (user.location === null && ip) {
+            user.location = await AbstractProxy.locate(ip);
+            if (user.location !== null) {
+                await user.commit();
+            }
+        }
 
         // Return collectors, locale and theme
         return {
@@ -913,6 +924,7 @@ export class Server {
         name: string | undefined,
         cid: string | undefined,
         locale: string | undefined,
+        ip: string | undefined,
     ): Promise<{
         id: string,
         customer_id: string,
@@ -969,6 +981,11 @@ export class Server {
                 throw new StatusError(`Locale "${locale}" not supported. Available locales are: ${I18n.LOCALES.join(', ')}.`, 400);
             }
             user.locale = locale;
+        }
+
+        // Check if ip field is present
+        if(ip) {
+            user.location = await AbstractProxy.locate(ip);
         }
 
         // Commit changes in database
@@ -1144,7 +1161,6 @@ export class Server {
         params: any | undefined,
         download_from_timestamp: number | undefined,
         remote: boolean | undefined,
-        ip: string | undefined,
     ): Promise<{
         id: string,
         user_id: string,
@@ -1230,13 +1246,6 @@ export class Server {
             // If customer cannot add more credentials, throw an error
             if (!canAddCredential) {
                 throw new StatusError(`Credential limit reached. Max credentials: ${customer.plan.maxCredentials}`, 403);
-            }
-
-            if (user.location === null && ip) {
-                user.location = await AbstractProxy.locate(ip);
-                if (user.location !== null) {
-                    await user.commit();
-                }
             }
 
             // Create secret

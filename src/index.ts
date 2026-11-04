@@ -216,6 +216,7 @@ app.get('/api/v1/ui', async (req, res) => {
         console.log('GET /ui');
         const context = await server.get_ui(
             req.query.token,
+            req.query.token ? req.ip : undefined,
         );
 
         // Render ui.ejs
@@ -1029,6 +1030,8 @@ app.get('/api/v1/user', async (req, res) => {
  *                 $ref: '#/components/schemas/cid'
  *               locale:
  *                 $ref: '#/components/schemas/locale'
+ *               ip:
+ *                 $ref: '#/components/schemas/ip'
  *     responses:
  *       200:
  *         description: Success
@@ -1073,6 +1076,7 @@ app.put('/api/v1/user/:userId', async (req, res) => {
             req.body.name,
             req.body.cid,
             req.body.locale,
+            req.body.ip,
         );
 
         // Build response
@@ -1321,8 +1325,6 @@ app.get('/api/v1/credentials', async (req, res) => {
  *                 type: boolean
  *                 default: false
  *                 description: Whether the credential is remote.
- *               ip:
- *                 $ref: "#/components/schemas/ip"
  *     responses:
  *       200:
  *         description: Success
@@ -1374,7 +1376,6 @@ app.post('/api/v1/user/:user_id/credential', creationRateLimiter, async (req, re
             req.body.params,
             req.body.download_from_timestamp,
             req.body.remote,
-            req.query.token ? req.ip : req.body.ip,
         );
 
         // Build response
@@ -1399,7 +1400,6 @@ app.post('/api/v1/credential', creationRateLimiter, async (req, res) => {
             req.body.params,
             req.body.download_from_timestamp,
             req.body.remote,
-            req.query.token ? req.ip : req.body.ip,
         );
 
         // Build response
