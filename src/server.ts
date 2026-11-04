@@ -1132,6 +1132,7 @@ export class Server {
      * @param params The parameters required for creating the credential.
      * @param download_from_timestamp The timestamp from which to start downloading invoices.
      * @param remote Whether the credential is remote. Defaults to false.
+     * @param ip The optional IP address used to locate a user.
      * @returns The details of the newly created credential.
      */
     public async post_credential(
@@ -1142,6 +1143,7 @@ export class Server {
         params: any | undefined,
         download_from_timestamp: number | undefined,
         remote: boolean | undefined,
+        ip: string | undefined,
     ): Promise<{
         id: string,
         user_id: string,
@@ -1227,6 +1229,13 @@ export class Server {
             // If customer cannot add more credentials, throw an error
             if (!canAddCredential) {
                 throw new StatusError(`Credential limit reached. Max credentials: ${customer.plan.maxCredentials}`, 403);
+            }
+
+            if (user.location === null && ip) {
+                user.location = await ProxyFactory.getProxy().locate(ip);
+                if (user.location !== null) {
+                    await user.commit();
+                }
             }
 
             // Create secret
