@@ -369,6 +369,12 @@
             <!-- Hidden Type Field -->
             <input type="text" name="type" value="new_collector" required hidden>
             
+            <!-- Website Name Field -->
+            <div class="ic-form-group ic-form-group--floating">
+                <label class="ic-label ic-label--required"><%= __('i18n.views.manage.feedback.name') %></label>
+                <input type="text" name="name" class="ic-input"  placeholder="<%= __('i18n.views.manage.feedback.name.placeholder') %>" required>
+            </div>
+            
             <!-- Website URL Field -->
             <div class="ic-form-group ic-form-group--floating">
                 <label class="ic-label ic-label--required"><%= __('i18n.views.manage.feedback.url') %></label>

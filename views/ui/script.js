@@ -464,11 +464,11 @@ async function sendFeedback(event) {
     const feedbackBody = {
         type: 'new_collector',
         message: JSON.stringify({
+            name: params.name,
             website_url: params.website_url,
             collector_type: params.collector_type,
             invoices_url: params.invoices_url,
-        }),
-        email: ''
+        })
     };
     
     isSubmitting = true;
