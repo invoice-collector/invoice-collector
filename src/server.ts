@@ -118,6 +118,7 @@ export class Server {
     /**
      * Returns a UI page for the user to add credentials.
      * @param token The token used for authentication.
+     * @param ip The IP address used to locate the user.
      * @returns An object containing the collectors, locale, and theme for the UI page.
      */
     public async get_ui(
@@ -915,6 +916,7 @@ export class Server {
      * @param name The new name of the user.
      * @param cid The new Company ID of the user.
      * @param locale The new locale of the user.
+     * @param ip The IP address used to locate the user.
      * @returns The updated details of the specified user along with its statistics.
      */
     public async put_user(
