@@ -22,7 +22,7 @@ export const OrangeHelperSelectors = {
         info: 'continue button',
     },
     CONTAINER_LOGIN_ALERT: {
-        selector: '#login-invalid-feedback, #login-error',
+        selector: '#login-error:not(:empty)',
         info: 'login alert container',
     },
     BUTTON_PASSWORD_OPTION: {
@@ -38,7 +38,7 @@ export const OrangeHelperSelectors = {
         info: 'submit button',
     },
     CONTAINER_PASSWORD_ALERT: {
-        selector: '#password-invalid-feedback, #password-error',
+        selector: '#password-error:not(:empty)',
         info: 'password alert container',
     },
     BUTTON_SKIP_2FA: {
