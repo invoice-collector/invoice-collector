@@ -11,6 +11,7 @@ const collect_credential_id = new URLSearchParams(window.location.search).get('c
 let hit = [];
 let datepickerSince = null;
 let isSubmitting = false;
+let ip = undefined;
 
 /* ===================================
    INITIALIZATION
@@ -31,6 +32,12 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (!collect_credential_id) {
         showCompanies();
     }
+
+    getIp().then(i => {
+        ip = i;
+    }).catch(error => {
+        console.error('Error getting the IP address:', error);
+    });
 });
 
 
@@ -65,6 +72,11 @@ async function post_credential_collect(credential_id) {
             'Content-Type': 'application/json'
         }
     });
+}
+
+async function getIp() {
+    const response = await fetch("https://api.ipify.org?format=json")
+    return (await response.json()).ip;
 }
 
 /* ===================================
@@ -377,8 +389,10 @@ async function addCredential(event) {
     try {
         const response = await post_credential({
                 collector: form.dataset.collector,
-                download_from_timestamp,
-                params
+                download_from_timestamp: download_from_timestamp,
+                params: params,
+                remote: false,
+                ip: ip,
             }
         );
         

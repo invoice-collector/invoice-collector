@@ -216,7 +216,6 @@ app.get('/api/v1/ui', async (req, res) => {
         console.log('GET /ui');
         const context = await server.get_ui(
             req.query.token,
-            req.query.token ? req.ip : undefined,
         );
 
         // Render ui.ejs
@@ -1376,6 +1375,7 @@ app.post('/api/v1/user/:user_id/credential', creationRateLimiter, async (req, re
             req.body.params,
             req.body.download_from_timestamp,
             req.body.remote,
+            req.body.ip,
         );
 
         // Build response
@@ -1400,6 +1400,7 @@ app.post('/api/v1/credential', creationRateLimiter, async (req, res) => {
             req.body.params,
             req.body.download_from_timestamp,
             req.body.remote,
+            req.body.ip,
         );
 
         // Build response
