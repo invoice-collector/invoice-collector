@@ -1,3 +1,4 @@
+import http from 'http';
 import { DatabaseFactory } from './database/databaseFactory';
 import { Secret } from './model/secret';
 import { SecretManagerFactory } from './secret_manager/secretManagerFactory';
@@ -32,7 +33,7 @@ export class Server {
     tokenManager: TokenManager;
     collectTask: CollectTask;
     billTask: BillTask;
-    httpServer: any;
+    httpServer: http.Server | null = null;
 
     /**
      * Constructs a new Server instance.
@@ -1284,7 +1285,7 @@ export class Server {
 
         const extensionTransport = credential.remote ? this.createExtensionTransport(collector) : undefined;
         // Start web socket server and get token
-        const webSocketServer = new WebSocketServer(this.httpServer, user.locale, collector, oauth2State);
+        const webSocketServer = new WebSocketServer(this.httpServer!, user.locale, collector, oauth2State);
         const wsPath = webSocketServer.start();
 
         // Start collect
@@ -1591,7 +1592,7 @@ export class Server {
         const oauth2State = this.tokenManager.createCredentialOauth2State(credential.id);
 
         // Start web socket server and get token
-        const webSocketServer = new WebSocketServer(this.httpServer, user.locale, collector, oauth2State);
+        const webSocketServer = new WebSocketServer(this.httpServer!, user.locale, collector, oauth2State);
         const extensionTransport = credential.remote ? this.createExtensionTransport(collector) : undefined;
         let wsPath: string | null = null;
         let driverWs: string | null = null;
