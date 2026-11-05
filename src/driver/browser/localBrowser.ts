@@ -34,7 +34,7 @@ export class LocalBrowser extends AbstractBrowser {
 
         const dynamicImport = new Function('specifier', 'return import(specifier)');
         const { launch } = await dynamicImport('chrome-launcher');
-        this.chrome = await launch(options) as LaunchedChrome;
+        this.chrome = await launch({ ...options, handleSIGINT: false }) as LaunchedChrome;
         this.port = this.chrome.port;
         console.log(`Local Chrome available at ${this.url}`);
         return this.downloadPath;

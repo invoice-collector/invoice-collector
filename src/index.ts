@@ -2426,6 +2426,14 @@ server.start().then(() => {
         console.log(`App listening on port ${utils.PORT}`);
     });
 
+    // Stop server
+    process.on('SIGINT', async () => {
+        await server.stop();
+    });
+    process.on('SIGTERM', async () => {
+        await server.stop();
+    });
+
     // Set http server to server instance to be able to use websockets
     server.httpServer = httpServer;
 });

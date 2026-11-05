@@ -34,6 +34,7 @@ export class Server {
     collectTask: CollectTask;
     billTask: BillTask;
     httpServer: http.Server | null = null;
+    terminating: boolean = false;
 
     /**
      * Constructs a new Server instance.
@@ -71,6 +72,43 @@ export class Server {
         this.collectTask.start();
         // Start bill task
         this.billTask.start();
+    }
+
+    /**
+     * Stop the server and all background tasks.
+     * Return immediately if the server is already terminating.
+     */
+    async stop(): Promise<void> {
+        // Exit if already terminating to prevent multiple stop attempts
+        if (this.terminating) {
+            return;
+        }
+        this.terminating = true;
+        console.log('Stopping server...');
+
+        // Stop http server
+        if (this.httpServer) {
+            this.httpServer.close();
+        }
+
+        // Stop bill task
+        await this.billTask.stop();
+
+        // Stop collect task
+        await this.collectTask.stop();
+
+        // Wait for all collects to finish before proceeding
+        await CollectPool.getInstance().waitForAllCollectsToFinish();
+
+        // Close connection with the secret manager
+        await SecretManagerFactory.getSecretManager().disconnect();
+
+        // Close connection with the database
+        await DatabaseFactory.getDatabase().disconnect();
+
+        // Exit the process after stopping all tasks and the HTTP server
+        console.log('Server stopped');
+        process.exit();
     }
 
     // ---------- GENERAL ENDPOINTS ----------
