@@ -49,7 +49,7 @@ export const OrangeHelperSelectors = {
     // NEED2FA
 
     BUTTON_AUTHENTICATE_MOBILE_CONNECT: {
-        selector: "#btnSubmit[data-testid='submit-mc']",
+        selector: "button[data-testid='submit-mc']",
         info: 'mobile connect button',
     },
     CONTAINER_MOBILE_CONNECT_INSTRUCTION: {
@@ -57,7 +57,7 @@ export const OrangeHelperSelectors = {
         info: 'mobile connect instruction container',
     },
     BUTTON_SEND_REQUEST_ON_MOBILE: {
-        selector: "#btnSubmit[data-testid='authent-om']",
+        selector: "button[data-testid='authent-om']",
         info: 'send request on mobile button',
     },
     BUTTON_REQUEST_ON_MOBILE_INSTRUCTION: {

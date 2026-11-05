@@ -15,7 +15,7 @@ export class OrangeCollector extends LinearWebCollector {
         id: 'orange',
         name: 'Orange (.fr)',
         description: 'i18n.collectors.orange.description',
-        version: '34',
+        version: '35',
         website: 'https://www.orange.fr',
         logo: 'https://upload.wikimedia.org/wikipedia/commons/c/c8/Orange_logo.svg',
         type: CollectorType.WEB,
