@@ -86,25 +86,30 @@ export class Server {
         this.terminating = true;
         console.log('Stopping server...');
 
-        // Stop http server
-        if (this.httpServer) {
-            this.httpServer.close();
+        try {
+            // Stop http server
+            if (this.httpServer) {
+                this.httpServer.close();
+            }
+
+            // Stop bill task
+            await this.billTask.stop();
+
+            // Stop collect task
+            await this.collectTask.stop();
+
+            // Wait for all collects to finish before proceeding
+            await CollectPool.getInstance().waitForAllCollectsToFinish();
+
+            // Close connection with the secret manager
+            await SecretManagerFactory.getSecretManager().disconnect();
+
+            // Close connection with the database
+            await DatabaseFactory.getDatabase().disconnect();
+        } catch (error) {
+            console.error('Error while stopping server:');
+            console.error(error);
         }
-
-        // Stop bill task
-        await this.billTask.stop();
-
-        // Stop collect task
-        await this.collectTask.stop();
-
-        // Wait for all collects to finish before proceeding
-        await CollectPool.getInstance().waitForAllCollectsToFinish();
-
-        // Close connection with the secret manager
-        await SecretManagerFactory.getSecretManager().disconnect();
-
-        // Close connection with the database
-        await DatabaseFactory.getDatabase().disconnect();
 
         // Exit the process after stopping all tasks and the HTTP server
         console.log('Server stopped');
