@@ -1,3 +1,4 @@
+import http from 'http';
 import { DatabaseFactory } from './database/databaseFactory';
 import { Secret } from './model/secret';
 import { SecretManagerFactory } from './secret_manager/secretManagerFactory';
@@ -32,7 +33,8 @@ export class Server {
     tokenManager: TokenManager;
     collectTask: CollectTask;
     billTask: BillTask;
-    httpServer: any;
+    httpServer: http.Server | null = null;
+    terminating: boolean = false;
 
     /**
      * Constructs a new Server instance.
@@ -70,6 +72,48 @@ export class Server {
         this.collectTask.start();
         // Start bill task
         this.billTask.start();
+    }
+
+    /**
+     * Stop the server and all background tasks.
+     * Return immediately if the server is already terminating.
+     */
+    async stop(): Promise<void> {
+        // Exit if already terminating to prevent multiple stop attempts
+        if (this.terminating) {
+            return;
+        }
+        this.terminating = true;
+        console.log('Stopping server...');
+
+        try {
+            // Stop http server
+            if (this.httpServer) {
+                this.httpServer.close();
+            }
+
+            // Stop bill task
+            await this.billTask.stop();
+
+            // Stop collect task
+            await this.collectTask.stop();
+
+            // Wait for all collects to finish before proceeding
+            await CollectPool.getInstance().waitForAllCollectsToFinish();
+
+            // Close connection with the secret manager
+            await SecretManagerFactory.getSecretManager().disconnect();
+
+            // Close connection with the database
+            await DatabaseFactory.getDatabase().disconnect();
+        } catch (error) {
+            console.error('Error while stopping server:');
+            console.error(error);
+        }
+
+        // Exit the process after stopping all tasks and the HTTP server
+        console.log('Server stopped');
+        process.exit();
     }
 
     // ---------- GENERAL ENDPOINTS ----------
@@ -1284,7 +1328,7 @@ export class Server {
 
         const extensionTransport = credential.remote ? this.createExtensionTransport(collector) : undefined;
         // Start web socket server and get token
-        const webSocketServer = new WebSocketServer(this.httpServer, user.locale, collector, oauth2State);
+        const webSocketServer = new WebSocketServer(this.httpServer!, user.locale, collector, oauth2State);
         const wsPath = webSocketServer.start();
 
         // Start collect
@@ -1591,7 +1635,7 @@ export class Server {
         const oauth2State = this.tokenManager.createCredentialOauth2State(credential.id);
 
         // Start web socket server and get token
-        const webSocketServer = new WebSocketServer(this.httpServer, user.locale, collector, oauth2State);
+        const webSocketServer = new WebSocketServer(this.httpServer!, user.locale, collector, oauth2State);
         const extensionTransport = credential.remote ? this.createExtensionTransport(collector) : undefined;
         let wsPath: string | null = null;
         let driverWs: string | null = null;

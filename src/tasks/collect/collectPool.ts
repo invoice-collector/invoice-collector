@@ -1,7 +1,9 @@
+import { EventEmitter } from 'stream';
 import { Collect } from './collect';
 
-export class CollectPool {
+export class CollectPool extends EventEmitter {
 
+    public static DEFAULT_FINISHED_TIMEOUT: number = 10 * 60 * 1000; // 10 minutes
     private static instance: CollectPool;
 
     /**
@@ -16,12 +18,14 @@ export class CollectPool {
     }
 
     private collects: Map<string, Collect>;
+    private terminating: boolean = false;
 
     /**
      * Constructs an instance of the CollectPool class.
      * The point of this class is to identify the collection that are currently in progress.
      */
     private constructor() {
+        super();
         this.collects = new Map();
     }
 
@@ -54,6 +58,10 @@ export class CollectPool {
      */
     public unregisterCollect(id: string): void {
         this.collects.delete(id);
+        // Trigger finish event if no more collects are in progress
+        if (this.collects.size === 0 && this.terminating) {
+            this.emit('finish');
+        }
     }
 
     /**
@@ -72,5 +80,25 @@ export class CollectPool {
      */
     public has(id: string): boolean {
         return this.collects.has(id);
+    }
+
+    /**
+     * Waits for all collects to finish.
+     */
+    public async waitForAllCollectsToFinish(): Promise<void> {
+        this.terminating = true;
+        if (this.collects.size === 0) {
+            return;
+        }
+
+        // Wait for the 'finish' event to be emitted, indicating all collects have finished
+        await new Promise<void>((resolve) => {
+            setTimeout(() => {
+                resolve();
+            }, CollectPool.DEFAULT_FINISHED_TIMEOUT);
+            this.once('finish', () => {
+                resolve();
+            });
+        });
     }
 }

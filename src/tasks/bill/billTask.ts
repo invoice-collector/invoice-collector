@@ -54,7 +54,7 @@ export class BillTask {
     /**
      * Starts the task.
      */
-    public start() {
+    public start(): void {
         this.job.start();
         console.log('Bill Task started!');
     }
@@ -62,7 +62,7 @@ export class BillTask {
     /**
      * Stops the task.
      */
-    public stop() {
-        this.job.stop();
+    public async stop(): Promise<void> {
+        await this.job.stop();
     }
 }

@@ -8,12 +8,17 @@ export class CollectTask {
     static DEFAULT_TIMEZONE = 'UTC';
 
     private job: CronJob;
+    private terminating: boolean = false;
 
     /**
      * Constructs an instance of the CollectTask class, initializing the cron job for periodic invoice collection.
      */
     constructor() {
+
         const onTick = async () => {
+            // Skip if the task is terminating
+            if (this.terminating) {return;}
+
             // Get all credentials on which we need to collect invoices
             const credential_ids = await Credential.getCredentialsIdToCollect();
 
@@ -22,6 +27,9 @@ export class CollectTask {
 
                 // Collect invoices for each credential one by one
                 for (const credential_id of credential_ids) {
+                    // Skip if the task is terminating
+                    if (this.terminating) {return;}
+
                     const collect = new Collect(credential_id, undefined, undefined);
 
                     // Register collect in progress
@@ -57,7 +65,7 @@ export class CollectTask {
     /**
      * Starts the collect task, initiating the cron job for periodic invoice collection.
      */
-    public start() {
+    public start(): void {
         this.job.start();
         console.log('Collect Task started!');
     }
@@ -65,7 +73,8 @@ export class CollectTask {
     /**
      * Stops the collect task, halting the cron job for periodic invoice collection.
      */
-    public stop() {
-        this.job.stop();
+    public async stop(): Promise<void> {
+        this.terminating = true;
+        await this.job.stop();
     }
 }
