@@ -82,6 +82,9 @@ export class CollectPool extends EventEmitter {
         return this.collects.has(id);
     }
 
+    /**
+     * Waits for all collects to finish.
+     */
     public async waitForAllCollectsToFinish(): Promise<void> {
         this.terminating = true;
         if (this.collects.size === 0) {
