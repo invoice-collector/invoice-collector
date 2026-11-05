@@ -7,7 +7,6 @@ import { User, UserStats } from './model/user';
 import { Customer, CustomerAuthenticationMethod, CustomerStats } from './model/customer';
 import { Credential } from './model/credential';
 import { CollectTask } from './tasks/collect/collectTask';
-import { ProxyFactory } from './proxy/proxyFactory';
 import { AbstractCollector, CollectorType, Config } from './collectors/abstractCollector';
 import { AnalyticsFactory } from './analytics/analyticsFactory';
 import * as utils from './utils';
@@ -118,12 +117,10 @@ export class Server {
     /**
      * Returns a UI page for the user to add credentials.
      * @param token The token used for authentication.
-     * @param ip The IP address used to locate the user.
      * @returns An object containing the collectors, locale, and theme for the UI page.
      */
     public async get_ui(
         token: any,
-        ip: string | undefined,
     ): Promise<{
         collectors: Config[],
         locale: string,
@@ -141,14 +138,6 @@ export class Server {
             token,
             user.locale,
         );
-
-        // Update user location based on IP if not already set
-        if (user.location === null && ip) {
-            user.location = await AbstractProxy.locate(ip);
-            if (user.location !== null) {
-                await user.commit();
-            }
-        }
 
         // Return collectors, locale and theme
         return {
@@ -1152,6 +1141,7 @@ export class Server {
      * @param params The parameters required for creating the credential.
      * @param download_from_timestamp The timestamp from which to start downloading invoices.
      * @param remote Whether the credential is remote. Defaults to false.
+     * @param ip The optional IP address used to locate a user.
      * @returns The details of the newly created credential.
      */
     public async post_credential(
@@ -1162,6 +1152,7 @@ export class Server {
         params: any | undefined,
         download_from_timestamp: number | undefined,
         remote: boolean | undefined,
+        ip: string | undefined,
     ): Promise<{
         id: string,
         user_id: string,
@@ -1247,6 +1238,14 @@ export class Server {
             // If customer cannot add more credentials, throw an error
             if (!canAddCredential) {
                 throw new StatusError(`Credential limit reached. Max credentials: ${customer.plan.maxCredentials}`, 403);
+            }
+
+            // Update user location if not already set and IP is available
+            if (user.location === null && ip) {
+                user.location = await AbstractProxy.locate(ip);
+                if (user.location !== null) {
+                    await user.commit();
+                }
             }
 
             // Create secret
