@@ -181,6 +181,11 @@ export class ExtensionDriver extends AbstractDriver<ExtensionElement> {
     }
 
     /**
+     * Leaves the viewport unchanged because the extension protocol does not support resizing.
+     */
+    async resize(_width: number, _height: number): Promise<void> {}
+
+    /**
      * @inheritdoc
      */
     async stopScreenCast(): Promise<void> {

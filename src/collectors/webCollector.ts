@@ -5,7 +5,6 @@ import { WebSocketServer } from '../websocket/webSocketServer';
 import { DisconnectedError, LoggableError, RemoveError } from '../error';
 import { MessageClick, MessageKeydown, MessageResize, MessageText } from '../websocket/message';
 import { Secret } from '../model/secret';
-import { PuppeteerDriver } from '../driver/puppeteer/puppeteerDriver';
 
 export type WebConfig = Config & {
     loginUrl: string,
@@ -122,14 +121,7 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
 
             // Define what to do on resize event
             webSocketServer.onResize = async (event: MessageResize) => {
-                if(driver instanceof PuppeteerDriver) {
-                    await driver.page!.setViewport({
-                        width: event.width,
-                        height: event.height
-                    });
-                    const screenshot = await driver.screenshot();
-                    driver.emit('screenshot', screenshot.data, screenshot.width, screenshot.height);
-                }
+                await driver.resize(event.width, event.height);
             };
 
             // Define what to do on click event
@@ -199,10 +191,7 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
         }
 
         // Resize screen
-        await (driver as PuppeteerDriver).page!.setViewport({
-            width: AbstractDriver.VIEWPORT_WIDTH,
-            height: AbstractDriver.VIEWPORT_HEIGHT,
-        });
+        await driver.resize(AbstractDriver.VIEWPORT_WIDTH, AbstractDriver.VIEWPORT_HEIGHT);
     }
 
     /**

@@ -89,6 +89,13 @@ export abstract class AbstractDriver<E extends AbstractElement<any> = AbstractEl
     abstract stopScreenCast(): Promise<void>;
 
     /**
+     * Resizes the viewport and emits a fresh screenshot when supported by the driver.
+     * @param width The viewport width in CSS pixels.
+     * @param height The viewport height in CSS pixels.
+     */
+    abstract resize(width: number, height: number): Promise<void>;
+
+    /**
      * Restarts the driver with a new locale and/or proxy, restoring the current URL, cookies and local storage.
      * @param locale The locale to use for the new browser session.
      * @param proxy An optional proxy to route the browser traffic through.
