@@ -152,6 +152,8 @@ export class PuppeteerDriver extends AbstractDriver<PuppeteerElement> {
                     this.emit('screenshot', data,
                         viewport?.width || AbstractDriver.VIEWPORT_WIDTH,
                         viewport?.height || AbstractDriver.VIEWPORT_HEIGHT);
+                } catch (err) {
+                    // Ignore screenshot errors
                 } finally {
                     capturePending = false;
                     await cdp.send('Page.screencastFrameAck', { sessionId }).catch(() => {});
