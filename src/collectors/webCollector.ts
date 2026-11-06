@@ -3,7 +3,7 @@ import { AbstractDriver } from '../driver/abstractDriver';
 import { V2Collector } from './v2Collector';
 import { WebSocketServer } from '../websocket/webSocketServer';
 import { DisconnectedError, LoggableError, RemoveError } from '../error';
-import { MessageClick, MessageKeydown, MessageText } from '../websocket/message';
+import { MessageClick, MessageKeydown, MessageResize, MessageText } from '../websocket/message';
 import { Secret } from '../model/secret';
 import { PuppeteerDriver } from '../driver/puppeteer/puppeteerDriver';
 
@@ -108,12 +108,6 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
         // Handler used to reject the interactive promise if the screencast fails to (re)start
         let onScreencastError: ((err: unknown) => void) | undefined;
 
-        // Resize screen
-        await (driver as PuppeteerDriver).page!.setViewport({
-            width: AbstractDriver.VIEWPORT_WIDTH/2,
-            height: AbstractDriver.VIEWPORT_HEIGHT/2,
-        });
-
         const interactiveEndPromise = new Promise<void>((resolve, reject) => {
             // Define timeout
             setTimeout(() => {
@@ -125,6 +119,18 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                 reject(new DisconnectedError('i18n.collectors.all.login.error', this));
             };
             driver.on('screencast_error', onScreencastError);
+
+            // Define what to do on resize event
+            webSocketServer.onResize = async (event: MessageResize) => {
+                if(driver instanceof PuppeteerDriver) {
+                    await driver.page!.setViewport({
+                        width: event.width,
+                        height: event.height
+                    });
+                    const screenshot = await driver.screenshot();
+                    driver.emit('screenshot', screenshot.data, screenshot.width, screenshot.height);
+                }
+            };
 
             // Define what to do on click event
             webSocketServer.onClick = async (event: MessageClick) => {

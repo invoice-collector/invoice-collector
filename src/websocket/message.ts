@@ -27,6 +27,15 @@ export type MessageClick = AbstractMessage & {
 }
 
 /**
+ * Represents a message containing a resize event sent by the client.
+ */
+export type MessageResize = AbstractMessage & {
+    type: 'resize';
+    width: number;
+    height: number;
+}
+
+/**
  * Represents a message containing a keydown event sent by the client.
  */
 export type MessageKeydown = AbstractMessage & {

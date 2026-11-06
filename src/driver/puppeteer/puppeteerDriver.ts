@@ -114,10 +114,10 @@ export class PuppeteerDriver extends AbstractDriver<PuppeteerElement> {
         try {
             const cdp = await this.page.createCDPSession();
             await cdp.send('Page.enable');
-            const viewport = this.page?.viewport();
 
             // Listen for screencast frames and emit them as 'screenshot' events
             cdp.on('Page.screencastFrame', async ({ data, sessionId }) => {
+                const viewport = this.page?.viewport();
                 this.emit('screenshot', data,
                     viewport?.width || AbstractDriver.VIEWPORT_WIDTH,
                     viewport?.height || AbstractDriver.VIEWPORT_HEIGHT);
@@ -129,8 +129,6 @@ export class PuppeteerDriver extends AbstractDriver<PuppeteerElement> {
             await cdp.send('Page.startScreencast', {
                 format: 'jpeg',         // jpeg = smaller than png
                 quality: 100,           // 0–100
-                maxWidth: viewport?.width || AbstractDriver.VIEWPORT_WIDTH,
-                maxHeight: viewport?.height || AbstractDriver.VIEWPORT_HEIGHT,
                 everyNthFrame: 1,        // increase to reduce FPS
             });
 

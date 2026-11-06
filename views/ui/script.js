@@ -615,6 +615,21 @@ async function showProgress(credential_id, wsPath) {
         }
     }
     
+    let resizeTimeout;
+
+    function sendCanvasResize() {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+            if (ws.readyState !== WebSocket.OPEN || containerCanvas.hidden) return;
+            const rect = document.getElementById('canvas').getBoundingClientRect();
+            const width = Math.round(rect.width);
+            const height = Math.round(rect.height);
+            if (width > 0 && height > 0) {
+                ws.send(JSON.stringify({ type: 'resize', width, height }));
+            }
+        }, 150);
+    }
+
     ws.onopen = () => {
         const canvas = document.getElementById('canvas');
         const canvasOkButton = document.getElementById('canvas-ok');
@@ -648,6 +663,8 @@ async function showProgress(credential_id, wsPath) {
                 ws.send(JSON.stringify({ type: 'keydown', key: event.key }));
             }
         });
+
+        window.addEventListener('resize', sendCanvasResize);
         
         canvas.setAttribute('tabindex', '0');
         canvas.focus();
@@ -674,9 +691,8 @@ async function showProgress(credential_id, wsPath) {
             const img = new Image();
             img.src = `data:image/png;base64,${parsedData.screenshot}`;
             img.onload = function() {
-                const canvas = document.getElementById('canvas');
-                canvas.width = parsedData.width;
-                canvas.height = parsedData.height;
+                //canvas.width = parsedData.width;
+                //canvas.height = parsedData.height;
                 const ctx = canvas.getContext('2d');
                 ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
             };
@@ -684,6 +700,7 @@ async function showProgress(credential_id, wsPath) {
         else if (parsedData.type === 'interactive' && parsedData.reason === "open") {
             document.getElementById('interactive-instructions').textContent = parsedData.instructions;
             containerCanvas.hidden = false;
+            sendCanvasResize();
             document.getElementById('progress-container').classList.add('ic-hidden');
             window.parent.postMessage(NAVIGATION_EVENT_SHOW_INTERACTIVE, '*');
 
@@ -743,6 +760,8 @@ async function showProgress(credential_id, wsPath) {
     };
     
     ws.onclose = () => {
+        window.removeEventListener('resize', sendCanvasResize);
+        clearTimeout(resizeTimeout);
         containerCanvas.hidden = true;
         containerOauth2.hidden = true;
         oauth2OpenContainer.hidden = true;

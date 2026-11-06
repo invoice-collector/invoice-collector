@@ -1,9 +1,8 @@
 import { WebSocket } from 'ws';
 import http from 'http';
 import * as utils from '../utils';
-import { AbstractMessage, MessageClick, MessageInteractive, MessageKeydown, MessageOauth2, MessageScreenshot, MessageState, MessageText, MessageTwofa } from './message';
+import { AbstractMessage, MessageClick, MessageInteractive, MessageKeydown, MessageOauth2, MessageResize, MessageScreenshot, MessageState, MessageText, MessageTwofa } from './message';
 import { State } from '../model/state';
-import { AbstractDriver } from '../driver/abstractDriver';
 import { I18n } from '../i18n';
 import { DisconnectedError } from '../error';
 import { AbstractCollector, Config } from '../collectors/abstractCollector';
@@ -29,6 +28,7 @@ export class WebSocketServer extends EventEmitter {
 
     public onTwofa: ((event: MessageTwofa) => void) | undefined;
     public onClick: ((event: MessageClick) => void) | undefined;
+    public onResize: ((event: MessageResize) => void) | undefined;
     public onKeydown: ((event: MessageKeydown) => void) | undefined;
     public onText: ((event: MessageText) => void) | undefined;
     public onInteractive: ((event: MessageInteractive) => void) | undefined;
@@ -94,6 +94,11 @@ export class WebSocketServer extends EventEmitter {
                 }
                 else if (data.type === 'click' && data.x !== undefined && data.y !== undefined && this.onClick) {
                     this.onClick(data as MessageClick);
+                }
+                else if (data.type === 'resize' && this.onResize &&
+                    Number.isSafeInteger(data.width) && data.width > 0 && data.width <= 8192 &&
+                    Number.isSafeInteger(data.height) && data.height > 0 && data.height <= 8192) {
+                    this.onResize(data as MessageResize);
                 }
                 else if (data.type === 'keydown' && data.key && this.onKeydown) {
                     if(
