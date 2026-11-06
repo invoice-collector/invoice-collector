@@ -125,24 +125,44 @@ export class PuppeteerDriver extends AbstractDriver<PuppeteerElement> {
 
         // Create CDP session on the current page
         try {
-            const cdp = await this.page.createCDPSession();
+            const page = this.page;
+            const cdp = await page.createCDPSession();
             await cdp.send('Page.enable');
+            let capturePending = false;
+            let previousFrameData: string | undefined;
+            let previousViewportKey: string | undefined;
 
             // Listen for screencast frames and emit them as 'screenshot' events
             cdp.on('Page.screencastFrame', async ({ data, sessionId }) => {
-                const viewport = this.page?.viewport();
-                this.emit('screenshot', data,
-                    viewport?.width || AbstractDriver.VIEWPORT_WIDTH,
-                    viewport?.height || AbstractDriver.VIEWPORT_HEIGHT);
-                // Acknowledge frame
-                await cdp.send('Page.screencastFrameAck', { sessionId }).catch(() => {});
+                const viewport = page.viewport();
+                const viewportKey = `${viewport?.width}:${viewport?.height}:${viewport?.deviceScaleFactor || 1}`;
+                // If screenshot capture is pending or the frame is identical to the previous one, acknowledge and skip it
+                if (capturePending || (data === previousFrameData && viewportKey === previousViewportKey)) {
+                    await cdp.send('Page.screencastFrameAck', { sessionId }).catch(() => {});
+                    return;
+                }
+                capturePending = true;
+                previousFrameData = data;
+                previousViewportKey = viewportKey;
+                try {
+                    // Screencast deviceScaleFactor is always 1, so we need to take a screenshot if the deviceScaleFactor is not 1
+                    if ((viewport?.deviceScaleFactor || 1) !== 1) {
+                        data = await page.screenshot({ encoding: 'base64', type: 'png' });
+                    }
+                    this.emit('screenshot', data,
+                        viewport?.width || AbstractDriver.VIEWPORT_WIDTH,
+                        viewport?.height || AbstractDriver.VIEWPORT_HEIGHT);
+                } finally {
+                    capturePending = false;
+                    await cdp.send('Page.screencastFrameAck', { sessionId }).catch(() => {});
+                }
             });
 
             // Start screencast
             await cdp.send('Page.startScreencast', {
-                format: 'jpeg',         // jpeg = smaller than png
+                format: 'png',          // png = smaller than jpeg for web screenshots
                 quality: 100,           // 0–100
-                everyNthFrame: 1,        // increase to reduce FPS
+                everyNthFrame: 1,       // increase to reduce FPS
             });
 
             this.screencastCdp = cdp;
