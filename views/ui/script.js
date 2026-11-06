@@ -675,6 +675,8 @@ async function showProgress(credential_id, wsPath) {
             img.src = `data:image/png;base64,${parsedData.screenshot}`;
             img.onload = function() {
                 const canvas = document.getElementById('canvas');
+                canvas.width = parsedData.width;
+                canvas.height = parsedData.height;
                 const ctx = canvas.getContext('2d');
                 ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
             };

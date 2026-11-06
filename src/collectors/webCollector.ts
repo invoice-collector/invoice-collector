@@ -5,6 +5,7 @@ import { WebSocketServer } from '../websocket/webSocketServer';
 import { DisconnectedError, LoggableError, RemoveError } from '../error';
 import { MessageClick, MessageKeydown, MessageText } from '../websocket/message';
 import { Secret } from '../model/secret';
+import { PuppeteerDriver } from '../driver/puppeteer/puppeteerDriver';
 
 export type WebConfig = Config & {
     loginUrl: string,
@@ -107,6 +108,12 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
         // Handler used to reject the interactive promise if the screencast fails to (re)start
         let onScreencastError: ((err: unknown) => void) | undefined;
 
+        // Resize screen
+        await (driver as PuppeteerDriver).page!.setViewport({
+            width: AbstractDriver.VIEWPORT_WIDTH/2,
+            height: AbstractDriver.VIEWPORT_HEIGHT/2,
+        });
+
         const interactiveEndPromise = new Promise<void>((resolve, reject) => {
             // Define timeout
             setTimeout(() => {
@@ -184,6 +191,12 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
             }
             await driver.stopScreenCast();
         }
+
+        // Resize screen
+        await (driver as PuppeteerDriver).page!.setViewport({
+            width: AbstractDriver.VIEWPORT_WIDTH,
+            height: AbstractDriver.VIEWPORT_HEIGHT,
+        });
     }
 
     /**

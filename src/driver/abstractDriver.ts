@@ -284,8 +284,8 @@ export abstract class AbstractDriver<E extends AbstractElement<any> = AbstractEl
 
     /**
      * Clicks the mouse at the given page coordinates.
-     * @param x The horizontal coordinate to click at.
-     * @param y The vertical coordinate to click at.
+     * @param x The horizontal coordinate to click at in absolute or relative terms.
+     * @param y The vertical coordinate to click at in absolute or relative terms.
      * @param options.delay Delay applied after the click, in milliseconds.
      */
     abstract click(x: number, y: number, options?: {

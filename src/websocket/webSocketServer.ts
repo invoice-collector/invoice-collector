@@ -93,8 +93,6 @@ export class WebSocketServer extends EventEmitter {
                     this.onTwofa(data as MessageTwofa);
                 }
                 else if (data.type === 'click' && data.x !== undefined && data.y !== undefined && this.onClick) {
-                    data.x = AbstractDriver.VIEWPORT_WIDTH * data.x;
-                    data.y = AbstractDriver.VIEWPORT_HEIGHT * data.y;
                     this.onClick(data as MessageClick);
                 }
                 else if (data.type === 'keydown' && data.key && this.onKeydown) {

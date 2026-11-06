@@ -114,10 +114,13 @@ export class PuppeteerDriver extends AbstractDriver<PuppeteerElement> {
         try {
             const cdp = await this.page.createCDPSession();
             await cdp.send('Page.enable');
+            const viewport = this.page?.viewport();
 
             // Listen for screencast frames and emit them as 'screenshot' events
             cdp.on('Page.screencastFrame', async ({ data, sessionId }) => {
-                this.emit('screenshot', data, AbstractDriver.VIEWPORT_WIDTH, AbstractDriver.VIEWPORT_HEIGHT);
+                this.emit('screenshot', data,
+                    viewport?.width || AbstractDriver.VIEWPORT_WIDTH,
+                    viewport?.height || AbstractDriver.VIEWPORT_HEIGHT);
                 // Acknowledge frame
                 await cdp.send('Page.screencastFrameAck', { sessionId }).catch(() => {});
             });
@@ -126,8 +129,8 @@ export class PuppeteerDriver extends AbstractDriver<PuppeteerElement> {
             await cdp.send('Page.startScreencast', {
                 format: 'jpeg',         // jpeg = smaller than png
                 quality: 100,           // 0–100
-                maxWidth: AbstractDriver.VIEWPORT_WIDTH,
-                maxHeight: AbstractDriver.VIEWPORT_HEIGHT,
+                maxWidth: viewport?.width || AbstractDriver.VIEWPORT_WIDTH,
+                maxHeight: viewport?.height || AbstractDriver.VIEWPORT_HEIGHT,
                 everyNthFrame: 1,        // increase to reduce FPS
             });
 
@@ -585,6 +588,11 @@ export class PuppeteerDriver extends AbstractDriver<PuppeteerElement> {
     async click(x: number, y: number, {
         delay = AbstractDriver.DEFAULT_DELAY,
     } = {}): Promise<void> {
+        if (x < 1 && y < 1) {
+            const viewport = this.page?.viewport();
+            x = Math.floor(x * (viewport?.width || AbstractDriver.VIEWPORT_WIDTH));
+            y = Math.floor(y * (viewport?.height || AbstractDriver.VIEWPORT_HEIGHT));
+        }
         await this.page?.mouse.click(x, y);
         await utils.delay(delay);
     }
@@ -767,10 +775,11 @@ export class PuppeteerDriver extends AbstractDriver<PuppeteerElement> {
             throw new Error('Page is not initialized.');
         }
         const data = await this.page.screenshot({encoding: 'base64'});
+        const viewport = this.page?.viewport();
         return {
             data,
-            width: this.page.viewport()?.width || AbstractDriver.VIEWPORT_WIDTH,
-            height: this.page.viewport()?.height || AbstractDriver.VIEWPORT_HEIGHT,
+            width: viewport?.width || AbstractDriver.VIEWPORT_WIDTH,
+            height: viewport?.height || AbstractDriver.VIEWPORT_HEIGHT,
         };
     }
 
