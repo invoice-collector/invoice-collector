@@ -33,6 +33,7 @@ export type MessageResize = AbstractMessage & {
     type: 'resize';
     width: number;
     height: number;
+    deviceScaleFactor?: number;
 }
 
 /**

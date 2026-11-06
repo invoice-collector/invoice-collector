@@ -97,7 +97,9 @@ export class WebSocketServer extends EventEmitter {
                 }
                 else if (data.type === 'resize' && this.onResize &&
                     Number.isSafeInteger(data.width) && data.width > 0 && data.width <= 8192 &&
-                    Number.isSafeInteger(data.height) && data.height > 0 && data.height <= 8192) {
+                    Number.isSafeInteger(data.height) && data.height > 0 && data.height <= 8192 &&
+                    (data.deviceScaleFactor === undefined ||
+                        (Number.isFinite(data.deviceScaleFactor) && data.deviceScaleFactor > 0 && data.deviceScaleFactor <= 8))) {
                     this.onResize(data as MessageResize);
                 }
                 else if (data.type === 'keydown' && data.key && this.onKeydown) {

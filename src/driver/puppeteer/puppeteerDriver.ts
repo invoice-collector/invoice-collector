@@ -101,11 +101,11 @@ export class PuppeteerDriver extends AbstractDriver<PuppeteerElement> {
     /**
      * @inheritdoc
      */
-    async resize(width: number, height: number): Promise<void> {
+    async resize(width: number, height: number, deviceScaleFactor: number = 1): Promise<void> {
         if (this.page === null) {
             throw new Error('Page is not initialized.');
         }
-        await this.page.setViewport({ width, height });
+        await this.page.setViewport({ width, height, deviceScaleFactor });
         // Send screenshot after resizing the viewport
         const screenshot = await this.screenshot();
         this.emit('screenshot', screenshot.data, screenshot.width, screenshot.height);

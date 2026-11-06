@@ -121,7 +121,7 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
 
             // Define what to do on resize event
             webSocketServer.onResize = async (event: MessageResize) => {
-                await driver.resize(event.width, event.height);
+                await driver.resize(event.width, event.height, event.deviceScaleFactor);
             };
 
             // Define what to do on click event

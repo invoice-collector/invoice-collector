@@ -92,8 +92,9 @@ export abstract class AbstractDriver<E extends AbstractElement<any> = AbstractEl
      * Resizes the viewport and emits a fresh screenshot when supported by the driver.
      * @param width The viewport width in CSS pixels.
      * @param height The viewport height in CSS pixels.
+     * @param deviceScaleFactor The device pixel ratio, defaulting to 1.
      */
-    abstract resize(width: number, height: number): Promise<void>;
+    abstract resize(width: number, height: number, deviceScaleFactor?: number): Promise<void>;
 
     /**
      * Restarts the driver with a new locale and/or proxy, restoring the current URL, cookies and local storage.
