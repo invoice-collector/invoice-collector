@@ -98,6 +98,19 @@ export class PuppeteerDriver extends AbstractDriver<PuppeteerElement> {
         });
     }
 
+    /**
+     * @inheritdoc
+     */
+    async resize(width: number, height: number, deviceScaleFactor: number = 1): Promise<void> {
+        if (this.page === null) {
+            throw new Error('Page is not initialized.');
+        }
+        await this.page.setViewport({ width, height, deviceScaleFactor });
+        // Send screenshot after resizing the viewport
+        const screenshot = await this.screenshot();
+        this.emit('screenshot', screenshot.data, screenshot.width, screenshot.height);
+    }
+
     // SCREENCAST
 
     /**
@@ -112,23 +125,46 @@ export class PuppeteerDriver extends AbstractDriver<PuppeteerElement> {
 
         // Create CDP session on the current page
         try {
-            const cdp = await this.page.createCDPSession();
+            const page = this.page;
+            const cdp = await page.createCDPSession();
             await cdp.send('Page.enable');
+            let capturePending = false;
+            let previousFrameData: string | undefined;
+            let previousViewportKey: string | undefined;
 
             // Listen for screencast frames and emit them as 'screenshot' events
             cdp.on('Page.screencastFrame', async ({ data, sessionId }) => {
-                this.emit('screenshot', data, AbstractDriver.VIEWPORT_WIDTH, AbstractDriver.VIEWPORT_HEIGHT);
-                // Acknowledge frame
-                await cdp.send('Page.screencastFrameAck', { sessionId }).catch(() => {});
+                const viewport = page.viewport();
+                const viewportKey = `${viewport?.width}:${viewport?.height}:${viewport?.deviceScaleFactor || 1}`;
+                // If screenshot capture is pending or the frame is identical to the previous one, acknowledge and skip it
+                if (capturePending || (data === previousFrameData && viewportKey === previousViewportKey)) {
+                    await cdp.send('Page.screencastFrameAck', { sessionId }).catch(() => {});
+                    return;
+                }
+                capturePending = true;
+                previousFrameData = data;
+                previousViewportKey = viewportKey;
+                try {
+                    // Screencast deviceScaleFactor is always 1, so we need to take a screenshot if the deviceScaleFactor is not 1
+                    if ((viewport?.deviceScaleFactor || 1) !== 1) {
+                        data = await page.screenshot({ encoding: 'base64', type: 'png' });
+                    }
+                    this.emit('screenshot', data,
+                        viewport?.width || AbstractDriver.VIEWPORT_WIDTH,
+                        viewport?.height || AbstractDriver.VIEWPORT_HEIGHT);
+                } catch (err) {
+                    // Ignore screenshot errors
+                } finally {
+                    capturePending = false;
+                    await cdp.send('Page.screencastFrameAck', { sessionId }).catch(() => {});
+                }
             });
 
             // Start screencast
             await cdp.send('Page.startScreencast', {
-                format: 'jpeg',         // jpeg = smaller than png
+                format: 'png',          // png = smaller than jpeg for web screenshots
                 quality: 100,           // 0–100
-                maxWidth: AbstractDriver.VIEWPORT_WIDTH,
-                maxHeight: AbstractDriver.VIEWPORT_HEIGHT,
-                everyNthFrame: 1,        // increase to reduce FPS
+                everyNthFrame: 1,       // increase to reduce FPS
             });
 
             this.screencastCdp = cdp;
@@ -585,6 +621,11 @@ export class PuppeteerDriver extends AbstractDriver<PuppeteerElement> {
     async click(x: number, y: number, {
         delay = AbstractDriver.DEFAULT_DELAY,
     } = {}): Promise<void> {
+        if (x < 1 && y < 1) {
+            const viewport = this.page?.viewport();
+            x = Math.floor(x * (viewport?.width || AbstractDriver.VIEWPORT_WIDTH));
+            y = Math.floor(y * (viewport?.height || AbstractDriver.VIEWPORT_HEIGHT));
+        }
         await this.page?.mouse.click(x, y);
         await utils.delay(delay);
     }
@@ -767,10 +808,11 @@ export class PuppeteerDriver extends AbstractDriver<PuppeteerElement> {
             throw new Error('Page is not initialized.');
         }
         const data = await this.page.screenshot({encoding: 'base64'});
+        const viewport = this.page?.viewport();
         return {
             data,
-            width: this.page.viewport()?.width || AbstractDriver.VIEWPORT_WIDTH,
-            height: this.page.viewport()?.height || AbstractDriver.VIEWPORT_HEIGHT,
+            width: viewport?.width || AbstractDriver.VIEWPORT_WIDTH,
+            height: viewport?.height || AbstractDriver.VIEWPORT_HEIGHT,
         };
     }
 

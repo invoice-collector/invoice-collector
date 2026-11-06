@@ -3,7 +3,7 @@ import { AbstractDriver } from '../driver/abstractDriver';
 import { V2Collector } from './v2Collector';
 import { WebSocketServer } from '../websocket/webSocketServer';
 import { DisconnectedError, LoggableError, RemoveError } from '../error';
-import { MessageClick, MessageKeydown, MessageText } from '../websocket/message';
+import { MessageClick, MessageKeydown, MessageResize, MessageText } from '../websocket/message';
 import { Secret } from '../model/secret';
 
 export type WebConfig = Config & {
@@ -119,6 +119,11 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
             };
             driver.on('screencast_error', onScreencastError);
 
+            // Define what to do on resize event
+            webSocketServer.onResize = async (event: MessageResize) => {
+                await driver.resize(event.width, event.height, event.deviceScaleFactor);
+            };
+
             // Define what to do on click event
             webSocketServer.onClick = async (event: MessageClick) => {
                 await driver.click(event.x, event.y, { delay: 0 });
@@ -184,6 +189,9 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
             }
             await driver.stopScreenCast();
         }
+
+        // Resize screen
+        await driver.resize(AbstractDriver.VIEWPORT_WIDTH, AbstractDriver.VIEWPORT_HEIGHT);
     }
 
     /**

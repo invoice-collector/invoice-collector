@@ -89,6 +89,14 @@ export abstract class AbstractDriver<E extends AbstractElement<any> = AbstractEl
     abstract stopScreenCast(): Promise<void>;
 
     /**
+     * Resizes the viewport and emits a fresh screenshot when supported by the driver.
+     * @param width The viewport width in CSS pixels.
+     * @param height The viewport height in CSS pixels.
+     * @param deviceScaleFactor The device pixel ratio, defaulting to 1.
+     */
+    abstract resize(width: number, height: number, deviceScaleFactor?: number): Promise<void>;
+
+    /**
      * Restarts the driver with a new locale and/or proxy, restoring the current URL, cookies and local storage.
      * @param locale The locale to use for the new browser session.
      * @param proxy An optional proxy to route the browser traffic through.
@@ -284,8 +292,8 @@ export abstract class AbstractDriver<E extends AbstractElement<any> = AbstractEl
 
     /**
      * Clicks the mouse at the given page coordinates.
-     * @param x The horizontal coordinate to click at.
-     * @param y The vertical coordinate to click at.
+     * @param x The horizontal coordinate to click at in absolute or relative terms.
+     * @param y The vertical coordinate to click at in absolute or relative terms.
      * @param options.delay Delay applied after the click, in milliseconds.
      */
     abstract click(x: number, y: number, options?: {

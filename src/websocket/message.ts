@@ -7,7 +7,7 @@ export type AbstractMessage = {
     type: string;
 }
 
-// RECEIVED MESSAGES
+// MESSAGES FROM CLIENT TO SERVER
 
 /**
  * Represents a message containing a 2FA code sent by the client.
@@ -51,7 +51,17 @@ export type MessageInteractive = AbstractMessage & {
     instructions: string;
 }
 
-// SENT MESSAGES
+/**
+ * Represents a message containing a resize event sent by the client.
+ */
+export type MessageResize = AbstractMessage & {
+    type: 'resize';
+    width: number;
+    height: number;
+    deviceScaleFactor?: number;
+}
+
+// MESSAGES FROM SERVER TO CLIENT
 
 /**
  * Represents a message containing the current collection state sent by the server.

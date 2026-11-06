@@ -183,6 +183,11 @@ export class ExtensionDriver extends AbstractDriver<ExtensionElement> {
     /**
      * @inheritdoc
      */
+    async resize(width: number, height: number, deviceScaleFactor: number = 1): Promise<void> {}
+
+    /**
+     * @inheritdoc
+     */
     async stopScreenCast(): Promise<void> {
         if (this.transport.connected) {
             await this.request('screencast.stop', {}, AbstractDriver.DEFAULT_TIMEOUT);
