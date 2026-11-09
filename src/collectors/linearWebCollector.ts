@@ -102,7 +102,7 @@ export abstract class LinearWebCollector extends WebCollector {
 
                     // If the webSocketServer is undefined, it means that the session has expired
                     if (!webSocketServer) {
-                        throw new DisconnectedError('i18n.collectors.all.login.expired', this);
+                        throw new DisconnectedError('i18n.collectors.all.session.expired.2fa', this);
                     }
 
                     // Set progress step to 2fa waiting
@@ -201,7 +201,7 @@ export abstract class LinearWebCollector extends WebCollector {
 
                 // If need login, raise error
                 if(needLogin) {
-                    throw new DisconnectedError('i18n.collectors.all.login.expired', this);
+                    throw new DisconnectedError('i18n.collectors.all.session.expired.login', this);
                 }
 
                 // If no webSocketServer, it means that we are in auto login mode
