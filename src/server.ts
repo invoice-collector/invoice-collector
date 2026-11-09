@@ -198,8 +198,8 @@ export class Server {
      * Authentication can be done using either the bearer token or the token parameter.
      * @param bearer The bearer token used for authentication.
      * @param token The token used for authentication.
-     * @param type The type of feedback (e.g., bug report, feature request).
-     * @param message The feedback message provided by the user.
+     * @param type The type of feedback (e.g., sketch, custom, new_collector).
+     * @param body The feedback body provided by the user.
      */
     public async post_feedback(
         bearer: string | undefined,
