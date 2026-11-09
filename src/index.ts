@@ -266,12 +266,12 @@ app.get('/api/v1/ui', async (req, res) => {
  *                 type: 'new_collector'
  *                 message:
  *                   name: 'Acme'
- *                   website: 'https://acme.com'
+ *                   websiteUrl: 'https://acme.com'
  *                   collectorType: 'email'
  *                   emailSender: 'billing@acme.com'
- *                   emailSubject: 'Your invoice'
- *                   emailBody: 'Please find attached your invoice.'
- *                   attachmentName: 'invoice.pdf'
+ *                   emailSubject: 'Your invoice number *'
+ *                   emailBody: '* invoice *'
+ *                   attachmentName: '*.pdf'
  *     responses:
  *       200:
  *         description: Success
