@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
     
     document.getElementById('add-credential-form').addEventListener('submit', addCredential);
-    document.querySelector('#feedback-form select[name="collector_type"]').addEventListener('change', feedbackTypeChanged);
+    document.querySelector('#feedback-form select[name="collectorType"]').addEventListener('change', feedbackTypeChanged);
     document.getElementById('feedback-form').addEventListener('submit', sendFeedback);
     
     if (!collect_credential_id) {
@@ -45,8 +45,8 @@ document.addEventListener('DOMContentLoaded', async () => {
    API FUNCTIONS
    =================================== */
 
-async function post_send_feedback(body) {
-    return await fetch(`feedback?token=${token}`, {
+async function post_new_collector_feedback(body) {
+    return await fetch(`feedback/new_collector?token=${token}`, {
         method: 'POST',
         body: JSON.stringify(body),
         headers: {
@@ -475,22 +475,17 @@ async function sendFeedback(event) {
         params[key] = value;
     });
     
-    if (!params.website_url || !params.website_url.trim()) {
+    if (!params.websiteUrl || !params.websiteUrl.trim()) {
         document.getElementById('feedback-response-error').classList.remove('ic-hidden');
         document.getElementById('feedback-response-success').classList.add('ic-hidden');
         return;
     }
     
-    const feedbackBody = {
-        type: 'new_collector',
-        message: JSON.stringify(params)
-    };
-    
     isSubmitting = true;
     submitButton.disabled = true;
     
     try {
-        const response = await post_send_feedback(feedbackBody);
+        const response = await post_new_collector_feedback(params);
         form.reset();
         document.querySelector('#feedback-form input[name="type"]').value = 'new_collector';
         

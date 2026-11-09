@@ -9273,7 +9273,7 @@
   "i18n.views.manage.error": "Error",
   "i18n.views.manage.error_required_fields": "Please fill in all required fields.",
   "i18n.views.manage.feedback.attachment_name": "Attachment Name Wildcard",
-  "i18n.views.manage.feedback.attachment_name.placeholder": "invoice-*.pdf",
+  "i18n.views.manage.feedback.attachment_name.placeholder": "*.pdf",
   "i18n.views.manage.feedback.body": "Email Body Wildcard",
   "i18n.views.manage.feedback.body.placeholder": "* invoice *",
   "i18n.views.manage.feedback.email": "Sender Email Wildcard",

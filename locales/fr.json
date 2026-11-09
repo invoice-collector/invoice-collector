@@ -9273,7 +9273,7 @@
   "i18n.views.manage.error": "Erreur",
   "i18n.views.manage.error_required_fields": "Veuillez remplir tous les champs obligatoires.",
   "i18n.views.manage.feedback.attachment_name": "Nom de la pièce jointe",
-  "i18n.views.manage.feedback.attachment_name.placeholder": "facture-*.pdf",
+  "i18n.views.manage.feedback.attachment_name.placeholder": "*.pdf",
   "i18n.views.manage.feedback.body": "Corps de l'email",
   "i18n.views.manage.feedback.body.placeholder": "* facture *",
   "i18n.views.manage.feedback.email": "Email de l'expéditeur",

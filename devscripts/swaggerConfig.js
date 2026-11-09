@@ -481,12 +481,69 @@ const SWAGGER_DEFINITION = {
                     required: ['id', 'type', 'mimetype', 'timestamp', 'collected_timestamp', 'link', 'data'],
                 },
                 feedback: {
-                    type: 'object',
-                    required: ['type', 'message'],
-                    properties: {
-                        type: { type: 'string', description: 'Type of feedback.', example: 'custom' },
-                        message: { type: 'string', description: 'Feedback message.', example: 'This is a feedback message.' },
-                    },
+                    description: 'Feedback payload. The shape of `message` depends on `type`.',
+                    oneOf: [
+                        {
+                            type: 'object',
+                            description: 'Feedback for a sketch or custom request.',
+                            required: ['type', 'message'],
+                            properties: {
+                                type: {
+                                    type: 'string',
+                                    enum: ['custom'],
+                                    description: 'Type of feedback.',
+                                    example: 'custom',
+                                },
+                                message: {
+                                    type: 'string',
+                                    description: 'Feedback message.',
+                                    example: 'This is a feedback message.',
+                                },
+                            },
+                        },
+                        {
+                            type: 'object',
+                            description: 'Feedback requesting a new collector.',
+                            required: ['type', 'message'],
+                            properties: {
+                                type: {
+                                    type: 'string',
+                                    enum: ['new_collector'],
+                                    description: 'Type of feedback.',
+                                    example: 'new_collector',
+                                },
+                                message: {
+                                    oneOf: [
+                                        {
+                                            type: 'object',
+                                            description: 'Web collector.',
+                                            required: ['name', 'websiteUrl', 'collectorType', 'invoicesUrl'],
+                                            properties: {
+                                                name: { type: 'string', description: 'Name of the collector.', example: 'Acme' },
+                                                websiteUrl: { type: 'string', description: 'Website URL.', example: 'https://acme.com' },
+                                                collectorType: { type: 'string', enum: ['web'], description: 'Type of collector.', example: 'web' },
+                                                invoicesUrl: { type: 'string', description: 'URL of the invoices page.', example: 'https://acme.com/invoices' },
+                                            },
+                                        },
+                                        {
+                                            type: 'object',
+                                            description: 'Email collector.',
+                                            required: ['name', 'websiteUrl', 'collectorType', 'emailSender', 'emailSubject', 'emailBody', 'attachmentName'],
+                                            properties: {
+                                                name: { type: 'string', description: 'Name of the collector.', example: 'Acme' },
+                                                websiteUrl: { type: 'string', description: 'Website URL.', example: 'https://acme.com' },
+                                                collectorType: { type: 'string', enum: ['email'], description: 'Type of collector.', example: 'email' },
+                                                emailSender: { type: 'string', description: 'Email sender address.', example: 'billing@acme.com' },
+                                                emailSubject: { type: 'string', description: 'Email subject used to find the invoice.', example: 'Your invoice *' },
+                                                emailBody: { type: 'string', description: 'Email body used to find the invoice.', example: '* invoice *' },
+                                                attachmentName: { type: 'string', description: 'Name of the invoice attachment.', example: '*.pdf' },
+                                            },
+                                        },
+                                    ],
+                                },
+                            },
+                        },
+                    ],
                 },
             },
         },
