@@ -490,7 +490,7 @@ const SWAGGER_DEFINITION = {
                             properties: {
                                 type: {
                                     type: 'string',
-                                    enum: ['sketch', 'custom'],
+                                    enum: ['custom'],
                                     description: 'Type of feedback.',
                                     example: 'custom',
                                 },
