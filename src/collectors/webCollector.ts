@@ -101,7 +101,7 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
     ): Promise<string |void> {
         // If called with a WebSocketServer to undefined, it means that the session has expired
         if (!webSocketServer) {
-            throw new DisconnectedError('i18n.collectors.all.login.expired', this);
+            throw new DisconnectedError('i18n.collectors.all.session.expired.login', this);
         }
 
         // Handler used to reject the interactive promise if the screencast fails to (re)start
@@ -152,7 +152,7 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                         resolve();
                         break;
                     case 'cancel':
-                        reject(new DisconnectedError('i18n.collectors.all.login.expired', this));
+                        reject(new DisconnectedError('i18n.collectors.all.session.expired.login', this));
                         break;
                     case 'remove':
                         reject(new RemoveError(this));
