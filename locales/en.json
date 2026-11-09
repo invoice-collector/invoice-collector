@@ -354,7 +354,7 @@
   "i18n.collectors.all.password": "Password",
   "i18n.collectors.all.password.error": "Incorrect password",
   "i18n.collectors.all.password.placeholder": "***********",
-  "i18n.collectors.all.session.expired.2fa": "Two Factor Authentication is required. Please reconnect it to continue receiving your invoices automatically.",
+  "i18n.collectors.all.session.expired.2fa": "Your account has been disconnected because Two Factor Authentication is required. Please reconnect it to continue receiving your invoices automatically.",
   "i18n.collectors.all.session.expired.login": "Your account has been disconnected. Please reconnect it to continue receiving your invoices automatically.",
   "i18n.collectors.all.signup.error": "No account found with these identifier",
   "i18n.collectors.all_inkl_com.description": "A German web hosting provider offering domain registration, shared hosting, and cloud services.",

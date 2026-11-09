@@ -354,7 +354,7 @@
   "i18n.collectors.all.password": "Mot de passe",
   "i18n.collectors.all.password.error": "Mot de passe incorrect",
   "i18n.collectors.all.password.placeholder": "***********",
-  "i18n.collectors.all.session.expired.2fa": "L'authentification à deux facteurs est requise. Veuillez la reconnecter pour continuer à recevoir vos factures automatiquement.",
+  "i18n.collectors.all.session.expired.2fa": "Votre compte a été déconnecté car l'authentification à deux facteurs est requise. Reconnectez le pour continuer à recevoir vos factures automatiquement.",
   "i18n.collectors.all.session.expired.login": "Votre compte à été déconnecté. Reconnectez le pour continuer à recevoir vos factures automatiquement.",
   "i18n.collectors.all.signup.error": "Aucun compte trouvé avec cet identifiant",
   "i18n.collectors.all_inkl_com.description": "Un hébergeur web allemand proposant l'enregistrement de domaines, l'hébergement mutualisé et des services cloud.",
