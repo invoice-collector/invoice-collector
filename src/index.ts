@@ -252,7 +252,7 @@ app.get('/api/v1/ui', async (req, res) => {
  *                 type: 'custom'
  *                 message: 'This is a feedback message.'
  *             newCollectorWeb:
- *               summary: 'New collector — web'
+ *               summary: 'New web collector'
  *               value:
  *                 type: 'new_collector'
  *                 message:
@@ -261,7 +261,7 @@ app.get('/api/v1/ui', async (req, res) => {
  *                   collectorType: 'web'
  *                   invoicesUrl: 'https://acme.com/invoices'
  *             newCollectorEmail:
- *               summary: 'New collector — email'
+ *               summary: 'New email collector'
  *               value:
  *                 type: 'new_collector'
  *                 message:
