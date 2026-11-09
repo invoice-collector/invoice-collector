@@ -444,14 +444,20 @@ async function collectCredential(id) {
    =================================== */
 
 function feedbackTypeChanged(event) {
-    const invoicesUrlContainer = document.querySelector('#feedback-form div.ic-form-group:has(input[name="invoices_url"])')
-    const invoicesUrlInput = document.querySelector('#feedback-form div.ic-form-group input[name="invoices_url"]')
+    const webContainer = document.getElementById('feedback-group-web');
+    const emailContainer = document.getElementById('feedback-group-email');
+    const webInputsElements = webContainer.querySelectorAll('input, textarea');
+    const emailInputsElements = emailContainer.querySelectorAll('input, textarea');
     if (event.target.value == "web") {
-        invoicesUrlContainer.classList.remove('ic-hidden');
-        invoicesUrlInput.required = true;
+        webContainer.classList.remove('ic-hidden');
+        emailContainer.classList.add('ic-hidden');
+        webInputsElements.forEach(input => input.required = true);
+        emailInputsElements.forEach(input => input.required = false);
     } else {
-        invoicesUrlContainer.classList.add('ic-hidden');
-        invoicesUrlInput.required = false;
+        webContainer.classList.add('ic-hidden');
+        emailContainer.classList.remove('ic-hidden');
+        webInputsElements.forEach(input => input.required = false);
+        emailInputsElements.forEach(input => input.required = true);
     }
 }
 
@@ -477,12 +483,7 @@ async function sendFeedback(event) {
     
     const feedbackBody = {
         type: 'new_collector',
-        message: JSON.stringify({
-            name: params.name,
-            website_url: params.website_url,
-            collector_type: params.collector_type,
-            invoices_url: params.invoices_url,
-        })
+        message: JSON.stringify(params)
     };
     
     isSubmitting = true;
@@ -507,6 +508,8 @@ async function sendFeedback(event) {
     } finally {
         isSubmitting = false;
         submitButton.disabled = false;
+        document.getElementById('feedback-group-web').classList.add('ic-hidden');
+        document.getElementById('feedback-group-email').classList.add('ic-hidden');
     }
 }
 

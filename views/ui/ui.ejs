@@ -391,10 +391,37 @@
                 </select>
             </div>
 
-            <!-- Invoices URL Field -->
-            <div class="ic-form-group ic-form-group--floating ic-hidden">
-                <label class="ic-label ic-label--required"><%= __('i18n.views.manage.feedback.url_invoices') %></label>
-                <input type="url" name="invoices_url" class="ic-input" placeholder="<%= __('i18n.views.manage.feedback.url_invoices.placeholder') %>" required>
+            <!-- Web Group -->
+            <div id="feedback-group-web" class="ic-hidden">
+                <div class="ic-form-group ic-form-group--floating">
+                    <!-- Invoices URL Field -->
+                    <label class="ic-label ic-label--required"><%= __('i18n.views.manage.feedback.url_invoices') %></label>
+                    <input type="url" name="invoices_url" class="ic-input" placeholder="<%= __('i18n.views.manage.feedback.url_invoices.placeholder') %>">
+                </div>
+            </div>
+
+            <!-- Email Group -->
+            <div id="feedback-group-email" class="ic-hidden">
+                <!-- Sender Email Field -->
+                <div class="ic-form-group ic-form-group--floating">
+                    <label class="ic-label ic-label--required"><%= __('i18n.views.manage.feedback.email') %></label>
+                    <input type="text" name="emailSender" class="ic-input" placeholder="<%= __('i18n.views.manage.feedback.email.placeholder') %>">
+                </div>
+                <!-- Subject Email Field -->
+                <div class="ic-form-group ic-form-group--floating">
+                    <label class="ic-label ic-label--required"><%= __('i18n.views.manage.feedback.subject') %></label>
+                    <input type="text" name="emailSubject" class="ic-input" placeholder="<%= __('i18n.views.manage.feedback.subject.placeholder') %>">
+                </div>
+                <!-- Body Email Field -->
+                <div class="ic-form-group ic-form-group--floating">
+                    <label class="ic-label ic-label--required"><%= __('i18n.views.manage.feedback.body') %></label>
+                    <input name="emailBody" class="ic-input" placeholder="<%= __('i18n.views.manage.feedback.body.placeholder') %>">
+                </div>
+                <!-- Attachment Name Field -->
+                <div class="ic-form-group ic-form-group--floating">
+                    <label class="ic-label ic-label--required"><%= __('i18n.views.manage.feedback.attachment_name') %></label>
+                    <input type="text" name="attachmentName" class="ic-input" placeholder="<%= __('i18n.views.manage.feedback.attachment_name.placeholder') %>">
+                </div>
             </div>
             
             <!-- Success Alert -->
