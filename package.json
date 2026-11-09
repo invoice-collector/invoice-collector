@@ -36,7 +36,8 @@
     "rebrowser-puppeteer-core": "^25.14.101",
     "ts-node": "^10.9.2",
     "typescript": "^5.7.3",
-    "xvfb": "^0.4.0"
+    "xvfb": "^0.4.0",
+    "zod": "^4.6.7"
   },
   "devDependencies": {
     "@types/express": "^5.0.0",

@@ -245,6 +245,33 @@ app.get('/api/v1/ui', async (req, res) => {
  *         application/json:
  *           schema:
  *             $ref: '#/components/schemas/feedback'
+ *           examples:
+ *             customFeedback:
+ *               summary: 'Custom feedback'
+ *               value:
+ *                 type: 'custom'
+ *                 message: 'This is a feedback message.'
+ *             newCollectorWeb:
+ *               summary: 'New collector — web'
+ *               value:
+ *                 type: 'new_collector'
+ *                 message:
+ *                   name: 'Acme'
+ *                   websiteUrl: 'https://acme.com'
+ *                   collectorType: 'web'
+ *                   invoicesUrl: 'https://acme.com/invoices'
+ *             newCollectorEmail:
+ *               summary: 'New collector — email'
+ *               value:
+ *                 type: 'new_collector'
+ *                 message:
+ *                   name: 'Acme'
+ *                   website: 'https://acme.com'
+ *                   collectorType: 'email'
+ *                   emailSender: 'billing@acme.com'
+ *                   emailSubject: 'Your invoice'
+ *                   emailBody: 'Please find attached your invoice.'
+ *                   attachmentName: 'invoice.pdf'
  *     responses:
  *       200:
  *         description: Success
@@ -268,15 +295,15 @@ app.get('/api/v1/ui', async (req, res) => {
  *               $ref: '#/components/schemas/error'
  */
 // BEARER OR TOKEN AUTHENTICATION
-app.post('/api/v1/feedback', creationRateLimiter, async (req, res) => {
+app.post('/api/v1/feedback/:type', creationRateLimiter, async (req, res) => {
     try {
         // Send feedback
         console.log('POST /feedback');
         await server.post_feedback(
             req.headers.authorization,
             req.query.token,
-            req.body.type,
-            req.body.message,
+            req.params.type,
+            req.body,
         );
 
         // Build response

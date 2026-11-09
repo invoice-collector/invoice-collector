@@ -25,6 +25,7 @@ import { BillTask } from './tasks/bill/billTask';
 import { ExtensionTransport } from './driver/extension/extensionTransport';
 import { WebCollector } from './collectors/webCollector';
 import { AbstractProxy } from './proxy/abstractProxy';
+import { FeedbackType, NewCollectorSchema } from './analytics/abstractAnalytics';
 
 export class Server {
 
@@ -203,8 +204,8 @@ export class Server {
     public async post_feedback(
         bearer: string | undefined,
         token: any,
-        type: string | undefined,
-        message: string | undefined,
+        type: string | string[],
+        body: string | undefined,
     ): Promise<void> {
         // Check if type field is missing
         if(!type) {
@@ -212,8 +213,29 @@ export class Server {
         }
 
         // Check if message field is missing
-        if(!message) {
-            throw new MissingField('message');
+        if(!body) {
+            throw new MissingField('body');
+        }
+
+        // Check type type
+        if(typeof type !== "string") {
+            throw new StatusError("Feedback type must be a string.", 400);
+        }
+
+        // If type is new collector
+        if(type === FeedbackType.SKETCH || type === FeedbackType.CUSTOM) {
+            //Nothing to check
+        }
+        // If type is custom
+        else if(type === FeedbackType.NEW_COLLECTOR) {
+            const result = NewCollectorSchema.safeParse(body);
+            if (!result.success) {
+                throw new StatusError(`Invalid body format: ${result.error.message}`, 400);
+            }
+        }
+        // If type is not recognized
+        else {
+            throw new StatusError(`Feedback type "${type}" is not valid. Possible values are: ${Object.values(FeedbackType).join(', ')}`, 400);
         }
 
         // Get customer from bearer or token
@@ -222,7 +244,7 @@ export class Server {
         // Send feedback to analytics server
         await AnalyticsFactory.getInstance().feedback(
             type,
-            message,
+            JSON.stringify(body),
             customer.email,
             '',
         );

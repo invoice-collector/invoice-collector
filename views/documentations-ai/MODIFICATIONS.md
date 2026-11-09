@@ -164,9 +164,8 @@ ${company.state === 'planned' ? '<span class="ic-badge ic-badge--info">Planned</
 
 ```javascript
 const feedbackBody = {
-    type: 'new_collector',
-    message: params.website_url,
-    email: params.email || '' // Récupérer le nouveau champ
+    collectorType: 'web' | 'email',
+    message: params.websiteUrl
 };
 ```
 

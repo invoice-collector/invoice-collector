@@ -1,3 +1,4 @@
+import { z } from "zod";
 import { AbstractCollector, Config } from '../collectors/abstractCollector';
 import { LoggableError } from '../error';
 import * as utils from '../utils';
@@ -25,6 +26,35 @@ export type EmailAttachment = {
     contentType: string,
     encoding: 'base64',
 }
+
+export enum FeedbackType {
+    SKETCH = 'sketch',
+    NEW_COLLECTOR = 'new_collector',
+    CUSTOM = 'custom'
+}
+
+const NewCollectorWebSchema = z.object({
+    name: z.string(),
+    websiteUrl: z.string(),
+    collectorType: z.literal("web"),
+    invoicesUrl: z.string(),
+});
+
+const NewCollectorEmailSchema = z.object({
+    name: z.string(),
+    websiteUrl: z.string(),
+    collectorType: z.literal("email"),
+    emailSender: z.string(),
+    emailSubject: z.string(),
+    emailBody: z.string(),
+    attachmentName: z.string(),
+});
+
+
+export const NewCollectorSchema = z.discriminatedUnion("collectorType", [
+    NewCollectorWebSchema,
+    NewCollectorEmailSchema,
+]);
 
 export abstract class AbstractAnalytics {
 
