@@ -250,8 +250,18 @@ export class PuppeteerElement extends AbstractElement<PuppeteerDriver> {
     /**
      * @inheritdoc
      */
-    async getAttribute(selector: Selector, attribute: string): Promise<string> {
-        return await this.element.$eval(selector.selector, (element, attr) => element.getAttribute(attr) ?? element[attr], attribute);
+    async getAttribute(selector: Selector | null, attribute: string): Promise<string> {
+        // If selector is null, get the current element itself
+        if (!selector) {
+            return await this.element.evaluate((element, attr) =>
+                element.getAttribute(attr) ?? element[attr],
+            attribute);
+        }
+        else {
+            return await this.element.$eval(selector.selector, (element, attr) =>
+                element.getAttribute(attr) ?? element[attr],
+            attribute);
+        }
     }
 
     /**

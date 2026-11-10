@@ -100,7 +100,7 @@ export class ExtensionElement extends AbstractElement<ExtensionDriver> {
     /**
      * @inheritdoc
      */
-    async getAttribute(selector: Selector, attribute: string): Promise<string> {
+    async getAttribute(selector: Selector | null, attribute: string): Promise<string> {
         const result = await this.driver.elementRequest<{ value: unknown }>(
             'element.getAttribute', this.ref, { selector, attributeName: attribute },
         );
