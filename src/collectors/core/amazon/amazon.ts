@@ -18,7 +18,7 @@ export class AmazonCollector extends LinearWebCollector {
         id: 'amazon',
         name: 'Amazon (.fr)',
         description: 'i18n.collectors.amazon.description',
-        version: '43',
+        version: '44',
         website: 'https://www.amazon.fr',
         logo: 'https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg',
         type: CollectorType.WEB,
@@ -104,6 +104,12 @@ export class AmazonCollector extends LinearWebCollector {
             const email_alert = await driver.getElement(AmazonSelectors.CONTAINER_LOGIN_ALERT, { raiseException: false, timeout: 2000 });
             if (email_alert) {
                 return await email_alert.textContent('i18n.collectors.all.email.error');
+            }
+
+            // Check if email is incorrect
+            const registerForm = await driver.getElement(AmazonSelectors.CONTAINER_REGISTER_FORM, { raiseException: false, timeout: 100 });
+            if (registerForm) {
+                return 'i18n.collectors.all.signup.error';
             }
         }
 
