@@ -71,7 +71,7 @@ export class YoucanbookMeCollector extends LinearWebCollector {
         });
 
         if (error !== null) {
-            return "i18n.collectors.all.password.error";
+            return await error.textContent("i18n.collectors.all.password.error");
         }
     }
 
