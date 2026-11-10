@@ -121,19 +121,17 @@ export class CrispCollector extends LinearWebCollector {
             return null;
         }
 
+        const timestamp = utils.timestampFromString(this.normalizeDate(date), "MMM yyyy", 'fr');
         const amount = this.parseAmount(await element.getAttribute(CrispSelectors.CONTAINER_INVOICE_AMOUNT, "textContent"));
+        const id = utils.hash_string(`${new Date(timestamp).toISOString()}${amount}`)
         const downloadButton = await element.getElement(CrispSelectors.BUTTON_INVOICE_DOWNLOAD);
 
         return {
-            id: utils.hash_string(`${date.trim()}${amount}`),
-            // Crisp only exposes the month and the year, so the timestamp
-            // lands on the first day of the month
-            timestamp: utils.timestampFromString(this.normalizeDate(date), "MMM yyyy", 'fr'),
-            amount,
-            // The download is JavaScript driven, so there is no direct link.
-            // The invoices page is exposed instead, like `openai_api` does.
+            id: id,
+            timestamp: timestamp,
+            amount: amount,
             link: driver.url(),
-            downloadButton
+            downloadButton: downloadButton
         };
     }
 
