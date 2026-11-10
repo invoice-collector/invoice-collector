@@ -24,6 +24,10 @@ export const AmazonSelectors = {
         selector: '#continue',
         info: 'continue button field',
     },
+    CONTAINER_REGISTER_FORM: {
+        selector: "form#intent-confirmation-form[action*='register']",
+        info: 'register form container',
+    },
     FIELD_PASSWORD: {
         selector: 'input#ap_password',
         info: 'password input field',
