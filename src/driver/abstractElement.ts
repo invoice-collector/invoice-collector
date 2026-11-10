@@ -74,11 +74,11 @@ export abstract class AbstractElement<D extends AbstractDriver<any> = AbstractDr
 
     /**
      * Gets the specified attribute from a descendant element, falling back to its property value.
-     * @param selector The selector of the descendant element.
+     * @param selector The selector of the descendant element, or null to refer to the element itself.
      * @param attribute The name of the attribute to retrieve.
      * @returns The attribute value, or the property value if the attribute is not present.
      */
-    abstract getAttribute(selector: Selector, attribute: string): Promise<string>;
+    abstract getAttribute(selector: Selector | null, attribute: string): Promise<string>;
 
     /**
      * Gets the inner HTML content of the element.
