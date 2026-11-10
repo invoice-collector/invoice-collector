@@ -1,16 +1,11 @@
 import { LinearWebCollector } from '../../linearWebCollector';
 import { YoucanbookMeSelectors, DATE_FORMATS } from './selectors';
-import { Driver, Element } from '../../../driver/driver';
-import { CollectorCaptcha, CollectorType, Invoice, CollectorAuthenticationMethod } from '../../abstractCollector';
+import { AbstractDriver } from '../../../driver/abstractDriver';
+import { AbstractElement } from '../../../driver/abstractElement';
+import { CollectorCaptcha, CollectorType, Invoice, CollectorAuthenticationMethod, CollectorState } from '../../abstractCollector';
 import { WebSocketServer } from '../../../websocket/webSocketServer';
 import * as utils from '../../../utils';
 
-/**
- * YouCanBookMe keeps no invoice of its own: its "Plan and billing" page hands
- * over to the Stripe customer portal, which is where the billing history lives.
- * The collector therefore logs into YouCanBookMe, follows it to Stripe, reads
- * the invoices from the portal and downloads each one from its hosted page.
- */
 export class YoucanbookMeCollector extends LinearWebCollector {
 
     static CONFIG = {
@@ -38,19 +33,29 @@ export class YoucanbookMeCollector extends LinearWebCollector {
         loginUrl: "https://app.youcanbook.me/#/login",
         entryUrl: "https://app.youcanbook.me/#/billing/overview",
         captcha: CollectorCaptcha.NONE,
-        authenticationMethod: CollectorAuthenticationMethod.ALL
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
+        state: CollectorState.DEVELOPMENT
     }
 
+    /**
+     * Constructs a new instance of the YoucanbookMeCollector class.
+     */
     constructor() {
         super(YoucanbookMeCollector.CONFIG);
     }
 
-    async needLogin(driver: Driver): Promise<boolean> {
+    /**
+     * @inheritdoc
+     */
+    async needLogin(driver: AbstractDriver): Promise<boolean> {
         // Hash routed app: the route is readable without touching the DOM
         return driver.url().includes('#/login');
     }
 
-    async login(driver: Driver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
+    /**
+     * @inheritdoc
+     */
+    async login(driver: AbstractDriver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
         await driver.goto(this.config.loginUrl, { navigation: false });
 
         await driver.inputText(YoucanbookMeSelectors.FIELD_EMAIL, params.email);
@@ -70,7 +75,10 @@ export class YoucanbookMeCollector extends LinearWebCollector {
         }
     }
 
-    async navigate(driver: Driver): Promise<void> {
+    /**
+     * @inheritdoc
+     */
+    async navigate(driver: AbstractDriver): Promise<void> {
         await driver.goto(this.config.entryUrl, { navigation: false });
 
         // The Stripe portal opens in the same tab
@@ -80,7 +88,7 @@ export class YoucanbookMeCollector extends LinearWebCollector {
         // invoice is left to isEmpty()
         await driver.getElement(YoucanbookMeSelectors.LINK_INVOICE, {
             raiseException: false,
-            timeout: Driver.DEFAULT_NAVIGATION_TIMEOUT
+            timeout: AbstractDriver.DEFAULT_NAVIGATION_TIMEOUT
         });
 
         if (!driver.url().includes('billing.stripe.com')) {
@@ -88,19 +96,28 @@ export class YoucanbookMeCollector extends LinearWebCollector {
         }
     }
 
-    async isEmpty(driver: Driver): Promise<boolean> {
+    /**
+     * @inheritdoc
+     */
+    async isEmpty(driver: AbstractDriver): Promise<boolean> {
         return await driver.getElement(YoucanbookMeSelectors.LINK_INVOICE, {
             raiseException: false
         }) == null;
     }
 
-    async getInvoices(driver: Driver): Promise<Element[]> {
+    /**
+     * @inheritdoc
+     */
+    async getInvoices(driver: AbstractDriver): Promise<AbstractElement[]> {
         return await driver.getElements(YoucanbookMeSelectors.LINK_INVOICE);
     }
 
-    async data(driver: Driver, element: Element): Promise<Invoice | null> {
+    /**
+     * @inheritdoc
+     */
+    async data(driver: AbstractDriver, element: AbstractElement): Promise<Invoice | null> {
         // The row itself is the link to the hosted invoice page
-        const link = await element.element.evaluate((node: any) => node.getAttribute('href') || '');
+        const link = await element.getAttribute(null, 'href');
 
         const date = await element.getAttribute(YoucanbookMeSelectors.CONTAINER_INVOICE_DATE, "textContent");
         const amount = await element.getAttribute(YoucanbookMeSelectors.CONTAINER_INVOICE_AMOUNT, "textContent");
@@ -119,7 +136,10 @@ export class YoucanbookMeCollector extends LinearWebCollector {
         };
     }
 
-    async download(driver: Driver, invoice: Invoice): Promise<string[]> {
+    /**
+     * @inheritdoc
+     */
+    async download(driver: AbstractDriver, invoice: Invoice): Promise<string[]> {
         // Opened in a new tab so that the portal is never left: the handles of
         // the rows still to process would otherwise be detached
         await invoice.downloadButton.middleClick();
