@@ -88,6 +88,12 @@ export class I18n {
                 name: I18n.get(integration.params[key].name, locale),
                 placeholder: I18n.get(integration.params[key].placeholder, locale),
             };
+            if(integration.params[key].enum) {
+                acc[key].enum = Object.entries(integration.params[key].enum).reduce((enumAcc, [enumKey, enumValue]) => {
+                    enumAcc[enumKey] = I18n.get(enumValue, locale);
+                    return enumAcc;
+                }, {});
+            }
             return acc;
         }, {});
         return {

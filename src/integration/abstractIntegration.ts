@@ -13,6 +13,7 @@ export type IntegrationConfig = {
             placeholder: string,
             mandatory: boolean,
             default?: any,
+            enum?: Record<string, string>
         }
     }
 }
