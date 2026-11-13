@@ -62,7 +62,8 @@ export type Config = {
             placeholder: string,
             mandatory: boolean,
             default?: any,
-            alwaysAsk?: boolean
+            alwaysAsk?: boolean,
+            enum?: Record<string, string>
         }
     },
     state: CollectorState

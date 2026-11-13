@@ -318,20 +318,32 @@ function showForm(company) {
         }
         label.textContent = param.name;
         
-        const input = document.createElement('input');
+        let input;
+        if(param.type !== 'enum') {
+            input = document.createElement('input');
+            input.type = param.type === 'password' || param.type === 'number'
+                ? param.type
+                : param.type === 'boolean' ? 'checkbox' : 'text';
+            input.placeholder = param.placeholder;
+            if(param.default != undefined) {
+                input.value = param.default;
+            }
+            if(param.type === 'boolean' && param.default == true) {
+                input.checked = true;
+            }
+        }
+        else {
+            input = document.createElement('select');
+            Object.entries(param.enum).forEach(([key, value]) => {
+                const option = document.createElement('option');
+                option.value = key;
+                option.textContent = value;
+                input.appendChild(option);
+            });
+        }
         input.className = 'ic-input';
-        input.type = param.type === 'password' || param.type === 'number'
-            ? param.type
-            : param.type === 'boolean' ? 'checkbox' : 'text';
         input.name = key;
-        input.placeholder = param.placeholder;
         input.required = param.mandatory;
-        if(param.default != undefined) {
-            input.value = param.default;
-        }
-        if(param.type === 'boolean' && param.default == true) {
-            input.checked = true;
-        }
         
         formGroup.appendChild(label);
         formGroup.appendChild(input);

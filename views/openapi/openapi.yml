@@ -369,11 +369,13 @@ components:
           type: string
           description: Type of the parameter.
           enum:
-            - string
+            - text
+            - email
+            - password
             - number
             - boolean
             - enum
-          example: string
+          example: text
         name:
           type: string
           description: Name of the parameter.
@@ -391,6 +393,18 @@ components:
           description: Default value of the parameter. Can be a string, number, boolean,
             or enum.
           example: default_value
+        alwaysAsk:
+          type: boolean
+          description: Whether the parameter should always be asked to the user.
+          example: true
+        enum:
+          type: object
+          description: Mapping of enum keys to their string values.
+          additionalProperties:
+            type: string
+          example:
+            key1: value1
+            key2: value2
       required:
         - type
         - name
@@ -711,7 +725,9 @@ components:
                 type: string
                 description: Type of the parameter.
                 enum:
-                  - string
+                  - text
+                  - email
+                  - password
                   - number
                   - boolean
                   - enum
