@@ -58,10 +58,8 @@ export class I18n {
                 placeholder: I18n.get(config.params[key].placeholder, locale),
             };
             if(config.params[key].enum) {
-                console.log(`Translating enum for param: ${key}`);
                 acc[key].enum = Object.entries(config.params[key].enum).reduce((enumAcc, [enumKey, enumValue]) => {
                     enumAcc[enumKey] = I18n.get(enumValue, locale);
-                    console.log(`Translating enum value for key: ${enumKey} with value: ${enumValue} to: ${enumAcc[enumKey]} and locale: ${locale}`);
                     return enumAcc;
                 }, {});
             }
