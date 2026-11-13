@@ -52,6 +52,12 @@ export class I18n {
         const description: string = I18n.get(config.description, locale);
         const instructions: string = I18n.get(config.instructions, locale);
         const params = Object.keys(config.params).reduce((acc, key) => {
+            if(config.params[key].enum) {
+                config.params[key].enum = Object.entries(config.params[key].enum).reduce((enumAcc, [enumKey, enumValue]) => {
+                    enumAcc[enumKey] = I18n.get(enumValue, locale);
+                    return enumAcc;
+                }, {});
+            }
             acc[key] = {
                 ...config.params[key],
                 name: I18n.get(config.params[key].name, locale),
