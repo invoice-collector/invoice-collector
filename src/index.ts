@@ -40,7 +40,7 @@ function principalKeyGenerator(req: express.Request): string {
 
 // Throttle unauthenticated auth endpoints to slow down brute-force/credential-stuffing attempts
 const authRateLimiter = rateLimit({
-    windowMs: 15 * 60 * 1000, // 15 minutes
+    windowMs: 60 * 1000, // 1 minute
     limit: 20,
     standardHeaders: true,
     legacyHeaders: false,
@@ -49,7 +49,7 @@ const authRateLimiter = rateLimit({
 
 // Throttle 2FA code submission to prevent brute-forcing the 6-digit verification code
 const twofaRateLimiter = rateLimit({
-    windowMs: 15 * 60 * 1000, // 15 minutes
+    windowMs: 60 * 1000, // 1 minute
     limit: 10,
     standardHeaders: true,
     legacyHeaders: false,
@@ -59,7 +59,7 @@ const twofaRateLimiter = rateLimit({
 
 // Throttle resource creation/outbound-triggering endpoints to prevent quota/abuse loops
 const creationRateLimiter = rateLimit({
-    windowMs: 15 * 60 * 1000, // 15 minutes
+    windowMs: 60 * 1000, // 1 minute
     limit: 30,
     standardHeaders: true,
     legacyHeaders: false,
