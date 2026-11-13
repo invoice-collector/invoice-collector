@@ -295,11 +295,18 @@ const SWAGGER_DEFINITION = {
                 collectorParam: {
                     type: 'object',
                     properties: {
-                        type: { type: 'string', description: 'Type of the parameter.', enum: ['string', 'number', 'boolean', 'enum'], example: 'string' },
+                        type: { type: 'string', description: 'Type of the parameter.', enum: ['text', 'email', 'password', 'number', 'boolean', 'enum'], example: 'text' },
                         name: { type: 'string', description: 'Name of the parameter.', example: 'Email' },
                         placeholder: { type: 'string', description: 'Placeholder of the parameter.', example: 'Email of the account' },
                         mandatory: { type: 'boolean', description: 'Whether the parameter is mandatory or not.', example: true },
-                        default: { type: 'object', description: 'Default value of the parameter. Can be a string, number, boolean, or enum.', example: 'default_value' }
+                        default: { type: 'object', description: 'Default value of the parameter. Can be a string, number, boolean, or enum.', example: 'default_value' },
+                        alwaysAsk: { type: 'boolean', description: 'Whether the parameter should always be asked to the user.', example: true },
+                        enum: {
+                            type: 'object',
+                            description: 'Mapping of enum keys to their string values.',
+                            additionalProperties: { type: 'string' },
+                            example: { key1: 'value1', key2: 'value2' },
+                        }
                     },
                     required: ['type', 'name', 'placeholder', 'mandatory'],
                 },
@@ -442,7 +449,7 @@ const SWAGGER_DEFINITION = {
                             additionalProperties: {
                                 type: 'object',
                                 properties: {
-                                    type: { type: 'string', description: 'Type of the parameter.', enum: ['string', 'number', 'boolean', 'enum'], example: 'string' },
+                                    type: { type: 'string', description: 'Type of the parameter.', enum: ['text', 'email', 'password', 'number', 'boolean', 'enum'], example: 'string' },
                                     name: { type: 'string', description: 'Name of the parameter.', example: 'Email' },
                                     placeholder: { type: 'string', description: 'Placeholder of the parameter.', example: 'Email of the account' },
                                     mandatory: { type: 'boolean', description: 'Whether the parameter is mandatory or not.', example: true },
