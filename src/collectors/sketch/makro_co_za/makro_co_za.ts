@@ -7,7 +7,7 @@ export class MakroCoZaCollector extends SketchCollector {
     static CONFIG = {
         id: 'makro_co_za',
         name: 'Makro.co.za',
-        description: 'i18n.collectors.makro_co_za.description',
+        description: 'i18n.collectors.makro.description',
         version: '0',
         website: 'https://www.makro.co.za/login',
         logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/403623.jpg',
