@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         collectCredential(collect_credential_id);
     }
     else {
-        showCompanies();
+        showCompanies(true);
     }
     
     document.getElementById('add-credential-form').addEventListener('submit', addCredential);
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     document.getElementById('feedback-form').addEventListener('submit', sendFeedback);
     
     if (!collect_credential_id) {
-        showCompanies();
+        showCompanies(true);
     }
 
     getIp().then(i => {
@@ -94,7 +94,7 @@ const NAVIGATION_EVENT_SHOW_OAUTH2 = { type: 'ic-panel-oauth2' };
 function closeIframe() {
     window.parent.postMessage(NAVIGATION_EVENT_CLOSE, '*');
     if (!collect_credential_id) {
-        showCompanies();
+        showCompanies(true);
     }
     else{
         hiddeAllPanels();
@@ -108,7 +108,7 @@ async function hiddeAllPanels() {
     document.getElementById('feedback-container').classList.add('ic-hidden');
 }
 
-async function showCompanies() {
+async function showCompanies(resetSearch) {
     document.getElementById('companies-container').classList.remove('ic-hidden');
     document.getElementById('form-container').classList.add('ic-hidden');
     document.getElementById('progress-container').classList.add('ic-hidden');
@@ -116,12 +116,13 @@ async function showCompanies() {
     
     document.body.style.overflow = 'hidden';
     
-    const searchInput = document.getElementById('search-collectors');
-    if (searchInput) {
-        searchInput.value = '';
+    if (resetSearch) {
+        const searchInput = document.getElementById('search-collectors');
+        if (searchInput) {
+            searchInput.value = '';
+        }
+        renderCompanies(companies.slice(0, 100));
     }
-    
-    renderCompanies(companies.slice(0, 100));
     window.parent.postMessage(NAVIGATION_EVENT_SHOW_COMPANIES, '*');
 }
 
@@ -414,14 +415,14 @@ async function addCredential(event) {
         if (!response.ok) {
             console.error('Error adding credential:', content);
             alert(`Error: ${content.message || 'An error occurred while adding the credential.'}`);
-            showCompanies();
+            showCompanies(false);
         } else {
             showProgress(content.id, content.wsPath);
         }
     } catch (error) {
         console.error('Error adding credential:', error);
         alert('An error occurred while adding the credential.');
-        showCompanies();
+        showCompanies(false);
     } finally {
         isSubmitting = false;
         submitButton.disabled = false;
@@ -439,14 +440,14 @@ async function collectCredential(id) {
         if (!response.ok) {
             console.error('Error when starting the collection:', content);
             alert(`Error: ${content.message || 'An error occurred while starting the collection.'}`);
-            showCompanies();
+            showCompanies(false);
         } else {
             showProgress(id, content.wsPath);
         }
     } catch (error) {
         console.error('Error when starting the collection:', error);
         alert('An error occurred while starting the collection.');
-        showCompanies();
+        showCompanies(false);
     }
 }
 
@@ -617,7 +618,7 @@ async function showProgress(credential_id, wsPath) {
         }
 
         if(!collect_credential_id) {
-            showCompanies();
+            showCompanies(false);
         }
         else{
             window.parent.postMessage(NAVIGATION_EVENT_CLOSE, '*');
