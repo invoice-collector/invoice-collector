@@ -15,11 +15,13 @@ export class CollectorLoader {
      * @returns A map of collector IDs to their corresponding configuration and file path.
      */
     static async load(filter: string | null = null): Promise<Map<string, {config: Config, file: string}>> {
-        await this.loadFolders('sketch', 'sketch', filter);
-        await this.loadFolders('community', 'community', filter);
-        await this.loadFolders('core', 'core', filter);
-        await this.loadFolders('email_provider', 'email_provider', filter);
-        await this.loadFolders('premium', '../premium/collectors/premium', filter);
+        await this.loadFolders('premium', '../premium/collectors/premium', filter, true);
+        await this.loadFolders('premium', '../premium/collectors/email', filter, true);
+        await this.loadFolders('premium', '../premium/collectors/web', filter, true);
+        await this.loadFolders('email_provider', 'email_provider', filter, true);
+        await this.loadFolders('core', 'core', filter, true);
+        await this.loadFolders('community', 'community', filter, false);
+        await this.loadFolders('sketch', 'sketch', filter, true);
 
         //Order collectors by id
         CollectorLoader.collectors = new Map([...CollectorLoader.collectors.entries()]
@@ -34,8 +36,9 @@ export class CollectorLoader {
      * @param name The name of the collector category (e.g., 'sketch', 'community').
      * @param folder The folder path where the collector files are located.
      * @param filter The filter to apply when loading collector files. If `null`, all files are loaded.
+     * @param raiseOnDuplicate Whether to raise an error if a duplicate collector ID is found.
      */
-    private static async loadFolders(name: string, folder: string, filter: string | null) {
+    private static async loadFolders(name: string, folder: string, filter: string | null, raiseOnDuplicate: boolean) {
         const strPattern = filter ? `./${folder}/**/${filter}.ts` : `./${folder}/**/*.ts`;
         const pattern = path.join(__dirname, strPattern)
             .replaceAll('\\', '/'); // Ensure pattern uses forward slashes for glob
@@ -90,6 +93,13 @@ export class CollectorLoader {
                             }
 
                             if (config && config.id) {
+                                if (CollectorLoader.collectors.has(config.id.toLowerCase())) {
+                                    if (raiseOnDuplicate) {
+                                        throw new Error(`Duplicate collector ID found: ${config.id}`);
+                                    } else {
+                                        continue;
+                                    }
+                                }
                                 CollectorLoader.collectors.set(config.id.toLowerCase(), { config, file });
                                 nbFFilesLoaded++;
                             }
