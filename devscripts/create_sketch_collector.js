@@ -1,5 +1,4 @@
 const prompt = require('prompt-sync')();
-const fetch = require('node-fetch');
 const fs = require('fs');
 require('dotenv').config();
 
