@@ -16,8 +16,6 @@ export class CollectorLoader {
      */
     static async load(filter: string | null = null): Promise<Map<string, {config: Config, file: string}>> {
         await this.loadFolders('premium', '../premium/collectors/premium', filter, true);
-        await this.loadFolders('premium', '../premium/collectors/email', filter, true);
-        await this.loadFolders('premium', '../premium/collectors/web', filter, true);
         await this.loadFolders('email_provider', 'email_provider', filter, true);
         await this.loadFolders('core', 'core', filter, true);
         await this.loadFolders('community', 'community', filter, false);
