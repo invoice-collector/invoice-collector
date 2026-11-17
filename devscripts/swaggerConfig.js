@@ -335,6 +335,18 @@ const SWAGGER_DEFINITION = {
                     },
                     required: ['id', 'name', 'description', 'version', 'type', 'website', 'logo', 'params', 'captcha', 'authenticationMethod', 'state'],
                 },
+                collectorType: {
+                    type: 'string',
+                    description: 'Type of collector.',
+                    enum: ['web', 'api', 'email', 'provider', 'sketch'],
+                    example: 'web',
+                },
+                collectorState: {
+                    type: 'string',
+                    description: 'State of collector.',
+                    enum: ['planned', 'development', 'active'],
+                    example: 'active',
+                },
                 minimalistCustomer: {
                     type: 'object',
                     properties: {

@@ -8,7 +8,7 @@ import { User, UserStats } from './model/user';
 import { Customer, CustomerAuthenticationMethod, CustomerStats } from './model/customer';
 import { Credential } from './model/credential';
 import { CollectTask } from './tasks/collect/collectTask';
-import { AbstractCollector, CollectorType, Config } from './collectors/abstractCollector';
+import { AbstractCollector, CollectorState, CollectorType, Config } from './collectors/abstractCollector';
 import { AnalyticsFactory } from './analytics/analyticsFactory';
 import * as utils from './utils';
 import { CollectPool } from './tasks/collect/collectPool';
@@ -162,10 +162,14 @@ export class Server {
     /**
      * Returns a UI page for the user to add credentials.
      * @param token The token used for authentication.
+     * @param types Comma-separated list of collector types to retrieve. Empty means all types.
+     * @param states Comma-separated list of collector states to retrieve. Empty means all states.
      * @returns An object containing the collectors, locale, and theme for the UI page.
      */
     public async get_ui(
         token: any,
+        types: any,
+        states: any,
     ): Promise<{
         collectors: Config[],
         locale: string,
@@ -182,6 +186,8 @@ export class Server {
             undefined,
             token,
             user.locale,
+            types,
+            states,
         );
 
         // Return collectors, locale and theme
@@ -1723,12 +1729,16 @@ export class Server {
      * @param bearer The current bearer token of the customer.
      * @param token The token used for authentication.
      * @param locale The locale for which the collectors should be retrieved.
+     * @param types Comma-separated list of collector types to retrieve. Empty means all types.
+     * @param states Comma-separated list of collector states to retrieve. Empty means all states.
      * @returns A list of collector configurations available to the customer.
      */
     public async get_collectors(
         bearer: string | undefined,
         token: any,
         locale: any,
+        types: any,
+        states: any,
     ): Promise<Config[]> {
         // Check if token is missing or incorrect
         let subscribedCollectors: string[] = Customer.DEFAULT_SUBSCRIBED_COLLECTORS;
@@ -1750,6 +1760,32 @@ export class Server {
             locale = I18n.DEFAULT_LOCALE;
         }
 
+        // Check if type is valid if provided
+        if(types) {
+            if(typeof types !== 'string') {
+                throw new StatusError(`Type must be a string.`, 400);
+            }
+            types = types.split(',');
+            for(const t of types) {
+                if(!Object.values(CollectorType).includes(t as CollectorType)) {
+                    throw new StatusError(`Invalid type "${t}".`, 400);
+                }
+            }
+        }
+
+        // Check if state is valid if provided
+        if(states) {
+            if(typeof states !== 'string') {
+                throw new StatusError(`State must be a string.`, 400);
+            }
+            states = states.split(',');
+            for(const s of states) {
+                if(!Object.values(CollectorState).includes(s as CollectorState)) {
+                    throw new StatusError(`Invalid state "${s}".`, 400);
+                }
+            }
+        }
+
         // Check if locale is supported
         if(locale && !I18n.LOCALES.includes(locale)) {
             throw new StatusError(`Locale "${locale}" not supported. Available locales are: ${I18n.LOCALES.join(', ')}.`, 400);
@@ -1757,6 +1793,10 @@ export class Server {
 
         return (await CollectorLoader.getAll())
             .map((config: Config): Config => ({ ...config }))
+            // Filter type based on the query param
+            .filter((config: Config) => !types || types.length === 0 || types.includes(config.type))
+            // Filter state based on the query param
+            .filter((config: Config) => !states || states.length === 0 || states.includes(config.state))
             .filter((config: Config) => isSubscribedToAll || subscribedCollectors.includes(config.id))
             .filter((config: Config) => config.type !== CollectorType.SKETCH || displaySketchCollectors)
             // Hide collectors that are incompatible with the customer authentication method preference

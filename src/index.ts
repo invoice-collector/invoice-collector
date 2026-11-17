@@ -184,6 +184,16 @@ app.get('/api/v1/ping', async (req, res) => {
  *         required: true
  *         schema:
  *           $ref: '#/components/schemas/token'
+ *       - name: types
+ *         in: query
+ *         schema:
+ *           $ref: '#/components/schemas/collectorType'
+ *         description: Comma-separated list of collector types to retrieve. Empty means all types.
+ *       - name: states
+ *         in: query
+ *         schema:
+ *           $ref: '#/components/schemas/collectorState'
+ *         description: Comma-separated list of collector states to retrieve. Empty means all states.
  *       - name: credential_id
  *         in: query
  *         schema:
@@ -216,6 +226,8 @@ app.get('/api/v1/ui', async (req, res) => {
         console.log('GET /ui');
         const context = await server.get_ui(
             req.query.token,
+            req.query.types,
+            req.query.states,
         );
 
         // Render ui.ejs
@@ -1929,6 +1941,18 @@ app.post('/api/v1/credential/:credential_id/collect', async (req, res) => {
  *         schema:
  *           $ref: "#/components/schemas/locale"
  *         description: Locale for translated collector names and descriptions
+ *       - name: types
+ *         in: query
+ *         required: false
+ *         schema:
+ *           $ref: "#/components/schemas/collectorType"
+ *         description: Comma-separated list of collector types to retrieve. Empty means all types.
+ *       - name: states
+ *         in: query
+ *         required: false
+ *         schema:
+ *           $ref: "#/components/schemas/collectorState"
+ *         description: Comma-separated list of collector states to retrieve. Empty means all states.
  *     responses:
  *       200:
  *         description: Success
@@ -1972,6 +1996,8 @@ app.get('/api/v1/collectors', async (req, res) => {
             req.headers.authorization,
             req.query.token,
             req.query.locale,
+            req.query.types,
+            req.query.states,
         );
 
         // Build response
