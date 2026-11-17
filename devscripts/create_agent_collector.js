@@ -127,7 +127,7 @@ import { CollectorState, CollectorCaptcha, CollectorType, CollectorAuthenticatio
 export class ${collector.id_camel_case}WebCollector extends AgentWebCollector {
     static CONFIG = {
         id: "${collector.id}_web",
-        name: "${collector.name}",
+        name: "${collector.name} (Web)",
         description: "i18n.collectors.web.description",
         version: "0",
         website: "${collector.website}",
@@ -170,7 +170,7 @@ import { CollectorState, CollectorType } from '../../../../collectors/abstractCo
 export class ${collector.id_camel_case}EmailCollector extends AgentEmailCollector {
     static CONFIG = {
         id: "${collector.id}_email",
-        name: "${collector.name}",
+        name: "${collector.name} (Email)",
         description: "i18n.collectors.email.description",
         version: "0",
         website: "${collector.website}",
