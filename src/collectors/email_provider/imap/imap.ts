@@ -234,7 +234,7 @@ export class ImapCollector extends EmailProvider {
 
     /**
      * Finds body within a message.
-     * @param node The message structure node to search for body parts.
+     * @param message The message to extract the body from.
      * @returns An array of body part objects found within the message structure node.
      */
     private async findBody(message: FetchMessageObject): Promise<string> {
@@ -261,7 +261,7 @@ export class ImapCollector extends EmailProvider {
 
     /**
      * Finds body parts within a message structure node recursively.
-     * @param node The message structure node to search for body parts.
+     * @param bodyStructure The body structure node to search for text parts.
      * @returns An array of body part objects found within the message structure node.
      */
     private findTextPart(bodyStructure: any): string | null {
