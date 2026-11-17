@@ -232,8 +232,8 @@ async function createAgentCollector() {
     };
 
     // 5. Check src/collectors/web/{id}/{id}.json does not exist
-    const webCollectorPath = `src/premium/collectors/web/${collector.id}`;
-    const webCollectorFile = `${webCollectorPath}/${collector.id}.ts`;
+    const webCollectorPath = `src/premium/collectors/${collector.id}`;
+    const webCollectorFile = `${webCollectorPath}/${collector.id}_web.ts`;
     if (fs.existsSync(webCollectorPath)) {
         // Check if folder is not empty
         const files = fs.readdirSync(webCollectorPath);
@@ -243,8 +243,8 @@ async function createAgentCollector() {
     }
 
     // 6. Check src/collectors/email/{id}/{id}.json does not exist
-    const emailCollectorPath = `src/premium/collectors/email/${collector.id}`;
-    const emailCollectorFile = `${emailCollectorPath}/${collector.id}.ts`;
+    const emailCollectorPath = `src/premium/collectors/${collector.id}`;
+    const emailCollectorFile = `${emailCollectorPath}/${collector.id}_email.ts`;
     if (fs.existsSync(emailCollectorPath)) {
         // Check if folder is not empty
         const files = fs.readdirSync(emailCollectorPath);
