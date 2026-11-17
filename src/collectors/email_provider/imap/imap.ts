@@ -23,7 +23,7 @@ export class ImapCollector extends EmailProvider {
         id: 'imap',
         name: 'i18n.collectors.imap.name',
         description: 'i18n.collectors.imap.description',
-        version: '1',
+        version: '2',
         website: 'https://imap.example.com',
         logo: 'https://upload.wikimedia.org/wikipedia/commons/5/5d/Email_icon.png',
         type: CollectorType.PROVIDER,
