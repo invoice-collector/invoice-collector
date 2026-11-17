@@ -12,7 +12,7 @@ export class FreeCollector extends LinearWebCollector {
         id: 'free',
         name: 'Free',
         description: 'i18n.collectors.free.description',
-        version: '12',
+        version: '13',
         website: 'https://www.free.fr',
         logo: 'https://upload.wikimedia.org/wikipedia/commons/5/52/Free_logo.svg',
         type: CollectorType.WEB,
