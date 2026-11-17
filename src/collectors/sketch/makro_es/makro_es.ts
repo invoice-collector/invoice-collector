@@ -7,7 +7,7 @@ export class MakroEsCollector extends SketchCollector {
     static CONFIG = {
         id: 'makro_es',
         name: 'Makro.es',
-        description: 'i18n.collectors.makro_es.description',
+        description: 'i18n.collectors.makro.description',
         version: '0',
         website: 'https://docs.makro.es/?_ga=2.64458799.1836613730.1568624469-1760255380.1568027377',
         logo: 'https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/166538.jpg',
