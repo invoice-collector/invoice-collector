@@ -10,7 +10,7 @@ export const FreeSelectors = {
         info: 'password input field',
     },
     BUTTON_SUBMIT: {
-        selector: '#ok',
+        selector: 'button.btn-submit',
         info: 'submit form button',
     },
     CONTAINER_LOGIN_ALERT: {

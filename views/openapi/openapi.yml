@@ -432,15 +432,7 @@ components:
           description: Version of the collector.
           example: "1"
         type:
-          type: string
-          description: Type of collector.
-          enum:
-            - web
-            - api
-            - email
-            - provider
-            - sketch
-          example: web
+          $ref: "#/components/schemas/collectorType"
         website:
           type: string
           description: Link to the website of the collector.
@@ -475,13 +467,7 @@ components:
             - all
           example: all
         state:
-          type: string
-          description: State of the collector.
-          enum:
-            - planned
-            - development
-            - active
-          example: active
+          $ref: "#/components/schemas/collectorState"
         loginUrl:
           type: string
           description: URL to the login page of the collector. For collectors of type
@@ -508,6 +494,24 @@ components:
         - captcha
         - authenticationMethod
         - state
+    collectorType:
+      type: string
+      description: Type of collector.
+      enum:
+        - web
+        - api
+        - email
+        - provider
+        - sketch
+      example: web
+    collectorState:
+      type: string
+      description: State of collector.
+      enum:
+        - active
+        - development
+        - planned
+      example: active
     minimalistCustomer:
       type: object
       properties:
@@ -994,6 +998,18 @@ paths:
           required: true
           schema:
             $ref: "#/components/schemas/token"
+        - name: types
+          in: query
+          schema:
+            $ref: "#/components/schemas/collectorType"
+          description: Comma-separated list of collector types to retrieve. Empty means
+            all types.
+        - name: states
+          in: query
+          schema:
+            $ref: "#/components/schemas/collectorState"
+          description: Comma-separated list of collector states to retrieve. Empty means
+            all states.
         - name: credential_id
           in: query
           schema:
@@ -2118,6 +2134,20 @@ paths:
           schema:
             $ref: "#/components/schemas/locale"
           description: Locale for translated collector names and descriptions
+        - name: types
+          in: query
+          required: false
+          schema:
+            $ref: "#/components/schemas/collectorType"
+          description: Comma-separated list of collector types to retrieve. Empty means
+            all types.
+        - name: states
+          in: query
+          required: false
+          schema:
+            $ref: "#/components/schemas/collectorState"
+          description: Comma-separated list of collector states to retrieve. Empty means
+            all states.
       responses:
         "200":
           description: Success
