@@ -318,7 +318,7 @@ const SWAGGER_DEFINITION = {
                         description: { type: 'string', description: 'Description of the collector.', example: 'Free is a French telecommunications company' },
                         instructions: { type: 'string', description: 'Instructions to setup the collector.', example: 'Go to ... and do ...' },
                         version: { type: 'string', description: 'Version of the collector.', example: '1' },
-                        type: { type: 'string', description: 'Type of collector.', enum: ['web', 'api', 'email', 'provider', 'sketch'], example: 'web' },
+                        type: { $ref: '#/components/schemas/collectorType' },
                         website: { type: 'string', description: 'Link to the website of the collector.', format: 'uri', example: 'https://www.free.fr' },
                         logo: { type: 'string', description: 'Link to the logo of the collector.', format: 'uri', example: 'https://fr.wikipedia.org/wiki/Free_(entreprise)#/media/Fichier:Free_logo.svg' },
                         params: {
@@ -328,7 +328,7 @@ const SWAGGER_DEFINITION = {
                         },
                         captcha: { type: 'string', description: 'Captcha used by the collector.', enum: ['none', 'cloudflare', 'datadome', 'recaptcha', 'other'], example: 'cloudflare' },
                         authenticationMethod: { type: 'string', description: 'The authentication methods supported by this collector.', enum: ['secretsOnly', 'interactiveOnly', 'all'], example: 'all' },
-                        state: { type: 'string', description: 'State of the collector.', enum: ['planned', 'development', 'active'], example: 'active' },
+                        state: { $ref: '#/components/schemas/collectorState' },
                         loginUrl: { type: 'string', description: 'URL to the login page of the collector. For collectors of type sketch, web and agent only.', example: 'https://www.mycollector.com/login' },
                         entryUrl: { type: 'string', description: 'URL to the invoices page of the collector. For collectors of type web and agent only.', example: 'https://www.mycollector.com/customer/invoices' },
                         baseUrl: { type: 'string', description: 'Base URL of the collector. For collectors of type api only.', example: 'https://api.mycollector.com' },
@@ -344,7 +344,7 @@ const SWAGGER_DEFINITION = {
                 collectorState: {
                     type: 'string',
                     description: 'State of collector.',
-                    enum: ['planned', 'development', 'active'],
+                    enum: ['active', 'development', 'planned'],
                     example: 'active',
                 },
                 minimalistCustomer: {
