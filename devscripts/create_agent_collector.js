@@ -1,5 +1,4 @@
 const prompt = require('prompt-sync')();
-const fetch = require('node-fetch');
 const fs = require('fs');
 require('dotenv').config();
 
@@ -105,7 +104,7 @@ async function callLlm(website, messageToLlm) {
     return JSON.parse(data.choices[0].message.content);
 }
 
-async function addI18n(language, key, value) {
+function addI18n(language, key, value) {
     const i18nPath = `locales/${language}.json`;
     const i18nData = JSON.parse(fs.readFileSync(i18nPath, 'utf-8'));
     i18nData[key] = value;
@@ -119,6 +118,81 @@ async function addI18n(language, key, value) {
         }, {});
 
     fs.writeFileSync(i18nPath, JSON.stringify(sortedI18nData, null, 2));
+}
+
+function buildAgentWebCollector(collector) {
+    return `import { AgentWebCollector } from '../../agentWebCollector';
+import { CollectorState, CollectorCaptcha, CollectorType, CollectorAuthenticationMethod } from '../../../../collectors/abstractCollector';
+
+export class ${collector.id_camel_case}WebCollector extends AgentWebCollector {
+    static CONFIG = {
+        id: "${collector.id}_web",
+        name: "${collector.name} (Web)",
+        description: "i18n.collectors.web.description",
+        version: "0",
+        website: "${collector.website}",
+        logo: "${collector.logo}",
+        type: CollectorType.WEB,
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        loginUrl: "${collector.loginUrl}",
+        entryUrl: "${collector.entryUrl}",
+        captcha: CollectorCaptcha.NONE,
+        authenticationMethod: CollectorAuthenticationMethod.ALL,
+        state: CollectorState.DEVELOPMENT
+    }
+
+    /**
+     * Constructs a new instance of the ${collector.id_camel_case}WebCollector class.
+     */
+    constructor() {
+        super(${collector.id_camel_case}WebCollector.CONFIG);
+    }
+}`;
+}
+
+function buildAgentEmailCollector(collector) {
+    return `import { AgentEmailCollector } from '../../agentEmailCollector';
+import { CollectorState, CollectorType } from '../../../../collectors/abstractCollector';
+
+export class ${collector.id_camel_case}EmailCollector extends AgentEmailCollector {
+    static CONFIG = {
+        id: "${collector.id}_email",
+        name: "${collector.name} (Email)",
+        description: "i18n.collectors.email.description",
+        version: "0",
+        website: "${collector.website}",
+        logo: "${collector.logo}",
+        type: CollectorType.EMAIL,
+        params: {},
+        wildcards: {
+            sender: '*@*${collector.domain}',
+            subject: '*',
+            body: '*',
+            attachmentName: '*.pdf',
+        },
+        state: CollectorState.DEVELOPMENT
+    }
+
+    /**
+     * Constructs a new instance of the ${collector.id_camel_case}EmailCollector class.
+     */
+    constructor() {
+        super(${collector.id_camel_case}EmailCollector.CONFIG);
+    }
+}`;
 }
 
 async function createAgentCollector() {
@@ -150,76 +224,56 @@ async function createAgentCollector() {
         description_en: llmResult.description_en,
         description_fr: llmResult.description_fr,
         website: website,
+        domain: urlObj.hostname.split('.').slice(-2).join('.'),
         logo: logo,
         loginUrl: loginUrl,
         entryUrl: entryUrl
+
     };
 
-    // 5. Check src/collectors/{id}.json does not exist
-    const collectorPath = `src/premium/collectors/${collector.id}`;
-    const collectorFile = `${collectorPath}/${collector.id}.ts`;
-    if (fs.existsSync(collectorPath)) {
+    // 5. Check src/collectors/web/{id}/{id}.json does not exist
+    const webCollectorPath = `src/premium/collectors/${collector.id}`;
+    const webCollectorFile = `${webCollectorPath}/${collector.id}_web.ts`;
+    if (fs.existsSync(webCollectorPath)) {
         // Check if folder is not empty
-        const files = fs.readdirSync(collectorPath);
+        const files = fs.readdirSync(webCollectorPath);
         if (files.length > 0) {
-            throw new Error(`Collector with id '${collector.id}' already exists at path ${collectorPath}. Aborting.`);
+            throw new Error(`Collector with id '${collector.id}' already exists at path ${webCollectorPath}. Aborting.`);
         }
     }
 
-    // 6. Create the collector directory and write the collector.json file
-    console.log("Creating collector at path:", collectorPath);
-    fs.mkdirSync(collectorPath, { recursive: true });
-    fs.writeFileSync(collectorFile, JSON.stringify(collector, null, 4));
-
-    const sketchCollectorContent = `import { AgentWebCollector } from '../agentWebCollector';
-import { CollectorState, CollectorCaptcha, CollectorType, CollectorAuthenticationMethod } from '../../../collectors/abstractCollector';
-
-export class ${collector.id_camel_case}Collector extends AgentWebCollector {
-    static CONFIG = {
-        id: "${collector.id}",
-        name: "${collector.name}",
-        description: "i18n.collectors.${collector.id}.description",
-        version: "0",
-        website: "${collector.website}",
-        logo: "${collector.logo}",
-        type: CollectorType.WEB,
-        params: {
-            email: {
-                type: "email",
-                name: "i18n.collectors.all.email",
-                placeholder: "i18n.collectors.all.email.placeholder",
-                mandatory: true
-            },
-            password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true
-            }
-        },
-        loginUrl: "${collector.loginUrl}",
-        entryUrl: "${collector.entryUrl}",
-        captcha: CollectorCaptcha.NONE,
-        authenticationMethod: CollectorAuthenticationMethod.ALL,
-        state: CollectorState.DEVELOPMENT
+    // 6. Check src/collectors/email/{id}/{id}.json does not exist
+    const emailCollectorPath = `src/premium/collectors/${collector.id}`;
+    const emailCollectorFile = `${emailCollectorPath}/${collector.id}_email.ts`;
+    if (fs.existsSync(emailCollectorPath)) {
+        // Check if folder is not empty
+        const files = fs.readdirSync(emailCollectorPath);
+        if (files.length > 0) {
+            throw new Error(`Collector with id '${collector.id}' already exists at path ${emailCollectorPath}. Aborting.`);
+        }
     }
 
-    /**
-     * Constructs a new instance of the ${collector.id_camel_case}Collector class.
-     */
-    constructor() {
-        super(${collector.id_camel_case}Collector.CONFIG);
-    }
-}
-`;
-    fs.writeFileSync(collectorFile, sketchCollectorContent);
+    // 7. Create the collector directory and write the collector.json file
+    console.log("Creating collector at path:", webCollectorPath);
+    fs.mkdirSync(webCollectorPath, { recursive: true });
+    fs.writeFileSync(webCollectorFile, JSON.stringify(collector, null, 4));
+    const agentWebCollectorContent = buildAgentWebCollector(collector);
+    fs.writeFileSync(webCollectorFile, agentWebCollectorContent);
 
-    // 7. Populate i18n files
-    console.log("Updating i18n files...");
-    await addI18n('en', `i18n.collectors.${collector.id}.description`, collector.description_en);
-    await addI18n('fr', `i18n.collectors.${collector.id}.description`, collector.description_fr);
+    // 8. Create the collector directory and write the collector.json file
+    console.log("Creating collector at path:", emailCollectorPath);
+    fs.mkdirSync(emailCollectorPath, { recursive: true });
+    fs.writeFileSync(emailCollectorFile, JSON.stringify(collector, null, 4));
+    const agentEmailCollectorContent = buildAgentEmailCollector(collector);
+    fs.writeFileSync(emailCollectorFile, agentEmailCollectorContent);
 
-    console.log("Sketch Collector creation completed successfully!");
+    // 9. Populate i18n files
+    //console.log("Updating i18n files...");
+    //addI18n('en', `i18n.collectors.${collector.id}.description`, collector.description_en);
+    //addI18n('fr', `i18n.collectors.${collector.id}.description`, collector.description_fr);
+
+    // 10. Finalize the creation process
+    console.log("Agent Web and Email Collector creation completed successfully!");
     console.log("Ctrl + C to exit.");
 }
 

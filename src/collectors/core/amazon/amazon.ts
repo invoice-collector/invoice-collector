@@ -18,7 +18,7 @@ export class AmazonCollector extends LinearWebCollector {
         id: 'amazon',
         name: 'Amazon (.fr)',
         description: 'i18n.collectors.amazon.description',
-        version: '44',
+        version: '45',
         website: 'https://www.amazon.fr',
         logo: 'https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg',
         type: CollectorType.WEB,
@@ -80,6 +80,9 @@ export class AmazonCollector extends LinearWebCollector {
      * @inheritdoc
      */
     async needLogin(driver: AbstractDriver): Promise<boolean> {
+        // Select the logged-in account if displayed
+        await driver.leftClick(AmazonSelectors.CONTAINER_LOGGEDIN_ACCOUNT, { raiseException: false, timeout: 1000 });
+
         // If the current URL includes 'signin' or 'claim', it means the user needs to log in
         return driver.url().includes('/signin') || driver.url().includes('/claim');
     }
