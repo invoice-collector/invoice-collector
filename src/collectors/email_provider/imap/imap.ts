@@ -1,4 +1,4 @@
-import { ImapFlow, MessageStructureObject } from 'imapflow';
+import { FetchMessageObject, ImapFlow, MessageStructureObject } from 'imapflow';
 import { AuthenticationError, LoggableError } from '../../../error';
 import { CollectorAuthenticationMethod, CollectorState, CollectorType } from '../../abstractCollector';
 import { DownloadedEmailInvoice, EmailInvoice, EmailInvoiceWildcards, EmailProvider, EmailProviderConfig } from '../../emailProvider';
@@ -23,7 +23,7 @@ export class ImapCollector extends EmailProvider {
         id: 'imap',
         name: 'i18n.collectors.imap.name',
         description: 'i18n.collectors.imap.description',
-        version: '1',
+        version: '2',
         website: 'https://imap.example.com',
         logo: 'https://upload.wikimedia.org/wikipedia/commons/5/5d/Email_icon.png',
         type: CollectorType.PROVIDER,
@@ -150,7 +150,8 @@ export class ImapCollector extends EmailProvider {
                     }
 
                     // The envelope does not expose the message body, so this only matches wildcard-only filters
-                    if (!bodyRegex.test('')) {
+                    const body = await this.findBody(message);
+                    if (!bodyRegex.test(body)) {
                         continue;
                     }
 
@@ -168,7 +169,9 @@ export class ImapCollector extends EmailProvider {
                                 uid: message.uid,
                                 part: attachment.part,
                                 filename: attachment.filename,
-                                senderAddress,
+                                senderAddress: senderAddress,
+                                subject: subject,
+                                body: body,
                             },
                         });
                     }
@@ -227,6 +230,53 @@ export class ImapCollector extends EmailProvider {
         } finally {
             this.client = null;
         }
+    }
+
+    /**
+     * Finds body within a message.
+     * @param message The message to extract the body from.
+     * @returns An array of body part objects found within the message structure node.
+     */
+    private async findBody(message: FetchMessageObject): Promise<string> {
+        if (!this.client) {
+            throw new Error('IMAP client is not connected');
+        }
+
+        let body = '';
+        const textPart = this.findTextPart(message.bodyStructure);
+        if (textPart) {
+            const { content } = await this.client.download(message.uid, textPart, { uid: true });
+            if (content) {
+                const chunks: Buffer[] = [];
+                for await (const chunk of content) {
+                    chunks.push(chunk);
+                }
+                body = Buffer.concat(chunks).toString('utf-8');
+            }
+        }
+        return body
+            .replaceAll('\r\n', ' ')
+            .replaceAll('\n', ' ');
+    }
+
+    /**
+     * Finds body parts within a message structure node recursively.
+     * @param bodyStructure The body structure node to search for text parts.
+     * @returns An array of body part objects found within the message structure node.
+     */
+    private findTextPart(bodyStructure: any): string | null {
+        if (!bodyStructure) return null;
+
+        if (bodyStructure.type === 'text/plain') {
+            return bodyStructure.part; // '1' for simple messages
+        }
+
+        for (const child of bodyStructure.childNodes || []) {
+            const part = this.findTextPart(child);
+            if (part) return part;
+        }
+
+        return null;
     }
 
     /**
