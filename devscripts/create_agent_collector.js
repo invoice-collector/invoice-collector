@@ -231,38 +231,28 @@ async function createAgentCollector() {
 
     };
 
-    // 5. Check src/collectors/web/{id}/{id}.json does not exist
-    const webCollectorPath = `src/premium/collectors/${collector.id}`;
-    const webCollectorFile = `${webCollectorPath}/${collector.id}_web.ts`;
-    if (fs.existsSync(webCollectorPath)) {
+    // 5. Check path does not exist
+    const collectorPath = `src/premium/collectors/premium/${collector.id}`;
+    if (fs.existsSync(collectorPath)) {
         // Check if folder is not empty
-        const files = fs.readdirSync(webCollectorPath);
+        const files = fs.readdirSync(collectorPath);
         if (files.length > 0) {
-            throw new Error(`Collector with id '${collector.id}' already exists at path ${webCollectorPath}. Aborting.`);
+            throw new Error(`Collector with id '${collector.id}' already exists at path ${collectorPath}. Aborting.`);
         }
     }
 
-    // 6. Check src/collectors/email/{id}/{id}.json does not exist
-    const emailCollectorPath = `src/premium/collectors/${collector.id}`;
-    const emailCollectorFile = `${emailCollectorPath}/${collector.id}_email.ts`;
-    if (fs.existsSync(emailCollectorPath)) {
-        // Check if folder is not empty
-        const files = fs.readdirSync(emailCollectorPath);
-        if (files.length > 0) {
-            throw new Error(`Collector with id '${collector.id}' already exists at path ${emailCollectorPath}. Aborting.`);
-        }
-    }
+    // 6. Create the collector directory
+    console.log("Creating collectors at path:", collectorPath);
+    fs.mkdirSync(collectorPath, { recursive: true });
 
-    // 7. Create the collector directory and write the collector.json file
-    console.log("Creating collector at path:", webCollectorPath);
-    fs.mkdirSync(webCollectorPath, { recursive: true });
+    // 7. Write the web collector .json file
+    const webCollectorFile = `${collectorPath}/${collector.id}_web.ts`;
     fs.writeFileSync(webCollectorFile, JSON.stringify(collector, null, 4));
     const agentWebCollectorContent = buildAgentWebCollector(collector);
     fs.writeFileSync(webCollectorFile, agentWebCollectorContent);
 
-    // 8. Create the collector directory and write the collector.json file
-    console.log("Creating collector at path:", emailCollectorPath);
-    fs.mkdirSync(emailCollectorPath, { recursive: true });
+    // 8. Write the email collector .json file
+    const emailCollectorFile = `${collectorPath}/${collector.id}_email.ts`;
     fs.writeFileSync(emailCollectorFile, JSON.stringify(collector, null, 4));
     const agentEmailCollectorContent = buildAgentEmailCollector(collector);
     fs.writeFileSync(emailCollectorFile, agentEmailCollectorContent);
