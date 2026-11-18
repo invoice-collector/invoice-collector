@@ -128,7 +128,7 @@ export class ${collector.id_camel_case}WebCollector extends AgentWebCollector {
     static CONFIG = {
         id: "${collector.id}_web",
         name: "${collector.name} (Web)",
-        description: "i18n.collectors.web.description",
+        description: "i18n.collectors.${collector.id}_web.description",
         version: "0",
         website: "${collector.website}",
         logo: "${collector.logo}",
@@ -171,7 +171,7 @@ export class ${collector.id_camel_case}EmailCollector extends AgentEmailCollecto
     static CONFIG = {
         id: "${collector.id}_email",
         name: "${collector.name} (Email)",
-        description: "i18n.collectors.email.description",
+        description: "i18n.collectors.${collector.id}_email.description",
         version: "0",
         website: "${collector.website}",
         logo: "${collector.logo}",
@@ -258,9 +258,12 @@ async function createAgentCollector() {
     fs.writeFileSync(emailCollectorFile, agentEmailCollectorContent);
 
     // 9. Populate i18n files
-    //console.log("Updating i18n files...");
-    //addI18n('en', `i18n.collectors.${collector.id}.description`, collector.description_en);
-    //addI18n('fr', `i18n.collectors.${collector.id}.description`, collector.description_fr);
+    console.log("Updating i18n files...");
+
+    addI18n('en', `i18n.collectors.${collector.id}_web.description`, `Download your invoices from the ${collector.name} web portal.`);
+    addI18n('fr', `i18n.collectors.${collector.id}_web.description`, `Téléchargez vos factures depuis l'espace client ${collector.name}.`);
+    addI18n('en', `i18n.collectors.${collector.id}_email.description`, `Download your ${collector.name} invoices from your mailbox.`);
+    addI18n('fr', `i18n.collectors.${collector.id}_email.description`, `Téléchargez vos factures ${collector.name} depuis votre boite mail.`);
 
     // 10. Finalize the creation process
     console.log("Agent Web and Email Collector creation completed successfully!");
