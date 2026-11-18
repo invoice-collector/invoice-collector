@@ -5998,7 +5998,6 @@
   "i18n.collectors.payone_ingenico_drm.description": "Un service sécurisé de Gestion des Droits Numériques (DRM) proposé par Payone Ingenico pour les solutions de paiement en ligne.",
   "i18n.collectors.payone_serviceportal_de.description": "Un portail de service en ligne pour gérer les solutions de paiement PayOne et les services associés.",
   "i18n.collectors.payoneer.description": "Une plateforme de paiement mondiale permettant aux entreprises et professionnels d'envoyer, recevoir et gérer des fonds à l'international.",
-  "i18n.collectors.paypal.description": "PayPal est un système de paiement en ligne qui permet aux utilisateurs d'effectuer et de recevoir des paiements sur Internet de manière sécurisée.",
   "i18n.collectors.paypal_email.description": "Téléchargez vos factures PayPal depuis votre boite mail.",
   "i18n.collectors.paypal_sales_web.description": "Téléchargez vos factures de ventes depuis l'espace client PayPal.",
   "i18n.collectors.paypal_sales_web.name": "Ventes PayPal (Web)",
