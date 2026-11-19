@@ -59,10 +59,11 @@ export abstract class AbstractElement<D extends AbstractDriver<any> = AbstractDr
      * @param options.tries The number of attempts to input the text. Defaults to `5`.
      * @param options.timeout The timeout for each attempt.
      * @param options.delay The delay between attempts.
+     * @param options.typeDelay The delay between typing each character. Defaults to `0`.
      * @param options.navigation Whether to wait for navigation after inputting text. Defaults to `false`.
      * @param options.mouseHover Whether to hover over the element before inputting text.
      */
-    abstract inputText(text: string | Param, options?: { tries?: number; timeout?: number; delay?: number; navigation?: boolean; mouseHover?: boolean }): Promise<void>;
+    abstract inputText(text: string | Param, options?: { tries?: number; timeout?: number; delay?: number; typeDelay?: number; navigation?: boolean; mouseHover?: boolean }): Promise<void>;
 
     /**
      * Selects a value from a dropdown element.

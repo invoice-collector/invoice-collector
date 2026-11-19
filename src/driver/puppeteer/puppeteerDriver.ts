@@ -586,13 +586,14 @@ export class PuppeteerDriver extends AbstractDriver<PuppeteerElement> {
         raiseException = true,
         timeout = AbstractDriver.DEFAULT_TIMEOUT,
         delay = AbstractDriver.DEFAULT_DELAY,
+        typeDelay = AbstractDriver.DEFAULT_TYPE_DELAY,
         tries = 5,
         navigation = false,
         mouseHover = false,
     } = {}): Promise<PuppeteerElement | null> {
         const element = await this.getElement(selector, { raiseException, timeout });
         if(element !== null) {
-            await element.inputText(text, { tries, timeout, delay, navigation, mouseHover });
+            await element.inputText(text, { tries, timeout, delay, typeDelay, navigation, mouseHover });
             return element;
         }
         return null;
@@ -697,8 +698,9 @@ export class PuppeteerDriver extends AbstractDriver<PuppeteerElement> {
      */
     async type(text: string, {
         delay = AbstractDriver.DEFAULT_DELAY,
+        typeDelay = AbstractDriver.DEFAULT_TYPE_DELAY,
     } = {}): Promise<void> {
-        await this.page?.keyboard.type(text);
+        await this.page?.keyboard.type(text, { delay: typeDelay });
         await utils.delay(delay);
     }
 

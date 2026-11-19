@@ -189,6 +189,7 @@ export class PuppeteerElement extends AbstractElement<PuppeteerDriver> {
         tries?: number,
         timeout?: number,
         delay?: number,
+        typeDelay?: number,
         navigation?: boolean,
         mouseHover?: boolean,
     } = {}): Promise<void> {
@@ -198,6 +199,7 @@ export class PuppeteerElement extends AbstractElement<PuppeteerDriver> {
             delay = PuppeteerDriver.DEFAULT_DELAY,
             navigation = false,
             mouseHover = false,
+            typeDelay = PuppeteerDriver.DEFAULT_TYPE_DELAY,
         } = options;
         const rawText = typeof text === 'string' ? text : text.value;
 
@@ -209,16 +211,16 @@ export class PuppeteerElement extends AbstractElement<PuppeteerDriver> {
         if (tries > 0) {
             let currentValue = null;
             while (currentValue !== rawText && tries > 0) {
-                await this.element.click({ count: 3 });     // Select all text
-                await this.element.type(rawText);           // Replace
+                await this.element.click({ count: 3 });                 // Select all text
+                await this.element.type(rawText, { delay: typeDelay }); // Replace
                 await utils.delay(PuppeteerDriver.DEFAULT_DELAY_BETWEEN_RETRIES);
                 currentValue = await this.element.evaluate((el: any) => el.value);
                 tries--;
             }
         }
         else {
-            await this.element.click({ count: 3 });     // Select all text
-            await this.element.type(rawText);           // Replace
+            await this.element.click({ count: 3 });                 // Select all text
+            await this.element.type(rawText, { delay: typeDelay }); // Replace
         }
         await utils.delay(delay);
         if(navigation === true) {
