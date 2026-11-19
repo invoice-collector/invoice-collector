@@ -8,6 +8,11 @@ export interface PageWithCursor extends Page {
   ghostCursor: GhostCursor;
 }
 
+/**
+ * Converts a Puppeteer page into a page with cursor support.
+ * @param page Puppeteer page instance to be converted.
+ * @returns The page instance with cursor support.
+ */
 export function buildPageWithCursor(page: Page): PageWithCursor {
     const cursor = new GhostCursor(page);
     const pageWithCursor = page as PageWithCursor;
