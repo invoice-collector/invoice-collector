@@ -19,6 +19,7 @@ export enum CollectorType {
     WEB = 'web',
     API = 'api',
     EMAIL = 'email',
+    DUO_WEB_EMAIL = 'duoWebEmail',
     PROVIDER = 'provider',
     SKETCH = 'sketch'
 }

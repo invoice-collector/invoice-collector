@@ -1766,9 +1766,10 @@ export class Server {
                 throw new StatusError(`Type must be a string.`, 400);
             }
             types = types.split(',');
+            const validTypes = Object.values(CollectorType)
             for(const t of types) {
-                if(!Object.values(CollectorType).includes(t as CollectorType)) {
-                    throw new StatusError(`Invalid type "${t}".`, 400);
+                if(!validTypes.includes(t as CollectorType)) {
+                    throw new StatusError(`Invalid type "${t}". Available types are: ${validTypes.join(', ')}.`, 400);
                 }
             }
         }
@@ -1779,9 +1780,10 @@ export class Server {
                 throw new StatusError(`State must be a string.`, 400);
             }
             states = states.split(',');
+            const validStates = Object.values(CollectorState);
             for(const s of states) {
-                if(!Object.values(CollectorState).includes(s as CollectorState)) {
-                    throw new StatusError(`Invalid state "${s}".`, 400);
+                if(!validStates.includes(s as CollectorState)) {
+                    throw new StatusError(`Invalid state "${s}". Available states are: ${validStates.join(', ')}.`, 400);
                 }
             }
         }

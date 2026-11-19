@@ -2380,6 +2380,7 @@
   "i18n.collectors.easyfeedback.description": "A user-friendly platform for collecting and analyzing customer feedback efficiently.",
   "i18n.collectors.easyftp.description": "A user-friendly online FTP service for seamless file transfers and cloud storage.",
   "i18n.collectors.easyjet.description": "A low-cost airline offering affordable flights across Europe and beyond.",
+  "i18n.collectors.easyjet.instructions": "You have to connect your mailbox first, before using this collector. The EasyJet invoices are requested on the web portal and are sent to your mailbox.",
   "i18n.collectors.easylive_io.description": "A cloud-based live streaming platform for creating, managing, and broadcasting interactive video content.",
   "i18n.collectors.easylounge.description": "An online platform offering convenient lounge access and travel comfort services for passengers.",
   "i18n.collectors.easymarketing.description": "A user-friendly online marketing platform designed to simplify digital advertising and campaign management.",
