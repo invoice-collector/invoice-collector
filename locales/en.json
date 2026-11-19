@@ -4431,6 +4431,7 @@
   "i18n.collectors.landingi.description": "A platform for creating, publishing, and optimizing high-converting landing pages without coding.",
   "i18n.collectors.landkreis_rostock_eigenbetrieb_abfallwirtschaft.description": "Waste management services provided by the Rostock district for efficient and sustainable waste disposal.",
   "i18n.collectors.landr.description": "An AI-powered online platform for automatic music mastering and distribution.",
+  "i18n.collectors.easyjet.instructions": "You have to connect your mailbox first, before using this collector. The EasyJet invoices are requested on the web portal and are sent to your mailbox.",
   "i18n.collectors.lanes_and_planes.description": "A travel management platform that simplifies booking and organizing flights, trains, and accommodations for businesses.",
   "i18n.collectors.langdock.description": "A collaborative platform for managing and sharing multilingual terminology and glossaries.",
   "i18n.collectors.languagetool.description": "A free online grammar, style, and spell checker for multiple languages.",

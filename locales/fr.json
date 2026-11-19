@@ -4433,6 +4433,7 @@
   "i18n.collectors.landr.description": "Une plateforme en ligne alimentée par l'IA pour le mastering automatique et la distribution de musique.",
   "i18n.collectors.lanes_and_planes.description": "Une plateforme de gestion de voyage qui simplifie la réservation et l'organisation de vols, trains et hébergements pour les entreprises.",
   "i18n.collectors.langdock.description": "Une plateforme collaborative pour gérer et partager des terminologies et glossaires multilingues.",
+  "i18n.collectors.easyjet.instructions": "Vous devez connecter votre boîte mail avant d'utiliser ce collecteur. Les factures EasyJet sont demandées sur l'espace client et sont envoyées à votre boîte mail.",
   "i18n.collectors.languagetool.description": "Un correcteur en ligne gratuit de grammaire, style et orthographe pour plusieurs langues.",
   "i18n.collectors.lano.description": "Lano est une plateforme en ligne proposant des solutions de paie internationale, de conformité et de gestion des contractants pour les entreprises.",
   "i18n.collectors.laposte.description": "La Poste est un prestataire de services postaux français.",
