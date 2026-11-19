@@ -157,9 +157,9 @@ export class AmazonCollector extends LinearWebCollector {
     /**
      * @inheritdoc
      */
-    async twofa(driver: AbstractDriver, params: Params, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
+    async twofa(driver: AbstractDriver, params: Params, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer, twofaInstructions: string): Promise<string | void> {
         // Wait for 2fa code from UI
-        const twofa_code = await Promise.race([twofa_promise.code(), webSocketServer.getTwofa()]);
+        const twofa_code = await Promise.race([twofa_promise.code(), webSocketServer.getTwofa(twofaInstructions, false, false)]);
 
         // Input 2fa code
         await driver.inputText(AmazonSelectors.FIELD_2FA_CODE, twofa_code);

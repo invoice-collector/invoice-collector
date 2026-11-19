@@ -79,21 +79,21 @@ export abstract class OpenaiCommonCollector extends LinearWebCollector {
     /**
      * @inheritdoc
      */
-    async twofa(driver: AbstractDriver, params: Params, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
+    async twofa(driver: AbstractDriver, params: Params, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer, twofaInstructions: string): Promise<string | void> {
         // Perform google oauth2 if needed
         if(GoogleOauth2.check(driver)) {
-            return await GoogleOauth2.twofa(driver, params, twofa_promise, webSocketServer);
+            return await GoogleOauth2.twofa(driver, params, twofa_promise, webSocketServer, twofaInstructions);
         }
         // Perform microsoft oauth2 if needed
         if(MicrosoftOauth2.check(driver)) {
-            return await MicrosoftOauth2.twofa(driver, params, twofa_promise, webSocketServer);
+            return await MicrosoftOauth2.twofa(driver, params, twofa_promise, webSocketServer, twofaInstructions);
         }
 
         // Check if is email verification
         const isEmailVerification = driver.url().includes('auth.openai.com/email-verification');
 
         // Get code from UI
-        const code = await Promise.race([twofa_promise.code(), webSocketServer.getTwofa()]);
+        const code = await Promise.race([twofa_promise.code(), webSocketServer.getTwofa(twofaInstructions, false, false)]);
 
         // If is email verification
         if(isEmailVerification) {

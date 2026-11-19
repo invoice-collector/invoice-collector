@@ -1,7 +1,7 @@
 import { WebSocket } from 'ws';
 import http from 'http';
 import * as utils from '../utils';
-import { AbstractMessage, MessageClick, MessageInteractive, MessageKeydown, MessageOauth2, MessageResize, MessageScreenshot, MessageState, MessageText, MessageTwofa } from './message';
+import { AbstractMessage, MessageClick, MessageInteractive, MessageKeydown, MessageOauth2, MessageResize, MessageScreenshot, MessageState, MessageText, MessageTwofaResponse, MessageTwofaRequest } from './message';
 import { State } from '../model/state';
 import { I18n } from '../i18n';
 import { DisconnectedError } from '../error';
@@ -26,7 +26,7 @@ export class WebSocketServer extends EventEmitter {
     public readonly oauth2State: string;
     public readonly twofa_promise: TwofaPromise;
 
-    public onTwofa: ((event: MessageTwofa) => void) | undefined;
+    public onTwofa: ((event: MessageTwofaResponse) => void) | undefined;
     public onClick: ((event: MessageClick) => void) | undefined;
     public onResize: ((event: MessageResize) => void) | undefined;
     public onKeydown: ((event: MessageKeydown) => void) | undefined;
@@ -90,7 +90,7 @@ export class WebSocketServer extends EventEmitter {
 
                 if (data.type === 'twofa' && data.twofa !== undefined && this.onTwofa) {
                     this.sendState(State._4_2FA_PROCEEDING);
-                    this.onTwofa(data as MessageTwofa);
+                    this.onTwofa(data as MessageTwofaResponse);
                 }
                 else if (data.type === 'click' && data.x !== undefined && data.y !== undefined && this.onClick) {
                     this.onClick(data as MessageClick);
@@ -271,18 +271,32 @@ export class WebSocketServer extends EventEmitter {
 
     /**
      * Sends a request for the two-factor authentication (2FA) code through the WebSocket connection and waits for the user to provide it.
-     * @param instructions Optional instructions to be displayed to the user regarding the 2FA process.
+     * @param instructions Instructions to be displayed to the user regarding the 2FA process.
+     * @param push A boolean indicating whether push notifications should be used for 2FA.
+     * @param authLink A boolean indicating whether an authentication link should be used for 2FA.
      * @returns The 2FA code provided by the user.
      */
-    public getTwofa(instructions?: string): Promise<string> {
-        // If instructions are provided, send new state with instructions to user
-        if (instructions) {
-            this.sendState(State._3_2FA_WAITING, instructions);
-        }
+    public getTwofa(
+        instructions: string,
+        push: boolean,
+        authLink: boolean,
+    ): Promise<string> {
+        // Update state to indicate waiting for 2FA code
+        this.sendState(State._3_2FA_WAITING, instructions);
+
+        // Send the 2FA instructions
+        const message: MessageTwofaRequest = {
+            type: 'twofa',
+            instructions: I18n.get(instructions, this.locale),
+            push: push,
+            authLink: authLink,
+        };
+        this.sendMessage(message, true);
+
         // Return a promise that resolves when 2FA code is received or rejects on timeout
         return new Promise((resolve, reject) => {
             setTimeout(() => reject(new DisconnectedError('i18n.collectors.all.2fa.timeout', this.collector)), WebSocketServer.TWOFA_TIMEOUT_MS);
-            this.onTwofa = (event: MessageTwofa) => {
+            this.onTwofa = (event: MessageTwofaResponse) => {
                 resolve(event.twofa);
             };
         });

@@ -72,8 +72,8 @@ export class SoshCollector extends LinearWebCollector {
     /**
      * @inheritdoc
      */
-    async twofa(driver: AbstractDriver, params: Params, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
-        return await OrangeHelper.twofa(driver, params, twofa_promise, webSocketServer);
+    async twofa(driver: AbstractDriver, params: Params, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer, twofaInstructions: string): Promise<string | void> {
+        return await OrangeHelper.twofa(driver, params, twofa_promise, webSocketServer, twofaInstructions);
     }
 
     /**

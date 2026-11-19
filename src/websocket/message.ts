@@ -12,7 +12,7 @@ export type AbstractMessage = {
 /**
  * Represents a message containing a 2FA code sent by the client.
  */
-export type MessageTwofa = AbstractMessage & {
+export type MessageTwofaResponse = AbstractMessage & {
     type: 'twofa';
     twofa: string;
 }
@@ -62,6 +62,16 @@ export type MessageResize = AbstractMessage & {
 }
 
 // MESSAGES FROM SERVER TO CLIENT
+
+/**
+ * Represents a message requesting the client to perform 2FA.
+ */
+export type MessageTwofaRequest = AbstractMessage & {
+    type: 'twofa';
+    instructions: string;
+    push: boolean;
+    authLink: boolean;
+}
 
 /**
  * Represents a message containing the current collection state sent by the server.

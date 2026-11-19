@@ -127,12 +127,13 @@ export class MicrosoftOauth2 {
      * @param params The login parameters, including email and password.
      * @param twofa_promise The promise that resolves with the 2FA code.
      * @param webSocketServer The WebSocket server instance for communication, if any.
+     * @param twofaInstructions The instructions for completing 2FA, as obtained from the needTwofa method.
      * @returns A string containing an error message if 2FA fails, or void if successful.
      */
-    static async twofa(driver: AbstractDriver, params: Params, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
+    static async twofa(driver: AbstractDriver, params: Params, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer, twofaInstructions: string): Promise<string | void> {
         if(MicrosoftOauth2.check(driver)) {
             // Get code from UI
-            const code = await Promise.race([twofa_promise.code(), webSocketServer.getTwofa()]);
+            const code = await Promise.race([twofa_promise.code(), webSocketServer.getTwofa(twofaInstructions, false, false)]);
         }
     }
 }
