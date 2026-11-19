@@ -134,7 +134,7 @@ export class WebSocketServer extends EventEmitter {
                     console.warn('Unknown message type or missing fields:', data);
                 }
             } catch (error) {
-                console.error('Error parsing message:', error);
+                console.error('Error handling message:', error);
             }
         });
 
