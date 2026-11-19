@@ -22,6 +22,7 @@ export abstract class AbstractDriver<E extends AbstractElement<any> = AbstractEl
     static DEFAULT_TIMEOUT = 10000;             // 10 seconds
     static DEFAULT_POLLING = 1000;              // 1 second
     static DEFAULT_DELAY = 1000;                // 1 second
+    static DEFAULT_TYPE_DELAY = 50;             // 50 milliseconds
     static DEFAULT_DELAY_BETWEEN_RETRIES = 100; // 100 milliseconds
 
     static VIEWPORT_WIDTH: number = 1920;
@@ -321,9 +322,11 @@ export abstract class AbstractDriver<E extends AbstractElement<any> = AbstractEl
      * Types the given text using the keyboard, character by character.
      * @param text The text to type.
      * @param options.delay Delay applied after typing, in milliseconds.
+     * @param options.typeDelay Delay between typing each character, in milliseconds. Defaults to `0`.
      */
     abstract type(text: string, options?: {
         delay?: number,
+        typeDelay?: number,
     }): Promise<void>;
 
     // FILES

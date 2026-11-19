@@ -437,8 +437,12 @@ export class ExtensionDriver extends AbstractDriver<ExtensionElement> {
     /**
      * @inheritdoc
      */
-    async type(text: string, options: { delay?: number } = {}): Promise<void> {
-        await this.request('input.type', this.pageParams({ text, delay: options.delay ?? AbstractDriver.DEFAULT_DELAY }));
+    async type(text: string, options: { delay?: number; typeDelay?: number } = {}): Promise<void> {
+        await this.request('input.type', this.pageParams({
+            text,
+            delay: options.delay ?? AbstractDriver.DEFAULT_DELAY,
+            typeDelay: options.typeDelay ?? AbstractDriver.DEFAULT_TYPE_DELAY
+        }));
     }
 
     /**

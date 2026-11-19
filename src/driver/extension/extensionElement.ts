@@ -84,6 +84,7 @@ export class ExtensionElement extends AbstractElement<ExtensionDriver> {
         tries?: number;
         timeout?: number;
         delay?: number;
+        typeDelay?: number;
         navigation?: boolean;
         mouseHover?: boolean;
     } = {}): Promise<void> {

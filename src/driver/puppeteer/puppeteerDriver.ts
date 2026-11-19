@@ -9,11 +9,12 @@ import { PuppeteerElement } from './puppeteerElement';
 import { AbstractBrowser } from '../browser/abstractBrowser';
 import { Selector } from '../abstractElement';
 import { Param } from '../../model/secret';
+import { buildPageWithCursor, PageWithCursor } from './pageController';
 
 export class PuppeteerDriver extends AbstractDriver<PuppeteerElement> {
 
     browser: AbstractBrowser | null;
-    page: Page | null;
+    page: PageWithCursor | null;
     screencastCdp: CDPSession | null;
 
     /**
@@ -66,7 +67,7 @@ export class PuppeteerDriver extends AbstractDriver<PuppeteerElement> {
                 if (isScreencasting) {
                     await this.stopScreenCast();
                 }
-                this.page = newPage;
+                this.page = buildPageWithCursor(newPage);
                 await this.page.bringToFront();
                 // Disable cache on new page
                 await this.page.setCacheEnabled(false);
@@ -88,7 +89,7 @@ export class PuppeteerDriver extends AbstractDriver<PuppeteerElement> {
                 }
                 const pages = await this.pages();
                 if(pages.length > 0) {
-                    this.page = pages[pages.length - 1];
+                    this.page = buildPageWithCursor(pages[pages.length - 1]);
                 }
                 // Resume the screencast on the previous page
                 if (isScreencasting && this.page) {
@@ -586,13 +587,14 @@ export class PuppeteerDriver extends AbstractDriver<PuppeteerElement> {
         raiseException = true,
         timeout = AbstractDriver.DEFAULT_TIMEOUT,
         delay = AbstractDriver.DEFAULT_DELAY,
+        typeDelay = AbstractDriver.DEFAULT_TYPE_DELAY,
         tries = 5,
         navigation = false,
         mouseHover = false,
     } = {}): Promise<PuppeteerElement | null> {
         const element = await this.getElement(selector, { raiseException, timeout });
         if(element !== null) {
-            await element.inputText(text, { tries, timeout, delay, navigation, mouseHover });
+            await element.inputText(text, { tries, timeout, delay, typeDelay, navigation, mouseHover });
             return element;
         }
         return null;
@@ -697,8 +699,9 @@ export class PuppeteerDriver extends AbstractDriver<PuppeteerElement> {
      */
     async type(text: string, {
         delay = AbstractDriver.DEFAULT_DELAY,
+        typeDelay = AbstractDriver.DEFAULT_TYPE_DELAY,
     } = {}): Promise<void> {
-        await this.page?.keyboard.type(text);
+        await this.page?.keyboard.type(text, { delay: typeDelay });
         await utils.delay(delay);
     }
 

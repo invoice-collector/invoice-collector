@@ -204,19 +204,6 @@ export abstract class AbstractBrowser {
       abstractBrowser: this,
     });
 
-    this._puppeteerBrowser.on('targetcreated', async (target) => {
-      if (target.type() === 'page') {
-        let newPage = await target.page();
-        if(newPage !== null) {
-          pageControllerConfig.page = newPage;
-          newPage = await pageController({
-            ...pageControllerConfig,
-            killProcess: false,
-          });
-        }
-      }
-    });
-
     return pageWithCursor;
   }
 

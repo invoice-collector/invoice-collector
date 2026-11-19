@@ -1,12 +1,23 @@
-import { createCursor, GhostCursor } from 'ghost-cursor';
+import { GhostCursor } from 'ghost-cursor';
 import { Browser, Page } from 'rebrowser-puppeteer-core';
 import { solveCaptchas } from './captchas';
 import { Proxy } from '../../proxy/abstractProxy';
 import { AbstractBrowser } from '../browser/abstractBrowser';
 
 export interface PageWithCursor extends Page {
-  realClick: GhostCursor['click'];
-  realCursor: GhostCursor;
+  ghostCursor: GhostCursor;
+}
+
+/**
+ * Converts a Puppeteer page into a page with cursor support.
+ * @param page Puppeteer page instance to be converted.
+ * @returns The page instance with cursor support.
+ */
+export function buildPageWithCursor(page: Page): PageWithCursor {
+    const cursor = new GhostCursor(page);
+    const pageWithCursor = page as PageWithCursor;
+    pageWithCursor.ghostCursor = cursor;
+    return pageWithCursor;
 }
 
 export interface PageControllerOptions {
@@ -106,9 +117,5 @@ export async function pageController(options: PageControllerOptions): Promise<Pa
         }
     });
 
-    const cursor = createCursor(page);
-    const pageWithCursor = page as PageWithCursor;
-    pageWithCursor.realCursor = cursor;
-    pageWithCursor.realClick = cursor.click;
-    return pageWithCursor;
+    return buildPageWithCursor(page);
 }

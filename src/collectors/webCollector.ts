@@ -140,7 +140,7 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
             };
             // Define what to do on text event
             webSocketServer.onText = async (event: MessageText) => {
-                await driver.type(event.text, { delay: 0 });
+                await driver.type(event.text, { delay: 0, typeDelay: 0 });
             };
             // Define what to do on interactive event
             webSocketServer.onInteractive = async (event) => {
