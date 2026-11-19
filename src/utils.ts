@@ -142,16 +142,40 @@ function isPrivateIpv4(ip: string): boolean {
 }
 
 /**
+ * Extracts the embedded IPv4 address from an IPv6 address that carries one in its low 32 bits,
+ * namely IPv4-mapped (::ffff:a.b.c.d / ::ffff:xxxx:xxxx) and NAT64 (64:ff9b::/96) addresses, both
+ * of which route to that IPv4 host. Returns the dotted-quad string, or null if none is embedded.
+ * @param normalized The lowercased IPv6 address.
+ * @returns The embedded IPv4 address in dotted-decimal notation, or null.
+ */
+function embeddedIpv4(normalized: string): string | null {
+    const dotted = normalized.match(/(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})$/);
+    if ((normalized.startsWith('::ffff:') || normalized.startsWith('64:ff9b:')) && dotted) {
+        return dotted[1];
+    }
+    const hex = normalized.match(/^::ffff:([0-9a-f]{1,4}):([0-9a-f]{1,4})$/)
+        || normalized.match(/^64:ff9b::([0-9a-f]{1,4}):([0-9a-f]{1,4})$/);
+    if (hex) {
+        const high = parseInt(hex[1], 16);
+        const low = parseInt(hex[2], 16);
+        return [high >> 8, high & 0xFF, low >> 8, low & 0xFF].join('.');
+    }
+    return null;
+}
+
+/**
  * Checks if an IPv6 address falls within any of the blocked private/internal ranges.
  * @param ip The IPv6 address in standard notation (e.g., "fe80::1").
  * @returns True if the IP is private/internal, false otherwise.
  */
 function isPrivateIpv6(ip: string): boolean {
     const normalized = ip.toLowerCase();
+    // IPv4-mapped and NAT64 addresses reach the embedded IPv4 host, so classify them as IPv4
+    const embedded = embeddedIpv4(normalized);
+    if (embedded !== null) {
+        return isPrivateIpv4(embedded);
+    }
     return normalized === '::1'                      // loopback
-        || normalized.startsWith('::ffff:127.')      // IPv4-mapped loopback
-        || normalized.startsWith('::ffff:10.')       // IPv4-mapped private
-        || normalized.startsWith('::ffff:169.254.')  // IPv4-mapped link-local
         || normalized.startsWith('fe80:')            // link-local
         || normalized.startsWith('fc')                // unique local
         || normalized.startsWith('fd');               // unique local
