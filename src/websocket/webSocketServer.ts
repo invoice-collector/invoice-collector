@@ -1,7 +1,7 @@
 import { WebSocket } from 'ws';
 import http from 'http';
 import * as utils from '../utils';
-import { AbstractMessage, MessageClick, MessageInteractive, MessageKeydown, MessageOauth2, MessageResize, MessageScreenshot, MessageState, MessageText, MessageTwofaResponse, MessageTwofaRequest } from './message';
+import { AbstractMessage, MessageClickResponse, MessageInteractiveRequest, MessageInteractiveResponse, MessageKeydownResponse, MessageOauth2Request, MessageResizeResponse, MessageScreenshotRequest, MessageStateRequest, MessageTextResponse, MessageTwofaResponse, MessageTwofaRequest } from './message';
 import { State } from '../model/state';
 import { I18n } from '../i18n';
 import { DisconnectedError } from '../error';
@@ -27,11 +27,11 @@ export class WebSocketServer extends EventEmitter {
     public readonly twofa_promise: TwofaPromise;
 
     public onTwofa: ((event: MessageTwofaResponse) => void) | undefined;
-    public onClick: ((event: MessageClick) => void) | undefined;
-    public onResize: ((event: MessageResize) => void) | undefined;
-    public onKeydown: ((event: MessageKeydown) => void) | undefined;
-    public onText: ((event: MessageText) => void) | undefined;
-    public onInteractive: ((event: MessageInteractive) => void) | undefined;
+    public onClick: ((event: MessageClickResponse) => void) | undefined;
+    public onResize: ((event: MessageResizeResponse) => void) | undefined;
+    public onKeydown: ((event: MessageKeydownResponse) => void) | undefined;
+    public onText: ((event: MessageTextResponse) => void) | undefined;
+    public onInteractive: ((event: MessageInteractiveResponse) => void) | undefined;
 
     /**
      * Constructs a new WebSocket server instance.
@@ -93,14 +93,14 @@ export class WebSocketServer extends EventEmitter {
                     this.onTwofa(data as MessageTwofaResponse);
                 }
                 else if (data.type === 'click' && data.x !== undefined && data.y !== undefined && this.onClick) {
-                    this.onClick(data as MessageClick);
+                    this.onClick(data as MessageClickResponse);
                 }
                 else if (data.type === 'resize' && this.onResize &&
                     Number.isSafeInteger(data.width) && data.width > 0 && data.width <= 8192 &&
                     Number.isSafeInteger(data.height) && data.height > 0 && data.height <= 8192 &&
                     (data.deviceScaleFactor === undefined ||
                         (Number.isFinite(data.deviceScaleFactor) && data.deviceScaleFactor > 0 && data.deviceScaleFactor <= 8))) {
-                    this.onResize(data as MessageResize);
+                    this.onResize(data as MessageResizeResponse);
                 }
                 else if (data.type === 'keydown' && data.key && this.onKeydown) {
                     if(
@@ -113,22 +113,22 @@ export class WebSocketServer extends EventEmitter {
                         data.key === 'ArrowUp' ||
                         data.key === 'ArrowDown'
                     ){
-                        this.onKeydown(data as MessageKeydown);
+                        this.onKeydown(data as MessageKeydownResponse);
                     }
                     else if (data.key.length === 2 && (
                             data.key.startsWith('`') ||
                             data.key.startsWith('^') ||
                             data.key.startsWith('~'))
                     ) {
-                        this.onKeydown({...data, key: data.key[0]} as MessageKeydown);
-                        this.onKeydown({...data, key: data.key[1]} as MessageKeydown);
+                        this.onKeydown({...data, key: data.key[0]} as MessageKeydownResponse);
+                        this.onKeydown({...data, key: data.key[1]} as MessageKeydownResponse);
                     }
                 }
                 else if (data.type === 'type' && data.text && this.onText) {
-                    this.onText(data as MessageText);
+                    this.onText(data as MessageTextResponse);
                 }
                 else if (data.type === 'interactive' && data.reason && this.onInteractive) {
-                    this.onInteractive(data as MessageInteractive);
+                    this.onInteractive(data as MessageInteractiveResponse);
                 }
                 else {
                     console.warn('Unknown message type or missing fields:', data);
@@ -205,7 +205,7 @@ export class WebSocketServer extends EventEmitter {
      * @param height The height of the screenshot image.
      */
     public sendScreenshot(screenshot: string, width: number, height: number) {
-        const message: MessageScreenshot = {
+        const message: MessageScreenshotRequest = {
             type: 'screenshot',
             screenshot,
             width,
@@ -226,7 +226,7 @@ export class WebSocketServer extends EventEmitter {
         state.title = I18n.get(state.title, this.locale);
         state.message = I18n.get(state.message, this.locale);
 
-        const message: MessageState = {
+        const message: MessageStateRequest = {
             type: 'state',
             state,
         };
@@ -238,7 +238,7 @@ export class WebSocketServer extends EventEmitter {
      * @param instructions The instructions to be displayed to the user.
      */
     public sendInteractiveOpen(instructions: string) {
-        const message: MessageInteractive = {
+        const message: MessageInteractiveRequest = {
             type: 'interactive',
             reason: 'open',
             instructions: I18n.get(instructions, this.locale),
@@ -253,7 +253,7 @@ export class WebSocketServer extends EventEmitter {
      * @returns The OAuth2 code provided by the user.
      */
     public async sendOauth2(url: string, iframe: boolean): Promise<string> {
-        const message: MessageOauth2 = {
+        const message: MessageOauth2Request = {
             type: 'oauth2',
             url,
             iframe,
