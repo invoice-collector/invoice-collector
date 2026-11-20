@@ -208,7 +208,7 @@ export class PuppeteerElement extends AbstractElement<PuppeteerDriver> {
             await utils.delay(delay);
         }
         await this.element.scrollIntoView(); 
-        if (tries > 0) {
+        if (tries > 1) {
             let currentValue = null;
             while (currentValue !== rawText && tries > 0) {
                 await this.element.click({ count: 3 });                 // Select all text
