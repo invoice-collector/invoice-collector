@@ -3,7 +3,7 @@ import { AbstractDriver } from '../driver/abstractDriver';
 import { V2Collector } from './v2Collector';
 import { WebSocketServer } from '../websocket/webSocketServer';
 import { DisconnectedError, LoggableError, RemoveError } from '../error';
-import { MessageClick, MessageKeydown, MessageResize, MessageText } from '../websocket/message';
+import { MessageClickResponse, MessageKeydownResponse, MessageResizeResponse, MessageTextResponse } from '../websocket/message';
 import { Secret } from '../model/secret';
 
 export type WebConfig = Config & {
@@ -120,16 +120,16 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
             driver.on('screencast_error', onScreencastError);
 
             // Define what to do on resize event
-            webSocketServer.onResize = async (event: MessageResize) => {
+            webSocketServer.onResize = async (event: MessageResizeResponse) => {
                 await driver.resize(event.width, event.height, event.deviceScaleFactor);
             };
 
             // Define what to do on click event
-            webSocketServer.onClick = async (event: MessageClick) => {
+            webSocketServer.onClick = async (event: MessageClickResponse) => {
                 await driver.click(event.x, event.y, { delay: 0 });
             };
             // Define what to do on keydown event
-            webSocketServer.onKeydown = async (event: MessageKeydown) => {
+            webSocketServer.onKeydown = async (event: MessageKeydownResponse) => {
                 // If key is a single character, type it, else press the key
                 if (event.key.length === 1){
                     await driver.type(event.key, { delay: 0 });
@@ -139,15 +139,12 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                 }
             };
             // Define what to do on text event
-            webSocketServer.onText = async (event: MessageText) => {
+            webSocketServer.onText = async (event: MessageTextResponse) => {
                 await driver.type(event.text, { delay: 0, typeDelay: 0 });
             };
             // Define what to do on interactive event
             webSocketServer.onInteractive = async (event) => {
                 switch(event.reason) {
-                    case 'open':
-                        // Do not do anything
-                        break;
                     case 'close':
                         resolve();
                         break;

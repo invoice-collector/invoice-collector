@@ -97,11 +97,12 @@ export class OrangeHelper {
      * @param params The login parameters, including email and password.
      * @param twofa_promise The TwofaPromise instance to obtain the 2FA code.
      * @param webSocketServer The WebSocket server instance for handling 2FA.
+     * @param twofaInstructions The instructions to be displayed to the user regarding the 2FA process.
      * @returns A string containing an error message if 2FA fails, or void if successful.
      */
-    static async twofa(driver: AbstractDriver, params: Params, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
+    static async twofa(driver: AbstractDriver, params: Params, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer, twofaInstructions: string): Promise<string | void> {
         // Get code from UI
-        const code = await Promise.race([twofa_promise.code(), webSocketServer.getTwofa()]);
+        const code = await Promise.race([twofa_promise.code(), webSocketServer.getTwofa(twofaInstructions, false, false)]);
     }
 
     /**

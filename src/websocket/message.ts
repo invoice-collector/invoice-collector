@@ -12,7 +12,7 @@ export type AbstractMessage = {
 /**
  * Represents a message containing a 2FA code sent by the client.
  */
-export type MessageTwofa = AbstractMessage & {
+export type MessageTwofaResponse = AbstractMessage & {
     type: 'twofa';
     twofa: string;
 }
@@ -20,7 +20,7 @@ export type MessageTwofa = AbstractMessage & {
 /**
  * Represents a message containing a click event sent by the client.
  */
-export type MessageClick = AbstractMessage & {
+export type MessageClickResponse = AbstractMessage & {
     type: 'click';
     x: number;
     y: number;
@@ -29,7 +29,7 @@ export type MessageClick = AbstractMessage & {
 /**
  * Represents a message containing a keydown event sent by the client.
  */
-export type MessageKeydown = AbstractMessage & {
+export type MessageKeydownResponse = AbstractMessage & {
     type: 'keydown';
     key: string;
 }
@@ -37,7 +37,7 @@ export type MessageKeydown = AbstractMessage & {
 /**
  * Represents a message containing text input sent by the client.
  */
-export type MessageText = AbstractMessage & {
+export type MessageTextResponse = AbstractMessage & {
     type: 'text';
     text: string;
 }
@@ -45,16 +45,24 @@ export type MessageText = AbstractMessage & {
 /**
  * Represents a message containing an interactive event sent by the user.
  */
-export type MessageInteractive = AbstractMessage & {
+export type MessageInteractiveRequest = AbstractMessage & {
     type: 'interactive';
-    reason: 'open' | 'close' | 'cancel' | 'remove' | 'report';
+    reason: 'open';
     instructions: string;
+}
+
+/**
+ * Represents a message containing an interactive event sent by the user.
+ */
+export type MessageInteractiveResponse = AbstractMessage & {
+    type: 'interactive';
+    reason: 'close' | 'cancel' | 'remove' | 'report';
 }
 
 /**
  * Represents a message containing a resize event sent by the client.
  */
-export type MessageResize = AbstractMessage & {
+export type MessageResizeResponse = AbstractMessage & {
     type: 'resize';
     width: number;
     height: number;
@@ -64,9 +72,19 @@ export type MessageResize = AbstractMessage & {
 // MESSAGES FROM SERVER TO CLIENT
 
 /**
+ * Represents a message requesting the client to perform 2FA.
+ */
+export type MessageTwofaRequest = AbstractMessage & {
+    type: 'twofa';
+    instructions: string;
+    push: boolean;
+    authLink: boolean;
+}
+
+/**
  * Represents a message containing the current collection state sent by the server.
  */
-export type MessageState = AbstractMessage & {
+export type MessageStateRequest = AbstractMessage & {
     type: 'state';
     state: State;
 }
@@ -74,7 +92,7 @@ export type MessageState = AbstractMessage & {
 /**
  * Represents a message containing a screenshot sent by the server.
  */
-export type MessageScreenshot = AbstractMessage & {
+export type MessageScreenshotRequest = AbstractMessage & {
     type: 'screenshot';
     screenshot: string;
     width: number;
@@ -84,7 +102,7 @@ export type MessageScreenshot = AbstractMessage & {
 /**
  * Represents a message containing an OAuth2 URL sent by the server.
  */
-export type MessageOauth2 = AbstractMessage & {
+export type MessageOauth2Request = AbstractMessage & {
     type: 'oauth2';
     url: string;
     iframe: boolean;

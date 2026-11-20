@@ -1,6 +1,4 @@
 import { DatabaseFactory } from '../database/databaseFactory';
-import { Action } from './action';
-import { Actions } from './actions';
 import { IActionV2 } from './actionV2';
 
 export class CollectorMemory {
@@ -12,12 +10,11 @@ export class CollectorMemory {
      */
     static async fromCollectorId(collector_id: string): Promise<CollectorMemory> {
         // Get collector memory from collector_id or create new one
-        return await DatabaseFactory.getDatabase().getCollectorMemory(collector_id) || new CollectorMemory(collector_id, new Actions(), []);
+        return await DatabaseFactory.getDatabase().getCollectorMemory(collector_id) || new CollectorMemory(collector_id, []);
     }
 
     id: string;
     collector_id: string;
-    actions: Actions;
     actionsV2: IActionV2<any, any, any, any>[];
     customerAreaUrl?: string;
     entryUrl?: string;
@@ -26,7 +23,6 @@ export class CollectorMemory {
     /**
      * Constructs a new instance of the CollectorMemory class.
      * @param collector_id The ID of the collector.
-     * @param actions The actions associated with the collector memory.
      * @param actionsV2 The V2 actions associated with the collector memory.
      * @param customerAreaUrl The URL of the customer area.
      * @param entryUrl The entry URL.
@@ -34,7 +30,6 @@ export class CollectorMemory {
      */
     constructor(
         collector_id: string,
-        actions: Actions,
         actionsV2: IActionV2<any, any, any, any>[],
         customerAreaUrl?: string,
         entryUrl?: string,
@@ -42,20 +37,10 @@ export class CollectorMemory {
     ) {
         this.id = '';
         this.collector_id = collector_id;
-        this.actions = actions;
         this.actionsV2 = actionsV2;
         this.customerAreaUrl = customerAreaUrl;
         this.entryUrl = entryUrl;
         this.tips = tips;
-    }
-
-    /**
-     * Gets the actions associated with the given key.
-     * @param key The key for which to retrieve actions.
-     * @returns The actions associated with the given key, or null if none exist.
-     */
-    getActionsFor(key: string): Action<unknown, unknown>[] | null {
-        return this.actions.hasOwnProperty(key) ? this.actions[key] as Action<unknown, unknown>[] : null;
     }
 
     /**

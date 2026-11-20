@@ -85,7 +85,7 @@ export class FreeMobileCollector extends LinearWebCollector {
     /**
      * @inheritdoc
      */
-    async twofa(driver: AbstractDriver, params: Params, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
+    async twofa(driver: AbstractDriver, params: Params, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer, twofaInstructions: string): Promise<string | void> {
         // Check if too much attempts
         const twofa_too_much = await driver.getElement(FreeMobileSelectors.CONTAINER_2FA_ALERT, { raiseException: false, timeout: 1000 });
         if (twofa_too_much) {
@@ -93,7 +93,7 @@ export class FreeMobileCollector extends LinearWebCollector {
         }
 
         // Wait for 2fa code from UI
-        const twofa_code = await Promise.race([twofa_promise.code(), webSocketServer.getTwofa()]);
+        const twofa_code = await Promise.race([twofa_promise.code(), webSocketServer.getTwofa(twofaInstructions, false, false)]);
 
         // Check if 2fa code is 6 digits
         if (twofa_code.length !== 6) {

@@ -112,7 +112,7 @@ export abstract class LinearWebCollector extends WebCollector {
                     // Set instructions for UI
                     await webSocketServer.twofa_promise.setInstructions(needTwofa);
 
-                    const twofa_error = await this.twofa(driver, await secret.getParams(), webSocketServer.twofa_promise, webSocketServer);
+                    const twofa_error = await this.twofa(driver, await secret.getParams(), webSocketServer.twofa_promise, webSocketServer, needTwofa);
 
                     // Check if 2fa error
                     if (twofa_error) {
@@ -419,9 +419,10 @@ export abstract class LinearWebCollector extends WebCollector {
      * @param params The parameters required for the 2FA process.
      * @param twofa_promise The promise object used to handle the 2FA result.
      * @param webSocketServer The WebSocket server instance for real-time communication.
+     * @param twofaInstructions The instructions to be displayed to the user regarding the 2FA process.
      * @returns Nothing if the 2FA is successful, or a string result if an error is displayed on screen.
      */
-    async twofa(driver: AbstractDriver, params: Params, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
+    async twofa(driver: AbstractDriver, params: Params, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer, twofaInstructions: string): Promise<string | void> {
         // Assume the collector does not implement 2FA
     }
 

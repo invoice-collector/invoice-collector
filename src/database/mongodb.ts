@@ -7,7 +7,6 @@ import * as utils from '../utils';
 import { buildCustomerStatsPipeline, getAllCustomerData } from './mongodbConstants';
 import { State } from '../model/state';
 import { CollectorMemory } from '../model/collectorMemory';
-import { Actions } from '../model/actions';
 import { ActionV2Factory } from '../model/actionV2Factory';
 import { Callback } from '../model/callback';
 import { StatusError } from '../error';
@@ -772,7 +771,6 @@ export class MongoDB extends AbstractDatabase {
         return documents.map(document => {
             const collectorMemory = new CollectorMemory(
                 document.collector_id,
-                Actions.fromObject(document.actions),
                 ActionV2Factory.fromObjects(document.actionsV2),
                 document.customerAreaUrl,
                 document.entryUrl,
@@ -794,7 +792,6 @@ export class MongoDB extends AbstractDatabase {
         }
         const collectorMemory = new CollectorMemory(
             document.collector_id,
-            Actions.fromObject(document.actions),
             ActionV2Factory.fromObjects(document.actionsV2),
             document.customerAreaUrl,
             document.entryUrl,
@@ -811,7 +808,6 @@ export class MongoDB extends AbstractDatabase {
         const db = await this.ensureConnected();
         const document = await db.collection(MongoDB.COLLECTOR_MEMORY_COLLECTION).insertOne({
             collector_id: collectorMemory.collector_id,
-            actions: collectorMemory.actions,
             actionsV2: collectorMemory.actionsV2,
             customerAreaUrl: collectorMemory.customerAreaUrl,
             entryUrl: collectorMemory.entryUrl,
@@ -830,7 +826,6 @@ export class MongoDB extends AbstractDatabase {
             { _id: new ObjectId(collectorMemory.id) },
             { $set: {
                 collector_id: collectorMemory.collector_id,
-                actions: collectorMemory.actions,
                 actionsV2: collectorMemory.actionsV2,
                 customerAreaUrl: collectorMemory.customerAreaUrl,
                 entryUrl: collectorMemory.entryUrl,

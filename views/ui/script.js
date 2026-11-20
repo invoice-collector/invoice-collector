@@ -544,6 +544,7 @@ async function showProgress(credential_id, wsPath) {
     const oauth2OpenButton = document.getElementById('oauth2-open-button');
     const form2fa = document.getElementById('send-2fa-form');
     const form2faInstructions = document.getElementById('send-2fa-instructions');
+    const form2faInput = document.getElementById('send-2fa-input')
     
     let oauth2Url = null;
 
@@ -745,6 +746,12 @@ async function showProgress(credential_id, wsPath) {
                 openOauth2Tab();
             }
         }
+        else if (parsedData.type === 'twofa') {
+            container2FA.hidden = false;
+            form2faInstructions.textContent = parsedData.instructions;
+            form2faInput.hidden = parsedData.push;
+            form2faInput.required = !parsedData.push;
+        }
         else if (parsedData.type === 'state') {
             // Resuming progress means the oauth2 step is done, so hide whichever oauth2 UI was shown
             oauth2OpenContainer.hidden = true;
@@ -767,11 +774,6 @@ async function showProgress(credential_id, wsPath) {
             if (previous_state === undefined || previous_state.index !== current_state.index) {
                 progressBar.style.width = `${current_state.index / current_state.max * 100}%`;
                 progressText.textContent = current_state.title;
-
-                if (current_state.index === 3) {
-                    container2FA.hidden = false;
-                    form2faInstructions.textContent = current_state.message;
-                }
             }
             previous_state = current_state;
         }
