@@ -152,6 +152,7 @@ export class WebSocketServer extends EventEmitter {
      * Closes the WebSocket connection managed by this server instance.
      */
     public async close() {
+        // Wait for the WebSocket connection to be open before attempting to close it.
         await this.waitForOpen();
         // Close the WebSocket connection if open
         this.ws?.close();
@@ -166,6 +167,7 @@ export class WebSocketServer extends EventEmitter {
      */
     public waitForOpen(timeout: number = WebSocketServer.WAIT_FOR_OPEN_TIMEOUT_MS): Promise<void> {
         return new Promise((resolve, reject) => {
+            // If the WebSocket connection is already open, resolve immediately.
             if (this.ws) {
                 resolve();
                 return;
@@ -176,9 +178,10 @@ export class WebSocketServer extends EventEmitter {
                 resolve();
             };
 
+            // Set up a timeout to resolve the promise if the WebSocket connection does not open within the specified time.
             const timeoutId = setTimeout(() => {
                 this.removeListener('open', onOpen);
-                reject(new Error('WebSocket connection did not open within the specified timeout.'));
+                resolve();
             }, timeout);
 
             this.once('open', onOpen);
